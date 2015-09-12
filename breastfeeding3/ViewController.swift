@@ -9,17 +9,34 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet var loginButton: UIButton!
+    
+    @IBOutlet var hhlrgLabel: UILabel!
+    
+    @IBOutlet var usernameTextField: UITextField!
+   
+    @IBOutlet var passwordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+        
+        loginButton.layer.borderColor = UIColor.whiteColor().CGColor
+        loginButton.layer.cornerRadius = 15
+        
+        usernameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0);
 
+        passwordTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0);
+        
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    
 
 }
 
