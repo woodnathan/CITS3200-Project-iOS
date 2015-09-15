@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D81AE6EA1BA7D6FE005F49EF /* HLRClientError.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AE6E91BA7D6FE005F49EF /* HLRClientError.m */; };
+		D846164E1BA70E7300A1ABA0 /* HLRClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D846164D1BA70E7300A1ABA0 /* HLRClient.m */; };
 		D8B231851BA43BCE00767E61 /* HLRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B2317C1BA43BCE00767E61 /* HLRAppDelegate.m */; };
 		D8B231861BA43BCE00767E61 /* HLRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B2317F1BA43BCE00767E61 /* HLRViewController.m */; };
 		D8B231871BA43BCE00767E61 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8B231811BA43BCE00767E61 /* Images.xcassets */; };
@@ -15,6 +17,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D81AE6E81BA7D6FE005F49EF /* HLRClientError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLRClientError.h; sourceTree = "<group>"; };
+		D81AE6E91BA7D6FE005F49EF /* HLRClientError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLRClientError.m; sourceTree = "<group>"; };
+		D846164C1BA70E7300A1ABA0 /* HLRClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLRClient.h; sourceTree = "<group>"; };
+		D846164D1BA70E7300A1ABA0 /* HLRClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLRClient.m; sourceTree = "<group>"; };
 		D8B231501BA43A7300767E61 /* HHLRG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHLRG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B2317B1BA43BCE00767E61 /* HLRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLRAppDelegate.h; sourceTree = "<group>"; };
 		D8B2317C1BA43BCE00767E61 /* HLRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLRAppDelegate.m; sourceTree = "<group>"; };
@@ -37,6 +43,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D846164B1BA70E5C00A1ABA0 /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				D846164C1BA70E7300A1ABA0 /* HLRClient.h */,
+				D846164D1BA70E7300A1ABA0 /* HLRClient.m */,
+				D81AE6E81BA7D6FE005F49EF /* HLRClientError.h */,
+				D81AE6E91BA7D6FE005F49EF /* HLRClientError.m */,
+			);
+			path = APIClient;
+			sourceTree = "<group>";
+		};
 		D8B231471BA43A7300767E61 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +82,7 @@
 		D8B231791BA43BCE00767E61 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D846164B1BA70E5C00A1ABA0 /* APIClient */,
 				D8B2317A1BA43BCE00767E61 /* AppDelegate */,
 				D8B2317D1BA43BCE00767E61 /* ViewControllers */,
 			);
@@ -180,7 +198,9 @@
 			files = (
 				D8B231851BA43BCE00767E61 /* HLRAppDelegate.m in Sources */,
 				D8B2318A1BA43BCE00767E61 /* main.m in Sources */,
+				D81AE6EA1BA7D6FE005F49EF /* HLRClientError.m in Sources */,
 				D8B231861BA43BCE00767E61 /* HLRViewController.m in Sources */,
+				D846164E1BA70E7300A1ABA0 /* HLRClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +328,7 @@
 				D8B231751BA43A7300767E61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
