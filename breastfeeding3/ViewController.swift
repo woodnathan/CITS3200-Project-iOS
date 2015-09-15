@@ -21,7 +21,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginButton.layer.borderColor = UIColor.whiteColor().CGColor
         loginButton.layer.cornerRadius = 15
         
         usernameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0);

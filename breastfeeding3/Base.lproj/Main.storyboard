@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="DroidSans.ttf">
@@ -71,12 +72,6 @@ Lactation Research Group</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="USERNAME" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UN1-Hw-suH">
-                                <rect key="frame" x="37" y="177" width="300" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgW-hc-N9p">
                                 <rect key="frame" x="145" y="399" width="85" height="30"/>
                                 <fontDescription key="fontDescription" name="DroidSerif" family="Droid Serif" pointSize="15"/>
@@ -85,6 +80,12 @@ Lactation Research Group</string>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="USERNAME" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UN1-Hw-suH">
+                                <rect key="frame" x="37" y="177" width="300" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -125,6 +126,12 @@ Lactation Research Group</string>
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Feeds" id="VjQ-IA-2ox">
+                                        <barButtonItem key="leftBarButtonItem" title="Log out" id="kyg-Ol-yib">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <segue destination="vXZ-lx-hvc" kind="show" id="JfD-X2-BjF"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="VBH-RZ-Nhy">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
@@ -226,14 +233,14 @@ Lactation Research Group</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TYPE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tf7-wY-gcU">
-                                <rect key="frame" x="31" y="235" width="54" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="TYPE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tf7-wY-gcU">
+                                <rect key="frame" x="31" y="230" width="54" height="21"/>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKy-gH-b0t">
-                                <rect key="frame" x="10" y="264" width="120" height="30"/>
+                                <rect key="frame" x="31" y="250" width="95" height="40"/>
                                 <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
                                 <color key="tintColor" red="0.19215686274509802" green="0.35686274509803922" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Breastfeed">
@@ -241,26 +248,20 @@ Lactation Research Group</string>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzd-H9-MS5">
-                                <rect key="frame" x="127" y="264" width="120" height="30"/>
+                                <rect key="frame" x="134" y="250" width="95" height="40"/>
                                 <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
                                 <state key="normal" title="Expressed">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="kg" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9oC-6e-KKQ">
-                                <rect key="frame" x="31" y="398" width="122" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="kg" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HNL-Ot-Srt">
-                                <rect key="frame" x="222" y="398" width="122" height="30"/>
+                                <rect key="frame" x="222" y="399" width="122" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Start Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="En3-j4-31n">
-                                <rect key="frame" x="31" y="190" width="122" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Start Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="En3-j4-31n">
+                                <rect key="frame" x="31" y="185" width="122" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -275,13 +276,13 @@ Lactation Research Group</string>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="END DATE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7BK-V9-7EW">
-                                <rect key="frame" x="222" y="86" width="122" height="21"/>
+                                <rect key="frame" x="222" y="95" width="122" height="21"/>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WEIGHT AFTER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gj6-ks-3OS">
-                                <rect key="frame" x="222" y="369" width="129" height="21"/>
+                                <rect key="frame" x="222" y="379" width="129" height="21"/>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -309,78 +310,90 @@ Lactation Research Group</string>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="START TIME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDf-ar-AbM">
-                                <rect key="frame" x="31" y="161" width="122" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="START TIME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDf-ar-AbM">
+                                <rect key="frame" x="31" y="165" width="122" height="21"/>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="START DATE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGE-4x-s29">
-                                <rect key="frame" x="31" y="86" width="116" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="START DATE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGE-4x-s29">
+                                <rect key="frame" x="31" y="95" width="116" height="21"/>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WEIGHT BEFORE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEu-c0-78D">
-                                <rect key="frame" x="31" y="369" width="122" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="WEIGHT BEFORE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEu-c0-78D">
+                                <rect key="frame" x="31" y="379" width="122" height="21"/>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BREAST" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJm-lW-47x">
-                                <rect key="frame" x="31" y="302" width="122" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="BREAST" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJm-lW-47x">
+                                <rect key="frame" x="31" y="305" width="122" height="21"/>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCX-h6-uGd">
-                                <rect key="frame" x="187" y="331" width="156" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCX-h6-uGd">
+                                <rect key="frame" x="187" y="324" width="156" height="40"/>
                                 <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
                                 <state key="normal" title="Right">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tiT-nr-s9A">
-                                <rect key="frame" x="31" y="331" width="156" height="30"/>
+                                <rect key="frame" x="31" y="324" width="156" height="40"/>
                                 <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
                                 <state key="normal" title="Left">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="END TIME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pt-xi-SSP">
-                                <rect key="frame" x="222" y="161" width="122" height="21"/>
+                                <rect key="frame" x="222" y="165" width="122" height="21"/>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="End Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="swp-U7-8Zc">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="End Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="swp-U7-8Zc">
                                 <rect key="frame" x="222" y="190" width="122" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Start Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dvk-ko-Qx2">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Start Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dvk-ko-Qx2">
                                 <rect key="frame" x="31" y="115" width="122" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORP-VT-VzF">
-                                <rect key="frame" x="244" y="264" width="120" height="30"/>
+                                <rect key="frame" x="241" y="250" width="110" height="40"/>
                                 <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
                                 <state key="normal" title="Supplementary">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="kg" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9oC-6e-KKQ">
+                                <rect key="frame" x="31" y="399" width="122" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Lzd-H9-MS5" firstAttribute="leading" secondItem="bKy-gH-b0t" secondAttribute="trailing" constant="8" id="A3J-ad-tAS"/>
-                            <constraint firstItem="ORP-VT-VzF" firstAttribute="leading" secondItem="Lzd-H9-MS5" secondAttribute="trailing" id="Oez-c9-Pk5"/>
-                            <constraint firstItem="Lzd-H9-MS5" firstAttribute="leading" secondItem="bKy-gH-b0t" secondAttribute="trailing" id="PQ1-bR-4Pk"/>
-                            <constraint firstItem="RCX-h6-uGd" firstAttribute="leading" secondItem="tiT-nr-s9A" secondAttribute="trailing" id="shv-Cd-SSC"/>
-                            <constraint firstItem="RCX-h6-uGd" firstAttribute="leading" secondItem="tiT-nr-s9A" secondAttribute="trailing" id="wFV-RQ-ldJ"/>
-                            <constraint firstItem="ORP-VT-VzF" firstAttribute="leading" secondItem="Lzd-H9-MS5" secondAttribute="trailing" id="zMj-mP-ZcN"/>
+                            <constraint firstItem="Lzd-H9-MS5" firstAttribute="leading" secondItem="bKy-gH-b0t" secondAttribute="trailing" id="4oM-RK-TgD"/>
+                            <constraint firstItem="ORP-VT-VzF" firstAttribute="leading" secondItem="Lzd-H9-MS5" secondAttribute="trailing" id="7cA-z3-Xe1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="swp-U7-8Zc" secondAttribute="trailing" constant="15" id="DQQ-O8-yzU"/>
+                            <constraint firstItem="lDf-ar-AbM" firstAttribute="top" secondItem="Dvk-ko-Qx2" secondAttribute="bottom" constant="20" id="QuM-dg-Dp2"/>
+                            <constraint firstItem="vJm-lW-47x" firstAttribute="top" secondItem="Lzd-H9-MS5" secondAttribute="bottom" constant="15" id="d67-Sv-ip7"/>
+                            <constraint firstItem="Tf7-wY-gcU" firstAttribute="top" secondItem="En3-j4-31n" secondAttribute="bottom" constant="15" id="hBy-37-d7H"/>
+                            <constraint firstItem="Dvk-ko-Qx2" firstAttribute="leading" secondItem="K6C-g2-iWy" secondAttribute="leadingMargin" constant="15" id="hHP-C2-cvd"/>
+                            <constraint firstItem="fGE-4x-s29" firstAttribute="leading" secondItem="K6C-g2-iWy" secondAttribute="leadingMargin" constant="15" id="lSe-Sh-bct"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ORP-VT-VzF" secondAttribute="trailing" constant="15" id="ntC-DW-8FY"/>
+                            <constraint firstItem="bKy-gH-b0t" firstAttribute="leading" secondItem="K6C-g2-iWy" secondAttribute="leadingMargin" constant="15" id="qC3-ZW-EAj"/>
+                            <constraint firstItem="tEu-c0-78D" firstAttribute="top" secondItem="tiT-nr-s9A" secondAttribute="bottom" constant="15" id="wQW-WS-lMg"/>
+                            <constraint firstItem="En3-j4-31n" firstAttribute="leading" secondItem="K6C-g2-iWy" secondAttribute="leadingMargin" constant="15" id="wrw-PD-UB6"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -403,6 +416,6 @@ Lactation Research Group</string>
         <image name="loginBackground.png" width="320" height="568"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="t8z-gM-hYh"/>
+        <segue reference="MS7-DQ-5CP"/>
     </inferredMetricsTieBreakers>
 </document>

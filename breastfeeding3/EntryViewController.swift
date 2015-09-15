@@ -62,25 +62,41 @@ class EntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-   //change button border color
         
-        let buttons = [leftUsedButton, rightUsedButton, breastfeedTypeButton, expressedButton, supplementaryButton]
+        for view in self.view.subviews as! [UIView] {
+            
+            var border = CALayer()
+            let color = UIColor(red: 141/255, green: 217/255, blue: 179/255, alpha: 1)
+
+            //change textfield border color
+            if let textField = view as? UITextField{
+                
+                textField.layer.borderColor = color.CGColor
+                
+                textField.layer.borderWidth = 2.0
+                
+                textField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0);
+                
+            }
+            // change button border color
+            else if let button = view as? UIButton {
+                
+                button.layer.borderColor = color.CGColor
+                
+                button.layer.borderWidth = 2.0;
         
-        
-        for button in buttons {
-            button.layer.borderWidth = 1.5
-            //button.layer.cornerRadius = 5
-            button.layer.borderColor = UIColor.grayColor().CGColor
+            }
         }
         
-
         
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
   
     //toggle keyboard
