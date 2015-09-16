@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D8B231851BA43BCE00767E61 /* HLRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B2317C1BA43BCE00767E61 /* HLRAppDelegate.m */; };
+		D8B231871BA43BCE00767E61 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8B231811BA43BCE00767E61 /* Images.xcassets */; };
+		D8B231891BA43BCE00767E61 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B231831BA43BCE00767E61 /* LaunchScreen.xib */; };
+		D8B2318A1BA43BCE00767E61 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B231841BA43BCE00767E61 /* main.m */; };
+		D8F3E7801BA93C970070CF68 /* Apache License.txt in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E76B1BA93C970070CF68 /* Apache License.txt */; };
+		D8F3E7811BA93C970070CF68 /* DroidSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E76C1BA93C970070CF68 /* DroidSans-Bold.ttf */; };
+		D8F3E7821BA93C970070CF68 /* DroidSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E76D1BA93C970070CF68 /* DroidSans.ttf */; };
+		D8F3E7831BA93C970070CF68 /* Apache License.txt in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E76F1BA93C970070CF68 /* Apache License.txt */; };
+		D8F3E7841BA93C970070CF68 /* DroidSerif-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E7701BA93C970070CF68 /* DroidSerif-Bold.ttf */; };
+		D8F3E7851BA93C970070CF68 /* DroidSerif-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E7711BA93C970070CF68 /* DroidSerif-BoldItalic.ttf */; };
+		D8F3E7861BA93C970070CF68 /* DroidSerif-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E7721BA93C970070CF68 /* DroidSerif-Italic.ttf */; };
+		D8F3E7871BA93C970070CF68 /* DroidSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E7731BA93C970070CF68 /* DroidSerif-Regular.ttf */; };
+		D8F3E7891BA93C970070CF68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E7751BA93C970070CF68 /* Main.storyboard */; };
+		D8F3E78A1BA93C970070CF68 /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E7771BA93C970070CF68 /* Montserrat-Black.otf */; };
+		D8F3E78B1BA93C970070CF68 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E7781BA93C970070CF68 /* Montserrat-Bold.otf */; };
+		D8F3E78C1BA93C970070CF68 /* Montserrat-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E7791BA93C970070CF68 /* Montserrat-ExtraBold.otf */; };
+		D8F3E78D1BA93C970070CF68 /* Montserrat-Hairline.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E77A1BA93C970070CF68 /* Montserrat-Hairline.otf */; };
+		D8F3E78E1BA93C970070CF68 /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E77B1BA93C970070CF68 /* Montserrat-Light.otf */; };
+		D8F3E78F1BA93C970070CF68 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E77C1BA93C970070CF68 /* Montserrat-Regular.otf */; };
+		D8F3E7901BA93C970070CF68 /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E77D1BA93C970070CF68 /* Montserrat-SemiBold.otf */; };
+		D8F3E7911BA93C970070CF68 /* Montserrat-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E77E1BA93C970070CF68 /* Montserrat-UltraLight.otf */; };
+		D8F3E7921BA93C970070CF68 /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E77F1BA93C970070CF68 /* SIL Open Font License.txt */; };
+		D8F3E7971BA93CAC0070CF68 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F3E7931BA93CAC0070CF68 /* DetailViewController.swift */; };
+		D8F3E7981BA93CAC0070CF68 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F3E7941BA93CAC0070CF68 /* EntryViewController.swift */; };
+		D8F3E7991BA93CAC0070CF68 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F3E7951BA93CAC0070CF68 /* ListViewController.swift */; };
+		D8F3E79A1BA93CAC0070CF68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F3E7961BA93CAC0070CF68 /* ViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D8B231501BA43A7300767E61 /* HHLRG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHLRG.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8B2317B1BA43BCE00767E61 /* HLRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLRAppDelegate.h; sourceTree = "<group>"; };
+		D8B2317C1BA43BCE00767E61 /* HLRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLRAppDelegate.m; sourceTree = "<group>"; };
+		D8B231811BA43BCE00767E61 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D8B231821BA43BCE00767E61 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8B231831BA43BCE00767E61 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		D8B231841BA43BCE00767E61 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D8F3E76B1BA93C970070CF68 /* Apache License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Apache License.txt"; sourceTree = "<group>"; };
+		D8F3E76C1BA93C970070CF68 /* DroidSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DroidSans-Bold.ttf"; sourceTree = "<group>"; };
+		D8F3E76D1BA93C970070CF68 /* DroidSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DroidSans.ttf; sourceTree = "<group>"; };
+		D8F3E76F1BA93C970070CF68 /* Apache License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Apache License.txt"; sourceTree = "<group>"; };
+		D8F3E7701BA93C970070CF68 /* DroidSerif-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DroidSerif-Bold.ttf"; sourceTree = "<group>"; };
+		D8F3E7711BA93C970070CF68 /* DroidSerif-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DroidSerif-BoldItalic.ttf"; sourceTree = "<group>"; };
+		D8F3E7721BA93C970070CF68 /* DroidSerif-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DroidSerif-Italic.ttf"; sourceTree = "<group>"; };
+		D8F3E7731BA93C970070CF68 /* DroidSerif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DroidSerif-Regular.ttf"; sourceTree = "<group>"; };
+		D8F3E7751BA93C970070CF68 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D8F3E7771BA93C970070CF68 /* Montserrat-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.otf"; sourceTree = "<group>"; };
+		D8F3E7781BA93C970070CF68 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
+		D8F3E7791BA93C970070CF68 /* Montserrat-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.otf"; sourceTree = "<group>"; };
+		D8F3E77A1BA93C970070CF68 /* Montserrat-Hairline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Hairline.otf"; sourceTree = "<group>"; };
+		D8F3E77B1BA93C970070CF68 /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.otf"; sourceTree = "<group>"; };
+		D8F3E77C1BA93C970070CF68 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
+		D8F3E77D1BA93C970070CF68 /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
+		D8F3E77E1BA93C970070CF68 /* Montserrat-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-UltraLight.otf"; sourceTree = "<group>"; };
+		D8F3E77F1BA93C970070CF68 /* SIL Open Font License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SIL Open Font License.txt"; sourceTree = "<group>"; };
+		D8F3E7931BA93CAC0070CF68 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		D8F3E7941BA93CAC0070CF68 /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		D8F3E7951BA93CAC0070CF68 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		D8F3E7961BA93CAC0070CF68 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D8B2314D1BA43A7300767E61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D8B231471BA43A7300767E61 = {
+			isa = PBXGroup;
+			children = (
+				D8B231521BA43A7300767E61 /* HHLRG */,
+				D8B231511BA43A7300767E61 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D8B231511BA43A7300767E61 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D8B231501BA43A7300767E61 /* HHLRG.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D8B231521BA43A7300767E61 /* HHLRG */ = {
+			isa = PBXGroup;
+			children = (
+				D8B231791BA43BCE00767E61 /* Classes */,
+				D8B231801BA43BCE00767E61 /* SupportingFiles */,
+			);
+			path = HHLRG;
+			sourceTree = "<group>";
+		};
+		D8B231791BA43BCE00767E61 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D8B2317A1BA43BCE00767E61 /* AppDelegate */,
+				D8B2317D1BA43BCE00767E61 /* ViewControllers */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		D8B2317A1BA43BCE00767E61 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				D8B2317B1BA43BCE00767E61 /* HLRAppDelegate.h */,
+				D8B2317C1BA43BCE00767E61 /* HLRAppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		D8B2317D1BA43BCE00767E61 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D8F3E7931BA93CAC0070CF68 /* DetailViewController.swift */,
+				D8F3E7941BA93CAC0070CF68 /* EntryViewController.swift */,
+				D8F3E7951BA93CAC0070CF68 /* ListViewController.swift */,
+				D8F3E7961BA93CAC0070CF68 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D8B231801BA43BCE00767E61 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				D8F3E79B1BA93D3C0070CF68 /* Fonts */,
+				D8F3E7751BA93C970070CF68 /* Main.storyboard */,
+				D8B231811BA43BCE00767E61 /* Images.xcassets */,
+				D8B2318B1BA43BF600767E61 /* Miscellaneous */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		D8B2318B1BA43BF600767E61 /* Miscellaneous */ = {
+			isa = PBXGroup;
+			children = (
+				D8B231821BA43BCE00767E61 /* Info.plist */,
+				D8B231831BA43BCE00767E61 /* LaunchScreen.xib */,
+				D8B231841BA43BCE00767E61 /* main.m */,
+			);
+			path = Miscellaneous;
+			sourceTree = "<group>";
+		};
+		D8F3E76A1BA93C970070CF68 /* droid-sans */ = {
+			isa = PBXGroup;
+			children = (
+				D8F3E76B1BA93C970070CF68 /* Apache License.txt */,
+				D8F3E76C1BA93C970070CF68 /* DroidSans-Bold.ttf */,
+				D8F3E76D1BA93C970070CF68 /* DroidSans.ttf */,
+			);
+			path = "droid-sans";
+			sourceTree = "<group>";
+		};
+		D8F3E76E1BA93C970070CF68 /* droid-serif */ = {
+			isa = PBXGroup;
+			children = (
+				D8F3E76F1BA93C970070CF68 /* Apache License.txt */,
+				D8F3E7701BA93C970070CF68 /* DroidSerif-Bold.ttf */,
+				D8F3E7711BA93C970070CF68 /* DroidSerif-BoldItalic.ttf */,
+				D8F3E7721BA93C970070CF68 /* DroidSerif-Italic.ttf */,
+				D8F3E7731BA93C970070CF68 /* DroidSerif-Regular.ttf */,
+			);
+			path = "droid-serif";
+			sourceTree = "<group>";
+		};
+		D8F3E7761BA93C970070CF68 /* montserrat */ = {
+			isa = PBXGroup;
+			children = (
+				D8F3E7771BA93C970070CF68 /* Montserrat-Black.otf */,
+				D8F3E7781BA93C970070CF68 /* Montserrat-Bold.otf */,
+				D8F3E7791BA93C970070CF68 /* Montserrat-ExtraBold.otf */,
+				D8F3E77A1BA93C970070CF68 /* Montserrat-Hairline.otf */,
+				D8F3E77B1BA93C970070CF68 /* Montserrat-Light.otf */,
+				D8F3E77C1BA93C970070CF68 /* Montserrat-Regular.otf */,
+				D8F3E77D1BA93C970070CF68 /* Montserrat-SemiBold.otf */,
+				D8F3E77E1BA93C970070CF68 /* Montserrat-UltraLight.otf */,
+				D8F3E77F1BA93C970070CF68 /* SIL Open Font License.txt */,
+			);
+			path = montserrat;
+			sourceTree = "<group>";
+		};
+		D8F3E79B1BA93D3C0070CF68 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D8F3E76A1BA93C970070CF68 /* droid-sans */,
+				D8F3E76E1BA93C970070CF68 /* droid-serif */,
+				D8F3E7761BA93C970070CF68 /* montserrat */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D8B2314F1BA43A7300767E61 /* HHLRG */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8B231731BA43A7300767E61 /* Build configuration list for PBXNativeTarget "HHLRG" */;
+			buildPhases = (
+				D8B2314C1BA43A7300767E61 /* Sources */,
+				D8B2314D1BA43A7300767E61 /* Frameworks */,
+				D8B2314E1BA43A7300767E61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HHLRG;
+			productName = HHLRG;
+			productReference = D8B231501BA43A7300767E61 /* HHLRG.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D8B231481BA43A7300767E61 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = HLR;
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Nathan Wood";
+				TargetAttributes = {
+					D8B2314F1BA43A7300767E61 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+				};
+			};
+			buildConfigurationList = D8B2314B1BA43A7300767E61 /* Build configuration list for PBXProject "HHLRG" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D8B231471BA43A7300767E61;
+			productRefGroup = D8B231511BA43A7300767E61 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D8B2314F1BA43A7300767E61 /* HHLRG */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D8B2314E1BA43A7300767E61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8F3E7921BA93C970070CF68 /* SIL Open Font License.txt in Resources */,
+				D8F3E78C1BA93C970070CF68 /* Montserrat-ExtraBold.otf in Resources */,
+				D8F3E7871BA93C970070CF68 /* DroidSerif-Regular.ttf in Resources */,
+				D8F3E7901BA93C970070CF68 /* Montserrat-SemiBold.otf in Resources */,
+				D8F3E78E1BA93C970070CF68 /* Montserrat-Light.otf in Resources */,
+				D8F3E7911BA93C970070CF68 /* Montserrat-UltraLight.otf in Resources */,
+				D8B231891BA43BCE00767E61 /* LaunchScreen.xib in Resources */,
+				D8F3E7831BA93C970070CF68 /* Apache License.txt in Resources */,
+				D8F3E7891BA93C970070CF68 /* Main.storyboard in Resources */,
+				D8F3E7801BA93C970070CF68 /* Apache License.txt in Resources */,
+				D8F3E78D1BA93C970070CF68 /* Montserrat-Hairline.otf in Resources */,
+				D8F3E7841BA93C970070CF68 /* DroidSerif-Bold.ttf in Resources */,
+				D8F3E7851BA93C970070CF68 /* DroidSerif-BoldItalic.ttf in Resources */,
+				D8F3E7821BA93C970070CF68 /* DroidSans.ttf in Resources */,
+				D8F3E78B1BA93C970070CF68 /* Montserrat-Bold.otf in Resources */,
+				D8F3E78A1BA93C970070CF68 /* Montserrat-Black.otf in Resources */,
+				D8B231871BA43BCE00767E61 /* Images.xcassets in Resources */,
+				D8F3E7811BA93C970070CF68 /* DroidSans-Bold.ttf in Resources */,
+				D8F3E7861BA93C970070CF68 /* DroidSerif-Italic.ttf in Resources */,
+				D8F3E78F1BA93C970070CF68 /* Montserrat-Regular.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D8B2314C1BA43A7300767E61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8B231851BA43BCE00767E61 /* HLRAppDelegate.m in Sources */,
+				D8F3E7981BA93CAC0070CF68 /* EntryViewController.swift in Sources */,
+				D8F3E7991BA93CAC0070CF68 /* ListViewController.swift in Sources */,
+				D8B2318A1BA43BCE00767E61 /* main.m in Sources */,
+				D8F3E79A1BA93CAC0070CF68 /* ViewController.swift in Sources */,
+				D8F3E7971BA93CAC0070CF68 /* DetailViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D8B231711BA43A7300767E61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D8B231721BA43A7300767E61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D8B231741BA43A7300767E61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HHLRG/SupportingFiles/Miscellaneous/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D8B231751BA43A7300767E61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HHLRG/SupportingFiles/Miscellaneous/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D8B2314B1BA43A7300767E61 /* Build configuration list for PBXProject "HHLRG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8B231711BA43A7300767E61 /* Debug */,
+				D8B231721BA43A7300767E61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8B231731BA43A7300767E61 /* Build configuration list for PBXNativeTarget "HHLRG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8B231741BA43A7300767E61 /* Debug */,
+				D8B231751BA43A7300767E61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D8B231481BA43A7300767E61 /* Project object */;
+}
