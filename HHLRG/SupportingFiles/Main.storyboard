@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A234d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -107,7 +107,7 @@ Lactation Research Group</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-665.25" y="-605.5"/>
+            <point key="canvasLocation" x="-157.5" y="-569.5"/>
         </scene>
         <!--Feeds-->
         <scene sceneID="3Xp-sz-kCO">
@@ -131,7 +131,7 @@ Lactation Research Group</string>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="FJA-bY-rfn">
                                 <rect key="frame" x="0.0" y="78" width="375" height="589"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.19215686269999999" green="0.35686274509999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="feedCell" editingAccessoryType="detailDisclosureButton" textLabel="XKE-aO-G8d" detailTextLabel="pvJ-Fq-m9C" style="IBUITableViewCellStyleSubtitle" id="VUi-gE-KHk">
@@ -159,7 +159,7 @@ Lactation Research Group</string>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
-                                            <segue destination="O04-lb-RM9" kind="showDetail" id="6Kr-Qh-mFn"/>
+                                            <segue destination="xHw-8G-stA" kind="show" id="YNS-4n-LNh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -181,7 +181,7 @@ Lactation Research Group</string>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="02t-Qu-7af">
                             <color key="tintColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                             <connections>
-                                <segue destination="NgC-ov-Ecb" kind="presentation" id="ix9-R5-aQh"/>
+                                <segue destination="NgC-ov-Ecb" kind="show" id="oEV-K8-EyQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -203,7 +203,7 @@ Lactation Research Group</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loginBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="zHi-cK-QSE">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="zHi-cK-QSE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <animations/>
                             </imageView>
@@ -212,11 +212,6 @@ Lactation Research Group</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="Vb1-hC-4yQ">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="STB-Vv-Duu">
-                            <connections>
-                                <segue destination="hsk-ea-HQh" kind="show" id="Tnk-8l-aHg"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="DvR-pA-tVs"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -225,7 +220,7 @@ Lactation Research Group</string>
             </objects>
             <point key="canvasLocation" x="2219.25" y="-1630.5"/>
         </scene>
-        <!--Feed-->
+        <!--New Feed-->
         <scene sceneID="7bk-UZ-3OA">
             <objects>
                 <viewController id="NgC-ov-Ecb" customClass="EntryViewController" customModule="HHLRG" customModuleProvider="target" sceneMemberID="viewController">
@@ -397,12 +392,12 @@ Lactation Research Group</string>
                             <constraint firstItem="En3-j4-31n" firstAttribute="leading" secondItem="K6C-g2-iWy" secondAttribute="leadingMargin" constant="15" id="wrw-PD-UB6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Feed" id="D6L-ku-3YU">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="DzE-Kv-Fmk">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="New Feed" id="D6L-ku-3YU">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="DWc-OM-XmI">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="9nW-2O-7OM" kind="show" id="wMn-QR-DwD"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -418,11 +413,12 @@ Lactation Research Group</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="et7-iZ-tSC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3389.25" y="-568.5"/>
+            <point key="canvasLocation" x="2326.5" y="325.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AnY-0D-gtF">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NMb-IA-Rk2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hsk-ea-HQh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -440,13 +436,13 @@ Lactation Research Group</string>
                         <segue destination="9nW-2O-7OM" kind="relationship" relationship="rootViewController" id="SQH-K3-HHX"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NMb-IA-Rk2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="468.75" y="-568.5"/>
+            <point key="canvasLocation" x="590.5" y="-568.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gcu-6R-yD7">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fjS-PT-Kn9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="asG-Ot-HEw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -464,9 +460,8 @@ Lactation Research Group</string>
                         <segue destination="NgC-ov-Ecb" kind="relationship" relationship="rootViewController" id="AgY-Da-FTG"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fjS-PT-Kn9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2470.5" y="-569"/>
+            <point key="canvasLocation" x="2326" y="-677"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Zv-Ar-Vxv">
@@ -492,10 +487,10 @@ Lactation Research Group</string>
     </scenes>
     <resources>
         <image name="loginBackground" width="320" height="568"/>
-        <image name="loginBackground.png" width="320" height="568"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Tnk-8l-aHg"/>
-        <segue reference="ix9-R5-aQh"/>
+        <segue reference="wMn-QR-DwD"/>
+        <segue reference="oEV-K8-EyQ"/>
+        <segue reference="YNS-4n-LNh"/>
     </inferredMetricsTieBreakers>
 </document>
