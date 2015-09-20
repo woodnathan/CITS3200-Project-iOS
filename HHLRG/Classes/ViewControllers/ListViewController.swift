@@ -43,7 +43,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
-        var cell = tableView.dequeueReusableCellWithIdentifier("feedCell") as! UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("feedCell") as! UITableViewCell!
         
         if indexPath.section == 0 {
             var (amfeedindex, amfeedinfo) = am[indexPath.row]

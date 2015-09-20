@@ -32,7 +32,7 @@ class EntryViewController: UIViewController {
     
     @IBAction func startTimeEditing(sender: UITextField) {
         
-        var datePickerView:UIDatePicker = UIDatePicker()
+        let datePickerView:UIDatePicker = UIDatePicker()
         
         datePickerView.datePickerMode = UIDatePickerMode.Time
         
@@ -45,7 +45,7 @@ class EntryViewController: UIViewController {
        
     func datePickerValueChanged(sender:UIDatePicker) {
         
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         
@@ -63,7 +63,7 @@ class EntryViewController: UIViewController {
         super.viewDidLoad()
         
         
-        for view in self.view.subviews as! [UIView] {
+        for view in self.view.subviews {
             
             var border = CALayer()
             let color = UIColor(red: 141/255, green: 217/255, blue: 179/255, alpha: 1)
@@ -101,7 +101,7 @@ class EntryViewController: UIViewController {
   
     //toggle keyboard
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         self.view.endEditing(true)
         
