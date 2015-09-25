@@ -7,7 +7,6 @@
 //
 
 #import "HLRAppDelegate.h"
-#import "HLRViewController.h"
 
 @interface HLRAppDelegate ()
 
@@ -17,14 +16,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    CGRect bounds = [[UIScreen mainScreen] bounds];
-    UIWindow *window = [[UIWindow alloc] initWithFrame:bounds];
-    window.backgroundColor = [UIColor blackColor];
-    self.window = window;
-    
-    window.rootViewController = [[HLRViewController alloc] init];
-    
-    [window makeKeyAndVisible];
     return YES;
 }
 
