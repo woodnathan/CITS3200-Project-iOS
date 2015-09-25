@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D81AE6EA1BA7D6FE005F49EF /* HLRClientError.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AE6E91BA7D6FE005F49EF /* HLRClientError.m */; };
-		D846164E1BA70E7300A1ABA0 /* HLRClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D846164D1BA70E7300A1ABA0 /* HLRClient.m */; };
+		D855751D1BB4DFBF00C1E6BC /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = D855751C1BB4DFBF00C1E6BC /* Client.swift */; settings = {ASSET_TAGS = (); }; };
+		D855751F1BB4EE2000C1E6BC /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D855751E1BB4EE2000C1E6BC /* ClientError.swift */; settings = {ASSET_TAGS = (); }; };
 		D8B231851BA43BCE00767E61 /* HLRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B2317C1BA43BCE00767E61 /* HLRAppDelegate.m */; };
 		D8B231871BA43BCE00767E61 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8B231811BA43BCE00767E61 /* Images.xcassets */; };
 		D8B231891BA43BCE00767E61 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B231831BA43BCE00767E61 /* LaunchScreen.xib */; };
@@ -35,10 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D81AE6E81BA7D6FE005F49EF /* HLRClientError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLRClientError.h; sourceTree = "<group>"; };
-		D81AE6E91BA7D6FE005F49EF /* HLRClientError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLRClientError.m; sourceTree = "<group>"; };
-		D846164C1BA70E7300A1ABA0 /* HLRClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLRClient.h; sourceTree = "<group>"; };
-		D846164D1BA70E7300A1ABA0 /* HLRClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLRClient.m; sourceTree = "<group>"; };
+		D855751C1BB4DFBF00C1E6BC /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		D855751E1BB4EE2000C1E6BC /* ClientError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
 		D8B231501BA43A7300767E61 /* HHLRG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHLRG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B2317B1BA43BCE00767E61 /* HLRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLRAppDelegate.h; sourceTree = "<group>"; };
 		D8B2317C1BA43BCE00767E61 /* HLRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLRAppDelegate.m; sourceTree = "<group>"; };
@@ -81,10 +79,8 @@
 		D846164B1BA70E5C00A1ABA0 /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
-				D846164C1BA70E7300A1ABA0 /* HLRClient.h */,
-				D846164D1BA70E7300A1ABA0 /* HLRClient.m */,
-				D81AE6E81BA7D6FE005F49EF /* HLRClientError.h */,
-				D81AE6E91BA7D6FE005F49EF /* HLRClientError.m */,
+				D855751C1BB4DFBF00C1E6BC /* Client.swift */,
+				D855751E1BB4EE2000C1E6BC /* ClientError.swift */,
 			);
 			path = APIClient;
 			sourceTree = "<group>";
@@ -302,9 +298,9 @@
 				D8F3E7991BA93CAC0070CF68 /* ListViewController.swift in Sources */,
 				D8B2318A1BA43BCE00767E61 /* main.m in Sources */,
 				D8F3E79A1BA93CAC0070CF68 /* ViewController.swift in Sources */,
-				D81AE6EA1BA7D6FE005F49EF /* HLRClientError.m in Sources */,
+				D855751F1BB4EE2000C1E6BC /* ClientError.swift in Sources */,
 				D8F3E7971BA93CAC0070CF68 /* DetailViewController.swift in Sources */,
-				D846164E1BA70E7300A1ABA0 /* HLRClient.m in Sources */,
+				D855751D1BB4DFBF00C1E6BC /* Client.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

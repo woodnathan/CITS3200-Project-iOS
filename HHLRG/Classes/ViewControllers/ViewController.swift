@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    let client = Client(baseURL: Client.DevelopmentBaseURL)
+    
     @IBOutlet var loginButton: UIButton!
     
     @IBOutlet var hhlrgLabel: UILabel!
@@ -27,6 +29,10 @@ class ViewController: UIViewController {
 
         passwordTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0);
         
+        client.credential = Credential(username: "p028", password: "studen")
+        client.fetchUserInfo { (userInfo, error) -> Void in
+            print(userInfo, error)
+        }
     }
     
     
