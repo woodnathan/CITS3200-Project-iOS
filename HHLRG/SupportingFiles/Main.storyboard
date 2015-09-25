@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -92,6 +93,15 @@ Lactation Research Group</string>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fm4-Vr-IUX">
+                                <rect key="frame" x="133" y="430" width="108" height="39"/>
+                                <state key="normal" title="Authenticate">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="login:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="q78-OH-Xyj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -135,12 +145,14 @@ Lactation Research Group</string>
                                 <color key="sectionIndexColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="feedCell" editingAccessoryType="detailDisclosureButton" textLabel="XKE-aO-G8d" detailTextLabel="pvJ-Fq-m9C" style="IBUITableViewCellStyleSubtitle" id="VUi-gE-KHk">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VUi-gE-KHk" id="tvJ-83-KX7">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XKE-aO-G8d">
+                                                    <rect key="frame" x="15" y="5" width="32" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -148,6 +160,7 @@ Lactation Research Group</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pvJ-Fq-m9C">
+                                                    <rect key="frame" x="15" y="25" width="41" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -239,22 +252,21 @@ Lactation Research Group</string>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKy-gH-b0t">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKy-gH-b0t">
                                 <rect key="frame" x="31" y="250" width="95" height="40"/>
                                 <animations/>
+                                <accessibility key="accessibilityConfiguration" label="">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
                                 <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
-                                <color key="tintColor" red="0.19215686274509802" green="0.35686274509803922" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Breastfeed">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzd-H9-MS5">
-                                <rect key="frame" x="134" y="250" width="95" height="40"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
-                                <state key="normal" title="Expressed">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
+                                <connections>
+                                    <action selector="typeButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="jKz-DC-lWz"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="kg" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HNL-Ot-Srt">
                                 <rect key="frame" x="222" y="399" width="122" height="30"/>
@@ -263,22 +275,25 @@ Lactation Research Group</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Start Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="En3-j4-31n">
+                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Start Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="En3-j4-31n">
                                 <rect key="frame" x="31" y="185" width="122" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="startTimeEditing:" destination="NgC-ov-Ecb" eventType="editingDidBegin" id="aes-EC-a7Q"/>
+                                    <action selector="timeEditing:" destination="NgC-ov-Ecb" eventType="editingDidBegin" id="2tt-jW-Ory"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="End Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iun-8A-Ied">
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="End Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iun-8A-Ied">
                                 <rect key="frame" x="222" y="115" width="122" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="dateEditing:" destination="NgC-ov-Ecb" eventType="editingDidBegin" id="LJI-yT-jz8"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="END DATE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7BK-V9-7EW">
                                 <rect key="frame" x="222" y="95" width="122" height="21"/>
@@ -326,17 +341,25 @@ Lactation Research Group</string>
                                 <rect key="frame" x="187" y="324" width="156" height="40"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Right">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="breastUsedButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="YsI-qN-Bp5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tiT-nr-s9A">
                                 <rect key="frame" x="31" y="324" width="156" height="40"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Left">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="breastUsedButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="DUd-ua-kG9"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="END TIME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pt-xi-SSP">
                                 <rect key="frame" x="222" y="165" width="122" height="21"/>
@@ -345,12 +368,15 @@ Lactation Research Group</string>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="End Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="swp-U7-8Zc">
+                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="End Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="swp-U7-8Zc">
                                 <rect key="frame" x="222" y="190" width="122" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="timeEditing:" destination="NgC-ov-Ecb" eventType="editingDidBegin" id="34l-Dv-0cS"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Start Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dvk-ko-Qx2">
                                 <rect key="frame" x="31" y="115" width="122" height="30"/>
@@ -358,15 +384,10 @@ Lactation Research Group</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="dateEditing:" destination="NgC-ov-Ecb" eventType="editingDidBegin" id="bQd-M3-hW3"/>
+                                </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORP-VT-VzF">
-                                <rect key="frame" x="241" y="250" width="110" height="40"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
-                                <state key="normal" title="Supplementary">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="kg" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9oC-6e-KKQ">
                                 <rect key="frame" x="31" y="399" width="122" height="30"/>
                                 <animations/>
@@ -374,6 +395,30 @@ Lactation Research Group</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzd-H9-MS5">
+                                <rect key="frame" x="134" y="250" width="95" height="40"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Expressed">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="typeButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="KkH-uM-Dkj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORP-VT-VzF">
+                                <rect key="frame" x="241" y="250" width="110" height="40"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Supplementary">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="typeButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="uO7-F9-aJZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -403,12 +448,19 @@ Lactation Research Group</string>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="breastfeedTypeButton" destination="bKy-gH-b0t" id="Yd4-2H-Kgv"/>
+                        <outlet property="endDateTextField" destination="iun-8A-Ied" id="Vow-41-XrB"/>
                         <outlet property="endTimeTextField" destination="iun-8A-Ied" id="kgc-gM-Fe0"/>
                         <outlet property="expressedButton" destination="Lzd-H9-MS5" id="Xdo-u8-JSv"/>
                         <outlet property="leftUsedButton" destination="tiT-nr-s9A" id="cjA-Af-ljG"/>
                         <outlet property="rightUsedButton" destination="RCX-h6-uGd" id="wkf-YI-hxk"/>
+                        <outlet property="startDateTextField" destination="Dvk-ko-Qx2" id="LhK-4T-2mf"/>
                         <outlet property="startTimeTextField" destination="En3-j4-31n" id="k7D-Mw-OCT"/>
                         <outlet property="supplementaryButton" destination="ORP-VT-VzF" id="Qrb-ho-Nyj"/>
+                        <outletCollection property="typeButtons" destination="bKy-gH-b0t" collectionClass="NSMutableArray" id="ke0-SD-xxG"/>
+                        <outletCollection property="typeButtons" destination="Lzd-H9-MS5" collectionClass="NSMutableArray" id="v7n-UA-b6q"/>
+                        <outletCollection property="typeButtons" destination="ORP-VT-VzF" collectionClass="NSMutableArray" id="imk-cI-iPQ"/>
+                        <outletCollection property="breastUsedButtons" destination="tiT-nr-s9A" collectionClass="NSMutableArray" id="bVg-wj-MyG"/>
+                        <outletCollection property="breastUsedButtons" destination="RCX-h6-uGd" collectionClass="NSMutableArray" id="6gW-nQ-IYR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="et7-iZ-tSC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -418,7 +470,6 @@ Lactation Research Group</string>
         <!--Navigation Controller-->
         <scene sceneID="AnY-0D-gtF">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NMb-IA-Rk2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hsk-ea-HQh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -436,13 +487,13 @@ Lactation Research Group</string>
                         <segue destination="9nW-2O-7OM" kind="relationship" relationship="rootViewController" id="SQH-K3-HHX"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NMb-IA-Rk2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="590.5" y="-568.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gcu-6R-yD7">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fjS-PT-Kn9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="asG-Ot-HEw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -460,6 +511,7 @@ Lactation Research Group</string>
                         <segue destination="NgC-ov-Ecb" kind="relationship" relationship="rootViewController" id="AgY-Da-FTG"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fjS-PT-Kn9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2326" y="-677"/>
         </scene>
@@ -489,8 +541,8 @@ Lactation Research Group</string>
         <image name="loginBackground" width="320" height="568"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wMn-QR-DwD"/>
         <segue reference="oEV-K8-EyQ"/>
+        <segue reference="wMn-QR-DwD"/>
         <segue reference="YNS-4n-LNh"/>
     </inferredMetricsTieBreakers>
 </document>

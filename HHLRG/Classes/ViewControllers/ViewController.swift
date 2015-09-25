@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    let client = Client(baseURL: Client.DevelopmentBaseURL)
+    
     @IBOutlet var loginButton: UIButton!
     
     @IBOutlet var hhlrgLabel: UILabel!
@@ -26,13 +28,23 @@ class ViewController: UIViewController {
         usernameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0);
 
         passwordTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0);
-        
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func login(sender: UIButton) {
+        let username = usernameTextField.text!
+        let password = usernameTextField.text!
+        
+        client.credential = Credential(username: username, password: password)
+        client.fetchUserInfo { (userInfo, error) -> Void in
+            print(userInfo, error)
+            if error != nil {
+                let alert = UIAlertController(title: "Login Error",
+                                              message: error!.localizedDescription,
+                                              preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     
