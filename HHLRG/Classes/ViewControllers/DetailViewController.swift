@@ -1,6 +1,6 @@
 //
 //  DetailViewController.swift
-//  breastfeeding3
+//  HHLRG
 //
 //  Created by truicong on 9/09/2015.
 //  Copyright (c) 2015 truicong. All rights reserved.

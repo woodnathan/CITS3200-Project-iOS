@@ -1,6 +1,6 @@
 //
 //  EntryViewController.swift
-//  breastfeeding3
+//  HHLRG
 //
 //  Created by truicong on 19/08/2015.
 //  Copyright (c) 2015 truicong. All rights reserved.
@@ -34,6 +34,8 @@ class EntryViewController: UIViewController {
     
     @IBOutlet var supplementaryButton: UIButton!
     
+    @IBOutlet var scroller: UIScrollView!
+    
     
     
     /*editing start/end DATE text fields*/
@@ -53,6 +55,7 @@ class EntryViewController: UIViewController {
         
         datePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
         
+        handleDatePicker(datePickerView)
         
     }
     
@@ -72,6 +75,8 @@ class EntryViewController: UIViewController {
         selectedTextField = sender
         
         datePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+        
+        handleDatePicker(datePickerView)
         
     }
     
@@ -107,38 +112,62 @@ class EntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        for view in self.view.subviews {
+        let borderColor = UIColor(red: 141/255, green: 217/255, blue: 179/255, alpha: 1)
+        
+        for subviews in self.view.subviews {
             
-            let borderColor = UIColor(red: 141/255, green: 217/255, blue: 179/255, alpha: 1)
-            
-            var border = CALayer()
-                       //change textfield border color
-            if let textField = view as? UITextField{
+            if let scrollview = subviews as? UIScrollView {
                 
+                for contentViews in scrollview.subviews {
                 
-                textField.layer.borderColor = borderColor.CGColor
-                
-                textField.layer.borderWidth = 2.0
-                
-                textField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+                    for content in contentViews.subviews {
+                    
+                        if let textField = content as? UITextField{
+                            
+                            
+                            textField.layer.borderColor = borderColor.CGColor
+                            
+                            textField.layer.borderWidth = 2.0
+                            
+                            textField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+                            
+                            textField.adjustsFontSizeToFitWidth = true
+                            
+                        }
+                            
+                        else if let textview = content as? UITextView {
+                            
+                            textview.layer.borderColor = borderColor.CGColor
+                            
+                            textview.layer.borderWidth = 2.0
+                            
+                            
+                            //textview.layer
+                            
+                        }
+                        // change button border color
+                        else if let button = content as? UIButton {
+                            
+                            button.layer.borderColor = borderColor.CGColor
+                            
+                            button.layer.borderWidth = 2.0
+                            
+                            button.titleLabel?.adjustsFontSizeToFitWidth = true
+                            
+                            
+                        }
+                        
+                    }
+                }
                 
             }
-            // change button border color
-            else if let button = view as? UIButton {
-                
-                button.layer.borderColor = borderColor.CGColor
-                
-                button.layer.borderWidth = 2.0
-                
-            }
-            
-            
             
         }
-        
+              
     }
+    
+    
     
     
     let selectedColor = UIColor(red: 49/255, green: 91/255, blue: 131/255, alpha: 1)
