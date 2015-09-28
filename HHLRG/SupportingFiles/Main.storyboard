@@ -255,6 +255,9 @@ Lactation Research Group</string>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="feedsTable" destination="FJA-bY-rfn" id="1Z1-WA-8Mv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeJ-Ud-w6v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -772,8 +775,8 @@ Lactation Research Group</string>
         <image name="loginBackground" width="320" height="568"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oEV-K8-EyQ"/>
         <segue reference="wMn-QR-DwD"/>
+        <segue reference="oEV-K8-EyQ"/>
         <segue reference="YNS-4n-LNh"/>
     </inferredMetricsTieBreakers>
 </document>

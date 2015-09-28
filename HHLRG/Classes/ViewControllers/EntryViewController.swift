@@ -42,6 +42,20 @@ class EntryViewController: UIViewController {
     @IBOutlet var formulaSupButton: UIButton!
     
     
+    override func prepareForSegue(segue:(UIStoryboardSegue!), sender:AnyObject!) {
+        
+        feeds.append((startDateTextField.text!, startTimeTextField.text!))
+        
+        
+        print(startDateTextField)
+        
+        //NSUserDefaults.standardUserDefaults().setObject(feeds, forKey: "feeds")  
+        
+        
+        
+        
+    }
+    
     
     /*editing start/end DATE text fields*/
     

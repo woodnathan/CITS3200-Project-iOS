@@ -8,56 +8,36 @@
 
 import UIKit
 
+
+var feeds = [(String,String)]()
+
+
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     
-    let am = [
-        ("1st feed", "info for 1st feed"),
-        ("2nd feed","info for 2nd feed"),
-        ("3rd feed","info for 3rd feed")
-    ]
-    
-    let pm = [
-        ("5th feed", "feed info 5"),
-        ("6th feed","feed info 6"),
-        ("7th feed","feed info 7")
-    ]
+    @IBOutlet var feedsTable: UITableView!
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 1
         
     }
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
-        if section == 0 {
-            return am.count
-        }
-        else {
-            return pm.count
-        }
+        return feeds.count
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("feedCell") as! UITableViewCell!
+        let cell = tableView.dequeueReusableCellWithIdentifier("feedCell") as UITableViewCell!
         
-        if indexPath.section == 0 {
-            let (amfeedindex, amfeedinfo) = am[indexPath.row]
-            cell.textLabel?.text = amfeedindex
-            cell.detailTextLabel?.text = amfeedinfo
-            
-        }else{
-            
-            let (pmfeedindex, pmfeedinfo) = pm[indexPath.row]
-            cell.textLabel?.text = pmfeedindex
-            cell.detailTextLabel?.text = pmfeedinfo
-            
-        }
         
+            let (feedStartDate, feedStartTime) = feeds[indexPath.row]
+            cell.textLabel?.text = feedStartDate
+            cell.detailTextLabel?.text = feedStartTime
         
         return cell
         
@@ -67,17 +47,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
                 
         
-        if section == 0 {
-        
-            return "Morning feeds"
-            
-        }
-        else {
-            
-            return "Afternoon feeds"
-        }
-        
-        
+       return "Feeds"
     }
     
     
@@ -85,6 +55,11 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if (NSUserDefaults.standardUserDefaults().objectForKey("feeds") != nil) {
+            
+            feeds = NSUserDefaults.standardUserDefaults().objectForKey("feeds") as! [(String, String)]
+        
+        }
         
     }
     
@@ -93,7 +68,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
-    
+     
    
     
     
