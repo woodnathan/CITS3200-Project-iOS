@@ -13,6 +13,8 @@
             <string>DroidSans</string>
             <string>DroidSans</string>
             <string>DroidSans</string>
+            <string>DroidSans</string>
+            <string>DroidSans</string>
         </mutableArray>
         <mutableArray key="DroidSerif-Regular.ttf">
             <string>DroidSerif</string>
@@ -314,6 +316,11 @@ Lactation Research Group</string>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tiT-nr-s9A">
                                                 <rect key="frame" x="35" y="323" width="156" height="40"/>
                                                 <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="2K0-9s-T0H"/>
+                                                    <constraint firstAttribute="width" constant="156" id="c48-RU-Czb"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="iM1-22-PoF"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Left">
@@ -323,11 +330,23 @@ Lactation Research Group</string>
                                                     <action selector="breastUsedButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="DUd-ua-kG9"/>
                                                 </connections>
                                             </button>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MfB-xW-0fe">
-                                                <rect key="frame" x="35" y="471" width="309" height="152"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WA6-FG-mnR">
+                                                <rect key="frame" x="35" y="323" width="156" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="156" id="30j-RB-2h2"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="156" id="RuR-PG-3hG"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="ae1-0c-AX4"/>
+                                                    <constraint firstAttribute="height" constant="40" id="oaW-Nq-PEj"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Expressed">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="breastUsedButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="2cX-gK-lGd"/>
+                                                </connections>
+                                            </button>
                                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="End Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iun-8A-Ied">
                                                 <rect key="frame" x="220" y="108" width="122" height="30"/>
                                                 <animations/>
@@ -517,6 +536,9 @@ Lactation Research Group</string>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCX-h6-uGd">
                                                 <rect key="frame" x="186" y="323" width="156" height="40"/>
                                                 <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="pfs-rQ-HiP"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Right">
@@ -526,6 +548,26 @@ Lactation Research Group</string>
                                                     <action selector="breastUsedButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="YsI-qN-Bp5"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wz5-9e-kqL">
+                                                <rect key="frame" x="203" y="323" width="156" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="156" id="bks-hM-05C"/>
+                                                    <constraint firstAttribute="height" constant="40" id="gbE-uo-ocF"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Formula">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="breastUsedButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="Wd8-Vf-4iC"/>
+                                                </connections>
+                                            </button>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MfB-xW-0fe">
+                                                <rect key="frame" x="35" y="471" width="309" height="152"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -541,12 +583,18 @@ Lactation Research Group</string>
                                             <constraint firstItem="bKy-gH-b0t" firstAttribute="leading" secondItem="fGE-4x-s29" secondAttribute="leading" id="BrD-wh-qOP"/>
                                             <constraint firstItem="Gj6-ks-3OS" firstAttribute="width" secondItem="fGE-4x-s29" secondAttribute="width" id="Ebd-sC-HFo"/>
                                             <constraint firstItem="MfB-xW-0fe" firstAttribute="top" secondItem="jDh-H2-Zak" secondAttribute="bottom" constant="2" id="Egj-ek-x8i"/>
+                                            <constraint firstItem="WA6-FG-mnR" firstAttribute="height" secondItem="tiT-nr-s9A" secondAttribute="height" id="FPi-wC-deC"/>
                                             <constraint firstItem="swp-U7-8Zc" firstAttribute="width" secondItem="fGE-4x-s29" secondAttribute="width" id="FWK-Uk-PZd"/>
+                                            <constraint firstItem="RCX-h6-uGd" firstAttribute="height" secondItem="tiT-nr-s9A" secondAttribute="height" id="FhF-mA-uoD"/>
                                             <constraint firstItem="vJm-lW-47x" firstAttribute="leading" secondItem="fGE-4x-s29" secondAttribute="leading" id="G4U-km-mN1"/>
                                             <constraint firstItem="9oC-6e-KKQ" firstAttribute="top" secondItem="tEu-c0-78D" secondAttribute="bottom" constant="2" id="GJk-RR-Y8X"/>
                                             <constraint firstItem="MfB-xW-0fe" firstAttribute="leading" secondItem="fGE-4x-s29" secondAttribute="leading" id="JRL-GR-9YP"/>
                                             <constraint firstItem="lDf-ar-AbM" firstAttribute="leading" secondItem="fGE-4x-s29" secondAttribute="leading" id="LR5-JI-BdE"/>
+                                            <constraint firstItem="WA6-FG-mnR" firstAttribute="top" secondItem="vJm-lW-47x" secondAttribute="bottom" constant="2" id="NBh-EP-frk"/>
+                                            <constraint firstItem="WA6-FG-mnR" firstAttribute="leading" secondItem="tiT-nr-s9A" secondAttribute="leading" id="O6l-5w-lix"/>
+                                            <constraint firstItem="Wz5-9e-kqL" firstAttribute="bottom" secondItem="WA6-FG-mnR" secondAttribute="bottom" id="PER-x7-XQg"/>
                                             <constraint firstItem="vJm-lW-47x" firstAttribute="top" secondItem="bKy-gH-b0t" secondAttribute="bottom" constant="20" id="PtJ-8W-AYM"/>
+                                            <constraint firstItem="bKy-gH-b0t" firstAttribute="top" secondItem="Tf7-wY-gcU" secondAttribute="bottom" constant="2" id="Q4d-YO-DdM"/>
                                             <constraint firstItem="Lzd-H9-MS5" firstAttribute="leading" secondItem="bKy-gH-b0t" secondAttribute="trailing" constant="-2" id="QKa-bG-kGP"/>
                                             <constraint firstItem="swp-U7-8Zc" firstAttribute="trailing" secondItem="7BK-V9-7EW" secondAttribute="trailing" id="RSI-zk-gU0"/>
                                             <constraint firstItem="tiT-nr-s9A" firstAttribute="top" secondItem="vJm-lW-47x" secondAttribute="bottom" constant="2" id="Rz9-YV-8Vz"/>
@@ -554,6 +602,7 @@ Lactation Research Group</string>
                                             <constraint firstAttribute="width" constant="379" id="U3S-QU-05J"/>
                                             <constraint firstItem="HNL-Ot-Srt" firstAttribute="bottom" secondItem="9oC-6e-KKQ" secondAttribute="bottom" id="Uwa-fq-3ly"/>
                                             <constraint firstItem="tEu-c0-78D" firstAttribute="top" secondItem="tiT-nr-s9A" secondAttribute="bottom" constant="20" id="Ux0-sZ-gU8"/>
+                                            <constraint firstItem="Wz5-9e-kqL" firstAttribute="height" secondItem="WA6-FG-mnR" secondAttribute="height" id="VC7-df-aSM"/>
                                             <constraint firstItem="Tf7-wY-gcU" firstAttribute="leading" secondItem="fGE-4x-s29" secondAttribute="leading" id="VMC-Jn-QtT"/>
                                             <constraint firstItem="Gj6-ks-3OS" firstAttribute="bottom" secondItem="tEu-c0-78D" secondAttribute="bottom" id="VTn-Ck-WmS"/>
                                             <constraint firstItem="En3-j4-31n" firstAttribute="top" secondItem="lDf-ar-AbM" secondAttribute="bottom" constant="2" id="Xal-q4-GtF"/>
@@ -564,6 +613,7 @@ Lactation Research Group</string>
                                             <constraint firstItem="9oC-6e-KKQ" firstAttribute="width" secondItem="fGE-4x-s29" secondAttribute="width" id="cUA-FD-JxR"/>
                                             <constraint firstItem="iun-8A-Ied" firstAttribute="trailing" secondItem="7BK-V9-7EW" secondAttribute="trailing" id="chh-Fh-Rni"/>
                                             <constraint firstItem="Dvk-ko-Qx2" firstAttribute="leading" secondItem="fGE-4x-s29" secondAttribute="leading" id="ckp-ha-ew6"/>
+                                            <constraint firstItem="Wz5-9e-kqL" firstAttribute="width" secondItem="WA6-FG-mnR" secondAttribute="width" id="czY-mI-I1l"/>
                                             <constraint firstItem="Dvk-ko-Qx2" firstAttribute="width" secondItem="fGE-4x-s29" secondAttribute="width" id="eWE-ta-jTV"/>
                                             <constraint firstItem="MfB-xW-0fe" firstAttribute="trailing" secondItem="7BK-V9-7EW" secondAttribute="trailing" id="flB-hy-Hmq"/>
                                             <constraint firstItem="jDh-H2-Zak" firstAttribute="leading" secondItem="fGE-4x-s29" secondAttribute="leading" id="g5w-fq-5Hs"/>
@@ -571,6 +621,7 @@ Lactation Research Group</string>
                                             <constraint firstItem="Lzd-H9-MS5" firstAttribute="bottom" secondItem="bKy-gH-b0t" secondAttribute="bottom" id="lh4-xl-U5s"/>
                                             <constraint firstItem="En3-j4-31n" firstAttribute="leading" secondItem="fGE-4x-s29" secondAttribute="leading" id="m64-n4-n1m"/>
                                             <constraint firstItem="tEu-c0-78D" firstAttribute="width" secondItem="fGE-4x-s29" secondAttribute="width" id="mge-Y4-5ob"/>
+                                            <constraint firstItem="WA6-FG-mnR" firstAttribute="width" secondItem="tiT-nr-s9A" secondAttribute="width" id="nEl-KO-P01"/>
                                             <constraint firstItem="RCX-h6-uGd" firstAttribute="width" secondItem="tiT-nr-s9A" secondAttribute="width" id="nir-U5-o8l"/>
                                             <constraint firstItem="jDh-H2-Zak" firstAttribute="top" secondItem="9oC-6e-KKQ" secondAttribute="bottom" constant="20" id="oAo-eJ-LLM"/>
                                             <constraint firstItem="iun-8A-Ied" firstAttribute="bottom" secondItem="Dvk-ko-Qx2" secondAttribute="bottom" id="pFs-6Y-o4m"/>
@@ -580,6 +631,7 @@ Lactation Research Group</string>
                                             <constraint firstItem="tEu-c0-78D" firstAttribute="leading" secondItem="fGE-4x-s29" secondAttribute="leading" id="sNn-a9-DIM"/>
                                             <constraint firstItem="7BK-V9-7EW" firstAttribute="bottom" secondItem="fGE-4x-s29" secondAttribute="bottom" id="t4U-eE-Jdt"/>
                                             <constraint firstItem="RCX-h6-uGd" firstAttribute="trailing" secondItem="7BK-V9-7EW" secondAttribute="trailing" id="tAd-OQ-veN"/>
+                                            <constraint firstItem="Wz5-9e-kqL" firstAttribute="leading" secondItem="WA6-FG-mnR" secondAttribute="trailing" constant="-2" id="tfb-LV-30r"/>
                                             <constraint firstItem="HNL-Ot-Srt" firstAttribute="width" secondItem="fGE-4x-s29" secondAttribute="width" id="tzb-sL-fqR"/>
                                             <constraint firstItem="9oC-6e-KKQ" firstAttribute="leading" secondItem="fGE-4x-s29" secondAttribute="leading" id="vRV-Rm-5Os"/>
                                             <constraint firstItem="1Pt-xi-SSP" firstAttribute="trailing" secondItem="7BK-V9-7EW" secondAttribute="trailing" id="wZ3-sF-JAB"/>
@@ -620,21 +672,26 @@ Lactation Research Group</string>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="breastLabel" destination="vJm-lW-47x" id="P0g-5X-MqA"/>
                         <outlet property="breastfeedTypeButton" destination="bKy-gH-b0t" id="Yd4-2H-Kgv"/>
                         <outlet property="endDateTextField" destination="iun-8A-Ied" id="Vow-41-XrB"/>
                         <outlet property="endTimeTextField" destination="iun-8A-Ied" id="kgc-gM-Fe0"/>
                         <outlet property="expressedButton" destination="Lzd-H9-MS5" id="Xdo-u8-JSv"/>
+                        <outlet property="expressedSupButton" destination="WA6-FG-mnR" id="m24-PB-gan"/>
+                        <outlet property="formulaSupButton" destination="Wz5-9e-kqL" id="TtU-XN-4Wf"/>
                         <outlet property="leftUsedButton" destination="tiT-nr-s9A" id="cjA-Af-ljG"/>
                         <outlet property="rightUsedButton" destination="RCX-h6-uGd" id="wkf-YI-hxk"/>
                         <outlet property="scroller" destination="mR7-Qc-l7u" id="xAD-dI-K7f"/>
                         <outlet property="startDateTextField" destination="Dvk-ko-Qx2" id="LhK-4T-2mf"/>
                         <outlet property="startTimeTextField" destination="En3-j4-31n" id="k7D-Mw-OCT"/>
                         <outlet property="supplementaryButton" destination="ORP-VT-VzF" id="Qrb-ho-Nyj"/>
-                        <outletCollection property="breastUsedButtons" destination="tiT-nr-s9A" collectionClass="NSMutableArray" id="bVg-wj-MyG"/>
                         <outletCollection property="typeButtons" destination="Lzd-H9-MS5" collectionClass="NSMutableArray" id="v7n-UA-b6q"/>
                         <outletCollection property="typeButtons" destination="ORP-VT-VzF" collectionClass="NSMutableArray" id="imk-cI-iPQ"/>
-                        <outletCollection property="breastUsedButtons" destination="RCX-h6-uGd" collectionClass="NSMutableArray" id="6gW-nQ-IYR"/>
                         <outletCollection property="typeButtons" destination="bKy-gH-b0t" collectionClass="NSMutableArray" id="ke0-SD-xxG"/>
+                        <outletCollection property="breastOrSupButtons" destination="Wz5-9e-kqL" collectionClass="NSMutableArray" id="T38-ng-aP0"/>
+                        <outletCollection property="breastOrSupButtons" destination="RCX-h6-uGd" collectionClass="NSMutableArray" id="Li6-us-eyc"/>
+                        <outletCollection property="breastOrSupButtons" destination="tiT-nr-s9A" collectionClass="NSMutableArray" id="0VS-bz-6Lj"/>
+                        <outletCollection property="breastOrSupButtons" destination="WA6-FG-mnR" collectionClass="NSMutableArray" id="dXJ-X0-hkz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="et7-iZ-tSC" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -21,8 +21,9 @@ class EntryViewController: UIViewController {
     
     @IBOutlet var typeButtons: [UIButton]!
     
-    @IBOutlet var breastUsedButtons: [UIButton]!
+    @IBOutlet var breastOrSupButtons: [UIButton]!
     
+    @IBOutlet var breastLabel: UILabel!
     
     @IBOutlet var leftUsedButton: UIButton!
     
@@ -35,6 +36,10 @@ class EntryViewController: UIViewController {
     @IBOutlet var supplementaryButton: UIButton!
     
     @IBOutlet var scroller: UIScrollView!
+    
+    @IBOutlet var expressedSupButton: UIButton!
+    
+    @IBOutlet var formulaSupButton: UIButton!
     
     
     
@@ -115,6 +120,14 @@ class EntryViewController: UIViewController {
         
         let borderColor = UIColor(red: 141/255, green: 217/255, blue: 179/255, alpha: 1)
         
+        expressedSupButton.hidden = true
+        expressedSupButton.enabled = false
+        
+        formulaSupButton.hidden = true
+        formulaSupButton.enabled = false
+        
+        
+
         for subviews in self.view.subviews {
             
             if let scrollview = subviews as? UIScrollView {
@@ -154,8 +167,7 @@ class EntryViewController: UIViewController {
                             button.layer.borderWidth = 2.0
                             
                             button.titleLabel?.adjustsFontSizeToFitWidth = true
-                            
-                            
+                        
                         }
                         
                     }
@@ -168,6 +180,12 @@ class EntryViewController: UIViewController {
     }
     
     
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        
+    }
     
     
     let selectedColor = UIColor(red: 49/255, green: 91/255, blue: 131/255, alpha: 1)
@@ -183,7 +201,8 @@ class EntryViewController: UIViewController {
                     button.layer.backgroundColor = selectedColor.CGColor
                     
                     button.titleLabel?.textColor = UIColor.whiteColor()
-                    
+                
+               
                 
                     
             } else {
@@ -197,6 +216,46 @@ class EntryViewController: UIViewController {
                     
             }
             
+            
+            if supplementaryButton.selected{
+                
+                expressedSupButton.hidden = false
+                formulaSupButton.hidden = false
+                
+                expressedSupButton.enabled = true
+                formulaSupButton.enabled = true
+                
+                leftUsedButton.enabled = false
+                rightUsedButton.enabled = false
+                
+                leftUsedButton.hidden = true
+                rightUsedButton.hidden = true
+                
+                breastLabel.text = "SUPPLEMENTARY TYPE"
+                
+                
+                
+                
+            } else {
+                
+                leftUsedButton.hidden = false
+                rightUsedButton.hidden = false
+                
+                leftUsedButton.enabled = true
+                rightUsedButton.enabled = true
+                
+                breastLabel.text = "BREAST"
+                
+                expressedSupButton.hidden = true
+                formulaSupButton.hidden = true
+                
+                expressedSupButton.enabled = false
+                formulaSupButton.enabled = false
+
+                
+            }
+
+            
         }
         
         
@@ -206,7 +265,7 @@ class EntryViewController: UIViewController {
     
     @IBAction func breastUsedButtonSelected(sender: UIButton) {
         
-        for button in breastUsedButtons {
+        for button in breastOrSupButtons {
             
             if button == sender && button.selected == false {
                 
@@ -229,23 +288,14 @@ class EntryViewController: UIViewController {
                 
             }
             
+            
         }
         
 
         
         
     }
-    
-    
-    
-    
-
-        
-        
-    
-    
-    
-
+   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
