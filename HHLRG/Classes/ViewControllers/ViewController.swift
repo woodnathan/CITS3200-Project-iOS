@@ -32,17 +32,24 @@ class ViewController: UIViewController {
     
     @IBAction func login(sender: UIButton) {
         let username = usernameTextField.text!
-        let password = usernameTextField.text!
+        let password = passwordTextField.text!
         
         client.credential = Credential(username: username, password: password)
         client.fetchUserInfo { (userInfo, error) -> Void in
-            print(userInfo, error)
+            // Should probably check that userInfo.collectingSamples is true
+            
             if error != nil {
                 let alert = UIAlertController(title: "Login Error",
                                               message: error!.localizedDescription,
                                               preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
+            }
+            else
+            {
+                self.client.fetchFeeds({ (feeds, error) -> Void in
+                    print("Done \(feeds)")
+                })
             }
         }
     }

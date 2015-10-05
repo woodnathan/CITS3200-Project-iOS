@@ -17,6 +17,109 @@ struct UserInfo {
     let collectingSamples: Bool
 }
 
+struct Feed {
+    enum FeedType {
+        case Breastfeed
+        case Expression
+        case Supplementary
+        
+        static func fromString(value: String?) -> FeedType? {
+            if let v = value?.uppercaseString.characters.first {
+                switch v {
+                case "B":
+                    return FeedType.Breastfeed
+                case "E":
+                    return FeedType.Expression
+                case "S":
+                    return FeedType.Supplementary
+                default:
+                    break
+                }
+            }
+            return nil
+        }
+        
+        var identifier: Character {
+            switch self {
+            case .Breastfeed:
+                return "B"
+            case .Expression:
+                return "E"
+            case .Supplementary:
+                return "S"
+            }
+        }
+    }
+    enum Side {
+        case Left
+        case Right
+        
+        static func fromString(value: String?) -> Side? {
+            if let v = value?.uppercaseString.characters.first {
+                switch v {
+                case "L":
+                    return Side.Left
+                case "R":
+                    return Side.Right
+                default:
+                    break
+                }
+            }
+            return nil
+        }
+        
+        var identifier: Character {
+            switch self {
+            case .Left:
+                return "L"
+            case .Right:
+                return "R"
+            }
+        }
+    }
+    enum Subtype {
+        case Expressed
+        case Formula
+        
+        static func fromString(value: String?) -> Subtype? {
+            if let v = value?.uppercaseString.characters.first {
+                switch v {
+                case "E":
+                    return Subtype.Expressed
+                case "F":
+                    return Subtype.Formula
+                default:
+                    break
+                }
+            }
+            return nil
+        }
+        
+        var identifier: Character {
+            switch self {
+            case .Expressed:
+                return "E"
+            case .Formula:
+                return "F"
+            }
+        }
+    }
+    
+    struct Sample {
+        var identifier: Int?
+        var weight: Int
+        var date: NSDate!
+    }
+    
+    var type: FeedType!
+    var subtype: Subtype!
+    var side: Side!
+    var comment: String!
+    
+    var before: Sample!
+    var after: Sample!
+}
+
 class Client {
     
     static let ErrorDomain = "kHHLRGClientErrorDomain"
@@ -25,6 +128,7 @@ class Client {
     
     let baseURL: NSURL
     private let session: NSURLSession
+    private let dateFormatter = NSDateFormatter()
     
     var credential: Credential?
     
@@ -33,6 +137,10 @@ class Client {
         
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
         self.session = NSURLSession(configuration: configuration)
+        
+        self.dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        self.dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        self.dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZ"
     }
     
     func fetchUserInfo(completionHandler: (UserInfo?, NSError?) -> Void)
@@ -45,6 +153,41 @@ class Client {
                 userInfo = UserInfo(collectingSamples: collectingSamples)
             }
             completionHandler(userInfo, error)
+        }
+    }
+    
+    func fetchFeeds(completionHandler: ([Feed]?, NSError?) -> Void)
+    {
+        let req = request("get_feeds")
+        dataTaskWithRequest(req) { (responseObject, error) -> Void in
+            var feeds: [Feed]? = nil
+            if let response = responseObject as! NSDictionary? {
+                let feedDicts = response.objectForKey("feeds") as? [NSDictionary]
+                feeds = feedDicts?.map({ (dict: NSDictionary) -> Feed in
+                    var beforeSample: Feed.Sample? = nil
+                    var afterSample: Feed.Sample? = nil
+                    if let before = dict["before"] as? NSDictionary {
+                        let identifier = before["SID"] as? Int
+                        let weight = before["weight"] as? Int ?? 0
+                        let date = self.dateFormatter.dateFromString(before["date"] as! String)
+                        beforeSample = Feed.Sample(identifier: identifier, weight: weight, date: date)
+                    }
+                    if let after = dict["after"] as? NSDictionary {
+                        let identifier = after["SID"] as? Int
+                        let weight = after["weight"] as? Int ?? 0
+                        let date = self.dateFormatter.dateFromString(after["date"] as! String)
+                        afterSample = Feed.Sample(identifier: identifier, weight: weight, date: date)
+                    }
+                    
+                    let type = Feed.FeedType.fromString(dict["type"] as? String)
+                    let subtype = Feed.Subtype.fromString(dict["subtype"] as? String)
+                    let side = Feed.Side.fromString(dict["side"] as? String)
+                    let comment = dict["comment"] as? String
+                    
+                    return Feed(type: type, subtype: subtype, side: side, comment: comment, before: beforeSample, after: afterSample)
+                })
+            }
+            completionHandler(feeds, error)
         }
     }
     
