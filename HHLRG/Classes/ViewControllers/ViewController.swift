@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let client = Client(baseURL: Client.DevelopmentBaseURL)
+    var client: Client!
     
     @IBOutlet var loginButton: UIButton!
     
@@ -35,21 +35,18 @@ class ViewController: UIViewController {
         let password = passwordTextField.text!
         
         client.credential = Credential(username: username, password: password)
+        
         client.fetchUserInfo { (userInfo, error) -> Void in
-            // Should probably check that userInfo.collectingSamples is true
-            
             if error != nil {
                 let alert = UIAlertController(title: "Login Error",
                                               message: error!.localizedDescription,
                                               preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
-            }
-            else
-            {
-                self.client.fetchFeeds({ (feeds, error) -> Void in
-                    print("Done \(feeds)")
-                })
+            } else if userInfo?.collectingSamples == false {
+                // Should probably do something when userInfo.collectingSamples is false
+            } else {
+                self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
     }

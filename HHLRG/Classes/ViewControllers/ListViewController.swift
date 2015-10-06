@@ -9,10 +9,13 @@
 import UIKit
 
 
-var feeds = [(String,String)]()
+//var feeds = [(String,String)]()
 
 
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+    
+    private let client = Client(baseURL: Client.DevelopmentBaseURL)
+    private var feeds: [Feed] = []
     
     
     @IBOutlet var feedsTable: UITableView!
@@ -35,9 +38,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCellWithIdentifier("feedCell") as UITableViewCell!
         
         
-            let (feedStartDate, feedStartTime) = feeds[indexPath.row]
-            cell.textLabel?.text = feedStartDate
-            cell.detailTextLabel?.text = feedStartTime
+            let feed = feeds[indexPath.row]
+            cell.textLabel?.text = feed.before.date.description
+            cell.detailTextLabel?.text = feed.after.date.description
         
         return cell
         
@@ -55,17 +58,50 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (NSUserDefaults.standardUserDefaults().objectForKey("feeds") != nil) {
-            
-            feeds = NSUserDefaults.standardUserDefaults().objectForKey("feeds") as! [(String, String)]
+        dispatch_async(dispatch_get_main_queue(), {
+            if self.client.credential == nil {
+                self.performSegueWithIdentifier("showLogin", sender: self)
+            }
+        })
         
+//        if (NSUserDefaults.standardUserDefaults().objectForKey("feeds") != nil) {
+//            
+//            feeds = NSUserDefaults.standardUserDefaults().objectForKey("feeds") as! [(String, String)]
+//        
+//        }
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if client.credential != nil {
+            client.fetchFeeds({ (feeds, error) -> Void in
+                if let f = feeds {
+                    self.feeds = f
+                    self.feedsTable.reloadData()
+                } else if let e = error {
+                    let alert = UIAlertController(title: "Error Fetching Feeds",
+                        message: e.localizedDescription,
+                        preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+            })
         }
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showLogin" {
+            if let loginViewController = segue.destinationViewController as? ViewController {
+                loginViewController.client = self.client
+            }
+        }
     }
     
      

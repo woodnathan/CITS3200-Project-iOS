@@ -44,7 +44,7 @@ class EntryViewController: UIViewController {
     
     override func prepareForSegue(segue:(UIStoryboardSegue!), sender:AnyObject!) {
         
-        feeds.append((startDateTextField.text!, startTimeTextField.text!))
+//        feeds.append((startDateTextField.text!, startTimeTextField.text!))
         
         
         print(startDateTextField)
