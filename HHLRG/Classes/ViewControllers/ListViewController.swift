@@ -16,47 +16,32 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     private let client = Client(baseURL: Client.DevelopmentBaseURL)
     private var feeds: [Feed] = []
+    private let dateFormatter: NSDateFormatter = NSDateFormatter()
     
     
     @IBOutlet var feedsTable: UITableView!
     
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-        
-    }
-    
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        
         return feeds.count
     }
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("feedCell") as UITableViewCell!
         
-        
-            let feed = feeds[indexPath.row]
-            cell.textLabel?.text = feed.before.date.description
-            cell.detailTextLabel?.text = feed.after.date.description
+        let feed = feeds[indexPath.row]
+        cell.textLabel?.text = dateFormatter.stringFromDate(feed.before.date)
+        cell.detailTextLabel?.text = dateFormatter.stringFromDate(feed.after.date)
         
         return cell
         
     }
     
-    
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-                
-        
-       return "Feeds"
-    }
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dateFormatter.dateStyle = .ShortStyle;
+        dateFormatter.timeStyle = .ShortStyle;
         
         dispatch_async(dispatch_get_main_queue(), {
             if self.client.credential == nil {

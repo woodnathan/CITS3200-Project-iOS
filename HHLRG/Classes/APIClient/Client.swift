@@ -185,7 +185,7 @@ class Client {
                     let comment = dict["comment"] as? String
                     
                     return Feed(type: type, subtype: subtype, side: side, comment: comment, before: beforeSample, after: afterSample)
-                })
+                }).sort({ $0.before.date.compare($1.before.date) == NSComparisonResult.OrderedAscending })
             }
             completionHandler(feeds, error)
         }
