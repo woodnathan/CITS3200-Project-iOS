@@ -108,7 +108,7 @@ struct Feed {
     struct Sample {
         var identifier: Int?
         var weight: Int
-        var date: NSDate!
+        var date: NSDate?
     }
     
     var type: FeedType!
@@ -116,8 +116,8 @@ struct Feed {
     var side: Side!
     var comment: String!
     
-    var before: Sample!
-    var after: Sample!
+    var before: Sample! = Sample(identifier: nil, weight: 0, date: nil)
+    var after: Sample! = Sample(identifier: nil, weight: 0, date: nil)
 }
 
 class Client {
@@ -130,6 +130,7 @@ class Client {
     private let session: NSURLSession
     private let dateFormatter = NSDateFormatter()
     
+    private(set) var feeds: [Feed]
     var credential: Credential?
     
     init(baseURL: NSURL) {
@@ -141,6 +142,8 @@ class Client {
         self.dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         self.dateFormatter.timeZone = NSTimeZone.localTimeZone()
         self.dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZ"
+        
+        self.feeds = []
     }
     
     func fetchUserInfo(completionHandler: (UserInfo?, NSError?) -> Void)
@@ -185,7 +188,11 @@ class Client {
                     let comment = dict["comment"] as? String
                     
                     return Feed(type: type, subtype: subtype, side: side, comment: comment, before: beforeSample, after: afterSample)
-                }).sort({ $0.before.date.compare($1.before.date) == NSComparisonResult.OrderedAscending })
+                }).sort({ $0.before.date?.compare($1.before.date!) == NSComparisonResult.OrderedAscending })
+                
+                if let f = feeds {
+                    self.feeds = f
+                }
             }
             completionHandler(feeds, error)
         }

@@ -10,6 +10,9 @@ import UIKit
 
 class EntryViewController: UIViewController {
     
+    var client: Client!
+    var feed = Feed()
+    
     
     @IBOutlet var startTimeTextField: UITextField!
    
@@ -41,21 +44,8 @@ class EntryViewController: UIViewController {
     
     @IBOutlet var formulaSupButton: UIButton!
     
-    
-    override func prepareForSegue(segue:(UIStoryboardSegue!), sender:AnyObject!) {
-        
-//        feeds.append((startDateTextField.text!, startTimeTextField.text!))
-        
-        
-        print(startDateTextField)
-        
-        //NSUserDefaults.standardUserDefaults().setObject(feeds, forKey: "feeds")  
-        
-        
-        
-        
-    }
-    
+    private let dateFormatter = NSDateFormatter()
+    private let timeFormatter = NSDateFormatter()
     
     /*editing start/end DATE text fields*/
     
@@ -132,6 +122,11 @@ class EntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dateFormatter.dateStyle = .ShortStyle;
+        dateFormatter.timeStyle = .NoStyle;
+        timeFormatter.dateStyle = .NoStyle;
+        timeFormatter.timeStyle = .ShortStyle;
+        
         let borderColor = UIColor(red: 141/255, green: 217/255, blue: 179/255, alpha: 1)
         
         expressedSupButton.hidden = true
@@ -140,6 +135,14 @@ class EntryViewController: UIViewController {
         formulaSupButton.hidden = true
         formulaSupButton.enabled = false
         
+        if let date = feed.before.date {
+            startDateTextField.text = dateFormatter.stringFromDate(date)
+            startTimeTextField.text = timeFormatter.stringFromDate(date)
+        }
+        if let date = feed.after.date {
+            endDateTextField.text = dateFormatter.stringFromDate(date)
+            endTimeTextField.text = timeFormatter.stringFromDate(date)
+        }
         
 
         for subviews in self.view.subviews {
@@ -332,6 +335,11 @@ class EntryViewController: UIViewController {
         textField.resignFirstResponder()
         return true
         
+    }
+    
+    @IBAction
+    func cancelAction(sender: AnyObject?) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
     

@@ -10,14 +10,17 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+    var client: Client!
+    var feed = Feed()
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-}
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "editFeed" {
+            if let navController = segue.destinationViewController as? UINavigationController {
+                if let entryViewController = navController.topViewController as? EntryViewController {
+                    entryViewController.client = self.client
+                    entryViewController.feed = self.feed
+                }
+            }
+        }
+    }
 }

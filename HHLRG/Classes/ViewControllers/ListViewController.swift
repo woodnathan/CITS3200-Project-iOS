@@ -30,11 +30,43 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCellWithIdentifier("feedCell") as UITableViewCell!
         
         let feed = feeds[indexPath.row]
-        cell.textLabel?.text = dateFormatter.stringFromDate(feed.before.date)
-        cell.detailTextLabel?.text = dateFormatter.stringFromDate(feed.after.date)
+        cell.textLabel?.text = dateFormatter.stringFromDate(feed.before.date!)
+        cell.detailTextLabel?.text = dateFormatter.stringFromDate(feed.after.date!)
         
         return cell
         
+    }
+    
+    private func restoreCredential() {
+        let username = NSUserDefaults.standardUserDefaults().objectForKey("username") as? String
+        let password = NSUserDefaults.standardUserDefaults().objectForKey("password") as? String // Place in Keychain
+        if let u = username, p = password {
+            client.credential = Credential(username: u, password: p)
+        }
+    }
+    private func saveCredential() {
+        if let username = client.credential?.username, password = client.credential?.password {
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setObject(username, forKey: "username")
+            defaults.setObject(password, forKey: "password") // Place in Keychain
+            defaults.synchronize()
+        }
+    }
+    private func deleteCredential() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.removeObjectForKey("username")
+        defaults.removeObjectForKey("password")
+        
+        client.credential = nil
+        
+        self.performSegueWithIdentifier("showLogin", sender: self)
+    }
+    
+    @IBAction func logout(sender: AnyObject?) {
+        deleteCredential()
+        
+        feeds = []
+        feedsTable.reloadData()
     }
     
     override func viewDidLoad() {
@@ -43,24 +75,20 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         dateFormatter.dateStyle = .ShortStyle;
         dateFormatter.timeStyle = .ShortStyle;
         
+        restoreCredential()
         dispatch_async(dispatch_get_main_queue(), {
             if self.client.credential == nil {
                 self.performSegueWithIdentifier("showLogin", sender: self)
             }
         })
-        
-//        if (NSUserDefaults.standardUserDefaults().objectForKey("feeds") != nil) {
-//            
-//            feeds = NSUserDefaults.standardUserDefaults().objectForKey("feeds") as! [(String, String)]
-//        
-//        }
-        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         if client.credential != nil {
+            saveCredential()
+            
             client.fetchFeeds({ (feeds, error) -> Void in
                 if let f = feeds {
                     self.feeds = f
@@ -76,15 +104,21 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showLogin" {
             if let loginViewController = segue.destinationViewController as? ViewController {
                 loginViewController.client = self.client
+            }
+        } else if segue.identifier == "showDetail" {
+            if let detailViewController = segue.destinationViewController as? DetailViewController {
+                detailViewController.client = self.client
+                detailViewController.feed = self.feeds[self.feedsTable.indexPathForSelectedRow!.row]
+            }
+        } else if segue.identifier == "addFeed" {
+            if let navController = segue.destinationViewController as? UINavigationController {
+                if let entryViewController = navController.topViewController as? EntryViewController {
+                    entryViewController.client = self.client
+                }
             }
         }
     }
