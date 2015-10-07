@@ -8,6 +8,8 @@
 
 import UIKit
 
+let borderColor = UIColor(red: 141/255, green: 217/255, blue: 179/255, alpha: 1)
+
 class EntryViewController: UIViewController {
     
     
@@ -41,17 +43,26 @@ class EntryViewController: UIViewController {
     
     @IBOutlet var formulaSupButton: UIButton!
     
+    @IBOutlet var textFieldCollection: [UITextField]!
+    
+    @IBOutlet var commentTextView: UITextView!
+    
+    @IBOutlet var buttonCollection: [UIButton]!
+    
+    @IBOutlet var weightBefore: UITextField!
+    
+    @IBOutlet var weightAfter: UITextField!
+    
+    @IBOutlet var leftRightBreast: [UIButton]!
+    
+    
     
     override func prepareForSegue(segue:(UIStoryboardSegue!), sender:AnyObject!) {
         
+                
         feeds.append((startDateTextField.text!, startTimeTextField.text!))
         
-        
-        print(startDateTextField)
-        
         //NSUserDefaults.standardUserDefaults().setObject(feeds, forKey: "feeds")  
-        
-        
         
         
     }
@@ -105,17 +116,16 @@ class EntryViewController: UIViewController {
         
         let dateFormatter = NSDateFormatter()
         
-        if selectedTextField.tag == 0 || selectedTextField.tag == 1 {
-            
-            /* tag 0, 1 for start/end DATE fields*/
+        if selectedTextField == startDateTextField || selectedTextField == endDateTextField
+        {
         
             dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
             
             dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
         }
+            
         else
         {
-            /*tag 2, 3 for start/end TIME fields*/
             
             dateFormatter.dateStyle = NSDateFormatterStyle.NoStyle
             
@@ -132,7 +142,7 @@ class EntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let borderColor = UIColor(red: 141/255, green: 217/255, blue: 179/255, alpha: 1)
+        
         
         expressedSupButton.hidden = true
         expressedSupButton.enabled = false
@@ -142,64 +152,45 @@ class EntryViewController: UIViewController {
         
         
 
-        for subviews in self.view.subviews {
+      
+        for textField in textFieldCollection {
             
-            if let scrollview = subviews as? UIScrollView {
-                
-                for contentViews in scrollview.subviews {
-                
-                    for content in contentViews.subviews {
-                    
-                        if let textField = content as? UITextField{
-                            
-                            
-                            textField.layer.borderColor = borderColor.CGColor
-                            
-                            textField.layer.borderWidth = 2.0
-                            
-                            textField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
-                            
-                            textField.adjustsFontSizeToFitWidth = true
-                            
-                        }
-                            
-                        else if let textview = content as? UITextView {
-                            
-                            textview.layer.borderColor = borderColor.CGColor
-                            
-                            textview.layer.borderWidth = 2.0
-                            
-                            
-                            //textview.layer
-                            
-                        }
-                        // change button border color
-                        else if let button = content as? UIButton {
-                            
-                            button.layer.borderColor = borderColor.CGColor
-                            
-                            button.layer.borderWidth = 2.0
-                            
-                            button.titleLabel?.adjustsFontSizeToFitWidth = true
-                        
-                        }
-                        
-                    }
-                }
-                
-            }
+            textField.layer.borderColor = borderColor.CGColor
+            
+            textField.layer.borderWidth = 2.0
+            
+            textField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+            
+            textField.adjustsFontSizeToFitWidth = true
             
         }
-              
+        
+        commentTextView.layer.borderColor = borderColor.CGColor
+        
+        commentTextView.layer.borderWidth = 2.0
+        
+        
+                            
+            //commentTextView.layer.borderWidth = 2.0
+        
+            //commentTextView.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+                            
+        
+        // change button border color
+        
+        for button in buttonCollection {
+        
+            button.layer.borderColor = borderColor.CGColor
+
+            button.layer.borderWidth = 2.0
+
+            button.titleLabel?.adjustsFontSizeToFitWidth = true
+        }
+        
     }
     
     
     
-    
-    override func viewDidAppear(animated: Bool) {
-        
-        
-    }
     
     
     let selectedColor = UIColor(red: 49/255, green: 91/255, blue: 131/255, alpha: 1)
@@ -326,14 +317,37 @@ class EntryViewController: UIViewController {
         
     }
     
-    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         textField.resignFirstResponder()
         return true
         
     }
-
     
+    
+    func registerForKeyboardNotifications()
+    {
+        //Adding notifies on keyboard appearing
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillBeHidden:", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    
+    func deregisterFromKeyboardNotifications()
+    {
+        //Removing notifies on keyboard appearing
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+
+//
+//    func keyboardWasShown(notification: NSNotification) {
+//        var info = notification.userInfo!
+//        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+//        
+//        UIView.animateWithDuration(0.1, animations: { () -> Void in
+//            self.bottomConstraint.constant = keyboardFrame.size.height + 20
+//        })
+//    }
     
 }

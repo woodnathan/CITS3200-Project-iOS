@@ -9,7 +9,7 @@
 import UIKit
 
 
-var feeds = [(String,String)]()
+var feeds = [(String , String)]()
 
 
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
