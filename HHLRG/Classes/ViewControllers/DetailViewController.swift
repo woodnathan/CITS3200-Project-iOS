@@ -22,6 +22,8 @@ class DetailViewController: UIViewController {
                 }
             }
         }
+    }
+    
     @IBOutlet var startDateTextField: UITextField!
     
     @IBOutlet var endDateTextField: UITextField!
@@ -40,37 +42,40 @@ class DetailViewController: UIViewController {
     
     @IBOutlet var commentTextView: UITextView!
     
-   
-    @IBAction func enableEdition(sender: AnyObject) {
-        
-        for textFields in textFieldCollection{
-            
-            textFields.userInteractionEnabled = true
-            
-            textFields.layer.borderWidth = 2.0
-            
-            textFields.layer.borderColor = borderColor.CGColor
-            
-            textFields.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
-            
-        }
-        
-        for buttons in buttonCollection {
-            
-            buttons.hidden = false
-            
-        }
-        
-        
-        
-        
-    }
+    @IBOutlet var sideOrSubtypeLabel: UILabel!
     
+    @IBOutlet var typeLabel: UILabel!
     
+    private let dateFormatter = NSDateFormatter()
+    private let timeFormatter = NSDateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        dateFormatter.dateStyle = .ShortStyle
+        timeFormatter.timeStyle = .ShortStyle
+        
+        if let date = feed.before.date {
+            startDateTextField.text = dateFormatter.stringFromDate(date)
+            startTimeTextField.text = timeFormatter.stringFromDate(date)
+            weightBefore.text = String(feed.before.weight)
+        }
+        if let date = feed.after.date {
+            endDateTextField.text = dateFormatter.stringFromDate(date)
+            endTimeTextField.text = timeFormatter.stringFromDate(date)
+            weightAfter.text = String(feed.after.weight)
+        }
+
+        commentTextView.text = feed.comment
+        typeLabel.text = String(feed.type)
+        
+        if let side = feed.side {
+            sideOrSubtypeLabel.text = String(side)
+        } else if let subtype = feed.subtype {
+            sideOrSubtypeLabel.text = String(subtype)
+        }
+        
         
         for textFields in textFieldCollection{
             
@@ -87,19 +92,17 @@ class DetailViewController: UIViewController {
         }
         
         for buttons in buttonCollection {
-            
-            buttons.layer.borderColor = borderColor.CGColor
-            
-            buttons.layer.borderWidth = 2.0
-            
+//            
+//            buttons.layer.borderColor = borderColor.CGColor
+//            
+//            buttons.layer.borderWidth = 2.0
+//            
+//            buttons.titleLabel?.adjustsFontSizeToFitWidth = true
+//            
             buttons.hidden = true
-        
+//
         }
         
-        commentTextView.layer.borderWidth = 2.0
-        
-        commentTextView.layer.borderColor = borderColor.CGColor
-        
-        
+        commentTextView.userInteractionEnabled = false
     }
 }

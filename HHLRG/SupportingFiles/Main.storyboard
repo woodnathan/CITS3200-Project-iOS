@@ -3,10 +3,16 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="DroidSans.ttf">
+            <string>DroidSans</string>
+            <string>DroidSans</string>
+            <string>DroidSans</string>
+            <string>DroidSans</string>
+            <string>DroidSans</string>
+            <string>DroidSans</string>
+            <string>DroidSans</string>
             <string>DroidSans</string>
             <string>DroidSans</string>
             <string>DroidSans</string>
@@ -19,7 +25,19 @@
             <string>DroidSerif</string>
             <string>DroidSerif</string>
         </mutableArray>
+        <mutableArray key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </mutableArray>
         <mutableArray key="Montserrat-SemiBold.otf">
+            <string>Montserrat-SemiBold</string>
+            <string>Montserrat-SemiBold</string>
+            <string>Montserrat-SemiBold</string>
+            <string>Montserrat-SemiBold</string>
+            <string>Montserrat-SemiBold</string>
+            <string>Montserrat-SemiBold</string>
+            <string>Montserrat-SemiBold</string>
+            <string>Montserrat-SemiBold</string>
+            <string>Montserrat-SemiBold</string>
             <string>Montserrat-SemiBold</string>
             <string>Montserrat-SemiBold</string>
             <string>Montserrat-SemiBold</string>
@@ -161,7 +179,7 @@ Lactation Research Group</string>
                                     <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 </variation>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="FJA-bY-rfn">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="FJA-bY-rfn">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.19215686269999999" green="0.35686274509999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -237,7 +255,7 @@ Lactation Research Group</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeJ-Ud-w6v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1113.5" y="-584.5"/>
+            <point key="canvasLocation" x="1121" y="-585"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="6dU-hM-fl0">
@@ -251,18 +269,336 @@ Lactation Research Group</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="zHi-cK-QSE">
+                            <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Toa-Gx-UMc">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mr8-1q-ijj">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="777"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7At-L7-nbo">
+                                                <rect key="frame" x="35" y="269" width="265" height="40"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Left">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZrV-nk-YQD">
+                                                <rect key="frame" x="35" y="269" width="265" height="40"/>
+                                                <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="t3m-vM-XFy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Expressed">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZ8-tf-p7j">
+                                                <rect key="frame" x="211" y="195" width="178" height="40"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <inset key="contentEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
+                                                <state key="normal" title="Expression">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="100-3v-6RZ">
+                                                <rect key="frame" x="387" y="195" width="178" height="40"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <inset key="contentEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
+                                                <state key="normal" title="Supplementary">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POf-fb-JPi">
+                                                <rect key="frame" x="300" y="269" width="265" height="40"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Right">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S9D-B3-PqQ">
+                                                <rect key="frame" x="35" y="195" width="178" height="40"/>
+                                                <animations/>
+                                                <accessibility key="accessibilityConfiguration" label="">
+                                                    <accessibilityTraits key="traits" button="YES"/>
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="56L-XH-jaZ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <inset key="contentEdgeInsets" minX="1" minY="0.0" maxX="1" maxY="0.0"/>
+                                                <state key="normal" title="Breastfeed">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="96J-pp-Upf">
+                                                <rect key="frame" x="300" y="269" width="265" height="40"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Formula">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tj2-Wd-PRE">
+                                                <rect key="frame" x="310" y="61" width="255" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gel-CT-b7B">
+                                                <rect key="frame" x="310" y="128" width="255" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zOg-vt-P9d">
+                                                <rect key="frame" x="35" y="128" width="256" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="geA-OA-y6m">
+                                                <rect key="frame" x="35" y="343" width="256" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IEd-Ga-O3o">
+                                                <rect key="frame" x="35" y="61" width="256" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="2SX-eZ-mvg"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0lY-9x-s3B">
+                                                <rect key="frame" x="310" y="343" width="255" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="END DATE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G92-ad-vCR">
+                                                <rect key="frame" x="310" y="35" width="73" height="18"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WEIGHT BEFORE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gk0-cj-5U6">
+                                                <rect key="frame" x="35" y="317" width="121" height="18"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TYPE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olX-9O-EC1">
+                                                <rect key="frame" x="35" y="169" width="37" height="18"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WEIGHT AFTER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6l-tu-qF9">
+                                                <rect key="frame" x="310" y="317" width="109" height="18"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="END TIME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHR-1s-LJg">
+                                                <rect key="frame" x="310" y="102" width="70" height="18"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BREAST" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAj-Jp-ULV">
+                                                <rect key="frame" x="35" y="243" width="58" height="18"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMENTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3K-IA-qOc">
+                                                <rect key="frame" x="35" y="381" width="72" height="18"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="START DATE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQi-U2-yDw">
+                                                <rect key="frame" x="35" y="35" width="87" height="18"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="START TIME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0q-6e-PSn">
+                                                <rect key="frame" x="35" y="102" width="84" height="18"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4h-ru-YGE" userLabel="SideOrSubtype">
+                                                <rect key="frame" x="35" y="269" width="530" height="40"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yb5-RM-Kfd" userLabel="Type">
+                                                <rect key="frame" x="35" y="195" width="530" height="40"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zdg-eM-aTU">
+                                                <rect key="frame" x="35" y="407" width="530" height="120"/>
+                                                <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="120" id="E1C-dU-2z7"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <animations/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="0lY-9x-s3B" firstAttribute="width" secondItem="Gel-CT-b7B" secondAttribute="width" id="04E-Ol-jZj"/>
+                                            <constraint firstItem="96J-pp-Upf" firstAttribute="leading" secondItem="ZrV-nk-YQD" secondAttribute="trailing" id="1A0-hL-umt"/>
+                                            <constraint firstItem="gk0-cj-5U6" firstAttribute="top" secondItem="ZrV-nk-YQD" secondAttribute="bottom" constant="8" id="4gr-hQ-dS5"/>
+                                            <constraint firstItem="a0q-6e-PSn" firstAttribute="top" secondItem="IEd-Ga-O3o" secondAttribute="bottom" constant="11" id="5MC-qt-RT0"/>
+                                            <constraint firstItem="JZ8-tf-p7j" firstAttribute="height" secondItem="S9D-B3-PqQ" secondAttribute="height" id="5im-au-8Cb"/>
+                                            <constraint firstItem="cAj-Jp-ULV" firstAttribute="leading" secondItem="S9D-B3-PqQ" secondAttribute="leading" id="625-qx-hAL"/>
+                                            <constraint firstItem="0lY-9x-s3B" firstAttribute="top" secondItem="geA-OA-y6m" secondAttribute="top" id="76G-oT-I5v"/>
+                                            <constraint firstItem="POf-fb-JPi" firstAttribute="top" secondItem="96J-pp-Upf" secondAttribute="top" id="7Qs-n0-FSM"/>
+                                            <constraint firstItem="IEd-Ga-O3o" firstAttribute="leading" secondItem="aQi-U2-yDw" secondAttribute="leading" id="8Dd-WW-fTE"/>
+                                            <constraint firstItem="zOg-vt-P9d" firstAttribute="top" secondItem="a0q-6e-PSn" secondAttribute="bottom" constant="8" id="94x-Qz-4YG"/>
+                                            <constraint firstItem="geA-OA-y6m" firstAttribute="width" secondItem="zOg-vt-P9d" secondAttribute="width" id="AT4-OM-J7H"/>
+                                            <constraint firstItem="S9D-B3-PqQ" firstAttribute="leading" secondItem="olX-9O-EC1" secondAttribute="leading" id="CKQ-pQ-6eY"/>
+                                            <constraint firstItem="tj2-Wd-PRE" firstAttribute="height" secondItem="IEd-Ga-O3o" secondAttribute="height" id="D78-I3-Gf4"/>
+                                            <constraint firstItem="Yb5-RM-Kfd" firstAttribute="leading" secondItem="S9D-B3-PqQ" secondAttribute="leading" id="DLL-KH-lQa"/>
+                                            <constraint firstItem="zdg-eM-aTU" firstAttribute="top" secondItem="G3K-IA-qOc" secondAttribute="bottom" constant="8" id="Dcp-qr-XWp"/>
+                                            <constraint firstItem="zdg-eM-aTU" firstAttribute="leading" secondItem="mr8-1q-ijj" secondAttribute="leading" constant="35" id="DpK-8Z-yrZ"/>
+                                            <constraint firstItem="Gel-CT-b7B" firstAttribute="leading" secondItem="tj2-Wd-PRE" secondAttribute="leading" id="FuB-dN-J3P"/>
+                                            <constraint firstAttribute="trailing" secondItem="tj2-Wd-PRE" secondAttribute="trailing" constant="35" id="Fwi-mB-JDi"/>
+                                            <constraint firstItem="IEd-Ga-O3o" firstAttribute="top" secondItem="aQi-U2-yDw" secondAttribute="bottom" constant="8" id="G3e-nE-Sbk"/>
+                                            <constraint firstItem="x4h-ru-YGE" firstAttribute="leading" secondItem="7At-L7-nbo" secondAttribute="leading" id="GIv-85-IRa"/>
+                                            <constraint firstItem="G92-ad-vCR" firstAttribute="baseline" secondItem="aQi-U2-yDw" secondAttribute="baseline" id="GlQ-nd-XtU"/>
+                                            <constraint firstItem="rHR-1s-LJg" firstAttribute="top" secondItem="tj2-Wd-PRE" secondAttribute="bottom" constant="11" id="H9h-qo-fsS"/>
+                                            <constraint firstAttribute="bottom" secondItem="zdg-eM-aTU" secondAttribute="bottom" constant="250" id="HZf-hd-iZf"/>
+                                            <constraint firstItem="IEd-Ga-O3o" firstAttribute="leading" secondItem="mr8-1q-ijj" secondAttribute="leading" constant="35" id="IVh-v6-Kao"/>
+                                            <constraint firstItem="0lY-9x-s3B" firstAttribute="height" secondItem="Gel-CT-b7B" secondAttribute="height" id="JPQ-cw-8zK"/>
+                                            <constraint firstItem="olX-9O-EC1" firstAttribute="top" secondItem="zOg-vt-P9d" secondAttribute="bottom" constant="11" id="JyA-7z-aJV"/>
+                                            <constraint firstItem="geA-OA-y6m" firstAttribute="leading" secondItem="zOg-vt-P9d" secondAttribute="leading" id="KKm-dL-21M"/>
+                                            <constraint firstItem="96J-pp-Upf" firstAttribute="trailing" secondItem="Gel-CT-b7B" secondAttribute="trailing" id="KNk-yZ-rNn"/>
+                                            <constraint firstItem="7At-L7-nbo" firstAttribute="top" secondItem="ZrV-nk-YQD" secondAttribute="top" id="KRh-Rn-O0n"/>
+                                            <constraint firstItem="zOg-vt-P9d" firstAttribute="trailing" secondItem="IEd-Ga-O3o" secondAttribute="trailing" id="Ldq-v1-N66"/>
+                                            <constraint firstItem="JZ8-tf-p7j" firstAttribute="leading" secondItem="S9D-B3-PqQ" secondAttribute="trailing" constant="-2" id="Orj-dB-PzT"/>
+                                            <constraint firstItem="x4h-ru-YGE" firstAttribute="height" secondItem="7At-L7-nbo" secondAttribute="height" id="PHt-HE-lob"/>
+                                            <constraint firstItem="tj2-Wd-PRE" firstAttribute="top" secondItem="IEd-Ga-O3o" secondAttribute="top" id="PlS-Pp-HPS"/>
+                                            <constraint firstItem="zOg-vt-P9d" firstAttribute="height" secondItem="IEd-Ga-O3o" secondAttribute="height" id="Q79-kp-r2k"/>
+                                            <constraint firstItem="olX-9O-EC1" firstAttribute="leading" secondItem="a0q-6e-PSn" secondAttribute="leading" id="Q8x-v9-Pay"/>
+                                            <constraint firstItem="U6l-tu-qF9" firstAttribute="top" secondItem="96J-pp-Upf" secondAttribute="bottom" constant="8" id="T9g-E4-cgI"/>
+                                            <constraint firstItem="tj2-Wd-PRE" firstAttribute="leading" secondItem="IEd-Ga-O3o" secondAttribute="trailing" constant="19" id="TTq-mb-jUN"/>
+                                            <constraint firstItem="aQi-U2-yDw" firstAttribute="top" secondItem="mr8-1q-ijj" secondAttribute="top" constant="35" id="U8k-1n-Lwk"/>
+                                            <constraint firstItem="Yb5-RM-Kfd" firstAttribute="width" secondItem="S9D-B3-PqQ" secondAttribute="width" id="UEO-LL-Xws"/>
+                                            <constraint firstItem="Gel-CT-b7B" firstAttribute="width" secondItem="tj2-Wd-PRE" secondAttribute="width" id="Vxa-FL-V62"/>
+                                            <constraint firstItem="100-3v-6RZ" firstAttribute="trailing" secondItem="Gel-CT-b7B" secondAttribute="trailing" id="W59-cP-qdo"/>
+                                            <constraint firstItem="JZ8-tf-p7j" firstAttribute="width" secondItem="S9D-B3-PqQ" secondAttribute="width" id="Wnb-kJ-SBq"/>
+                                            <constraint firstItem="x4h-ru-YGE" firstAttribute="width" secondItem="7At-L7-nbo" secondAttribute="width" id="XXa-hz-hfC"/>
+                                            <constraint firstItem="96J-pp-Upf" firstAttribute="width" secondItem="ZrV-nk-YQD" secondAttribute="width" id="Y4T-hI-uLX"/>
+                                            <constraint firstItem="Yb5-RM-Kfd" firstAttribute="trailing" secondItem="100-3v-6RZ" secondAttribute="trailing" id="YdP-tm-a7T"/>
+                                            <constraint firstItem="geA-OA-y6m" firstAttribute="top" secondItem="gk0-cj-5U6" secondAttribute="bottom" constant="8" id="a1f-zh-mFX"/>
+                                            <constraint firstItem="zOg-vt-P9d" firstAttribute="leading" secondItem="a0q-6e-PSn" secondAttribute="leading" id="ajE-nX-qaY"/>
+                                            <constraint firstItem="POf-fb-JPi" firstAttribute="width" secondItem="96J-pp-Upf" secondAttribute="width" id="akE-wJ-ZUN"/>
+                                            <constraint firstItem="POf-fb-JPi" firstAttribute="height" secondItem="96J-pp-Upf" secondAttribute="height" id="arS-Pr-ek5"/>
+                                            <constraint firstItem="rHR-1s-LJg" firstAttribute="baseline" secondItem="a0q-6e-PSn" secondAttribute="baseline" id="avK-2l-m3w"/>
+                                            <constraint firstItem="zOg-vt-P9d" firstAttribute="leading" secondItem="IEd-Ga-O3o" secondAttribute="leading" id="bwA-NU-611"/>
+                                            <constraint firstItem="geA-OA-y6m" firstAttribute="height" secondItem="zOg-vt-P9d" secondAttribute="height" id="bzz-f3-6gd"/>
+                                            <constraint firstItem="7At-L7-nbo" firstAttribute="leading" secondItem="ZrV-nk-YQD" secondAttribute="leading" id="c5g-pT-690"/>
+                                            <constraint firstItem="ZrV-nk-YQD" firstAttribute="top" secondItem="cAj-Jp-ULV" secondAttribute="bottom" constant="8" id="eQR-7q-ZpZ"/>
+                                            <constraint firstItem="ZrV-nk-YQD" firstAttribute="leading" secondItem="cAj-Jp-ULV" secondAttribute="leading" id="eU5-AS-JaQ"/>
+                                            <constraint firstItem="gk0-cj-5U6" firstAttribute="leading" secondItem="cAj-Jp-ULV" secondAttribute="leading" id="ehg-O8-KA6"/>
+                                            <constraint firstItem="tj2-Wd-PRE" firstAttribute="leading" secondItem="G92-ad-vCR" secondAttribute="leading" id="f3Z-9s-Cja"/>
+                                            <constraint firstItem="U6l-tu-qF9" firstAttribute="baseline" secondItem="gk0-cj-5U6" secondAttribute="baseline" id="f60-Xp-l1l"/>
+                                            <constraint firstItem="100-3v-6RZ" firstAttribute="height" secondItem="S9D-B3-PqQ" secondAttribute="height" id="gOI-Px-K1l"/>
+                                            <constraint firstItem="0lY-9x-s3B" firstAttribute="leading" secondItem="Gel-CT-b7B" secondAttribute="leading" id="ivI-Nj-Bdw"/>
+                                            <constraint firstItem="G3K-IA-qOc" firstAttribute="leading" secondItem="gk0-cj-5U6" secondAttribute="leading" id="jzo-fL-hlI"/>
+                                            <constraint firstItem="POf-fb-JPi" firstAttribute="leading" secondItem="96J-pp-Upf" secondAttribute="leading" id="mGd-Fa-PWK"/>
+                                            <constraint firstItem="100-3v-6RZ" firstAttribute="leading" secondItem="JZ8-tf-p7j" secondAttribute="trailing" constant="-2" id="mnD-1J-eGj"/>
+                                            <constraint firstItem="7At-L7-nbo" firstAttribute="width" secondItem="ZrV-nk-YQD" secondAttribute="width" id="nGx-fb-SIW"/>
+                                            <constraint firstItem="96J-pp-Upf" firstAttribute="top" secondItem="ZrV-nk-YQD" secondAttribute="top" id="nbe-dX-WLJ"/>
+                                            <constraint firstItem="Gel-CT-b7B" firstAttribute="height" secondItem="zOg-vt-P9d" secondAttribute="height" id="ouu-J7-EXR"/>
+                                            <constraint firstItem="Gel-CT-b7B" firstAttribute="top" secondItem="zOg-vt-P9d" secondAttribute="top" id="pnd-hs-UNP"/>
+                                            <constraint firstItem="100-3v-6RZ" firstAttribute="top" secondItem="S9D-B3-PqQ" secondAttribute="top" id="qzG-sX-BbJ"/>
+                                            <constraint firstItem="Gel-CT-b7B" firstAttribute="leading" secondItem="rHR-1s-LJg" secondAttribute="leading" id="rRz-2A-4FA"/>
+                                            <constraint firstItem="U6l-tu-qF9" firstAttribute="leading" secondItem="rHR-1s-LJg" secondAttribute="leading" id="rdr-O2-edA"/>
+                                            <constraint firstItem="G3K-IA-qOc" firstAttribute="top" secondItem="geA-OA-y6m" secondAttribute="bottom" constant="8" id="ska-I7-CDU"/>
+                                            <constraint firstItem="96J-pp-Upf" firstAttribute="height" secondItem="ZrV-nk-YQD" secondAttribute="height" id="ud8-6S-0fP"/>
+                                            <constraint firstItem="cAj-Jp-ULV" firstAttribute="top" secondItem="S9D-B3-PqQ" secondAttribute="bottom" constant="8" id="unn-dn-SFY"/>
+                                            <constraint firstItem="JZ8-tf-p7j" firstAttribute="top" secondItem="S9D-B3-PqQ" secondAttribute="top" id="vL2-di-SGD"/>
+                                            <constraint firstItem="100-3v-6RZ" firstAttribute="width" secondItem="S9D-B3-PqQ" secondAttribute="width" id="vVA-mZ-PTi"/>
+                                            <constraint firstItem="tj2-Wd-PRE" firstAttribute="width" secondItem="IEd-Ga-O3o" secondAttribute="width" id="vat-ad-ha6"/>
+                                            <constraint firstAttribute="trailing" secondItem="zdg-eM-aTU" secondAttribute="trailing" constant="35" id="wTd-A1-peB"/>
+                                            <constraint firstItem="Yb5-RM-Kfd" firstAttribute="height" secondItem="S9D-B3-PqQ" secondAttribute="height" id="x4B-LY-0Hp"/>
+                                            <constraint firstItem="x4h-ru-YGE" firstAttribute="bottom" secondItem="7At-L7-nbo" secondAttribute="bottom" id="xbc-xq-nQc"/>
+                                            <constraint firstItem="x4h-ru-YGE" firstAttribute="trailing" secondItem="POf-fb-JPi" secondAttribute="trailing" id="xuc-ib-zTK"/>
+                                            <constraint firstItem="7At-L7-nbo" firstAttribute="height" secondItem="ZrV-nk-YQD" secondAttribute="height" id="yf4-To-fcr"/>
+                                            <constraint firstItem="S9D-B3-PqQ" firstAttribute="top" secondItem="olX-9O-EC1" secondAttribute="bottom" constant="8" id="yqT-Y1-xo1"/>
+                                            <constraint firstItem="Yb5-RM-Kfd" firstAttribute="bottom" secondItem="S9D-B3-PqQ" secondAttribute="bottom" id="z9g-Pn-mnh"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="UEO-LL-Xws"/>
+                                                <exclude reference="XXa-hz-hfC"/>
+                                                <exclude reference="T9g-E4-cgI"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
                                 <animations/>
-                            </imageView>
+                                <constraints>
+                                    <constraint firstItem="mr8-1q-ijj" firstAttribute="top" secondItem="Toa-Gx-UMc" secondAttribute="top" id="6K6-2d-YPn"/>
+                                    <constraint firstAttribute="trailing" secondItem="mr8-1q-ijj" secondAttribute="trailing" id="96e-pP-PDs"/>
+                                    <constraint firstItem="mr8-1q-ijj" firstAttribute="leading" secondItem="Toa-Gx-UMc" secondAttribute="leading" id="Fhe-MP-0T7"/>
+                                    <constraint firstAttribute="bottom" secondItem="mr8-1q-ijj" secondAttribute="bottom" id="KHS-Bi-Yl7"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="NgC-ov-Ecb" id="NVG-Ge-wOF"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zHi-cK-QSE" firstAttribute="top" secondItem="7Zb-ip-O5m" secondAttribute="topMargin" id="Glt-tC-aq7"/>
-                            <constraint firstItem="zHi-cK-QSE" firstAttribute="leading" secondItem="7Zb-ip-O5m" secondAttribute="leadingMargin" constant="-20" id="Kp0-Iu-8zK"/>
-                            <constraint firstItem="aif-gX-m3T" firstAttribute="top" secondItem="zHi-cK-QSE" secondAttribute="bottom" id="L2x-kj-oDT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zHi-cK-QSE" secondAttribute="trailing" constant="-20" id="Ugt-La-eNz"/>
+                            <constraint firstItem="Toa-Gx-UMc" firstAttribute="leading" secondItem="7Zb-ip-O5m" secondAttribute="leading" id="4OW-lj-2QO"/>
+                            <constraint firstItem="Toa-Gx-UMc" firstAttribute="top" secondItem="7Zb-ip-O5m" secondAttribute="top" id="px4-lF-eBl"/>
+                            <constraint firstItem="mr8-1q-ijj" firstAttribute="width" secondItem="7Zb-ip-O5m" secondAttribute="width" id="sss-mC-IZ4"/>
+                            <constraint firstAttribute="trailing" secondItem="Toa-Gx-UMc" secondAttribute="trailing" id="vGA-uo-K65"/>
+                            <constraint firstItem="aif-gX-m3T" firstAttribute="top" secondItem="Toa-Gx-UMc" secondAttribute="bottom" id="vgC-wA-HmD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="Vb1-hC-4yQ">
@@ -273,10 +609,34 @@ Lactation Research Group</string>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="commentTextView" destination="zdg-eM-aTU" id="Uhz-bM-KpJ"/>
+                        <outlet property="endDateTextField" destination="tj2-Wd-PRE" id="gfy-4e-l1v"/>
+                        <outlet property="endTimeTextField" destination="Gel-CT-b7B" id="2rb-YY-cHg"/>
+                        <outlet property="sideOrSubtypeLabel" destination="x4h-ru-YGE" id="Sys-LQ-I5R"/>
+                        <outlet property="startDateTextField" destination="IEd-Ga-O3o" id="M5t-60-EOJ"/>
+                        <outlet property="startTimeTextField" destination="zOg-vt-P9d" id="amh-hG-f5x"/>
+                        <outlet property="typeLabel" destination="Yb5-RM-Kfd" id="185-XY-lJp"/>
+                        <outlet property="weightAfter" destination="0lY-9x-s3B" id="ZhK-sX-mzA"/>
+                        <outlet property="weightBefore" destination="geA-OA-y6m" id="iMC-b1-svI"/>
+                        <outletCollection property="textFieldCollection" destination="IEd-Ga-O3o" collectionClass="NSMutableArray" id="3KI-rn-5hm"/>
+                        <outletCollection property="textFieldCollection" destination="tj2-Wd-PRE" collectionClass="NSMutableArray" id="6KL-BX-Wae"/>
+                        <outletCollection property="textFieldCollection" destination="Gel-CT-b7B" collectionClass="NSMutableArray" id="PDZ-qE-nkD"/>
+                        <outletCollection property="textFieldCollection" destination="zOg-vt-P9d" collectionClass="NSMutableArray" id="wG0-jW-paA"/>
+                        <outletCollection property="textFieldCollection" destination="geA-OA-y6m" collectionClass="NSMutableArray" id="9y6-dp-l6a"/>
+                        <outletCollection property="textFieldCollection" destination="0lY-9x-s3B" collectionClass="NSMutableArray" id="zZl-Ba-wXO"/>
+                        <outletCollection property="buttonCollection" destination="7At-L7-nbo" collectionClass="NSMutableArray" id="xtq-Bz-wty"/>
+                        <outletCollection property="buttonCollection" destination="ZrV-nk-YQD" collectionClass="NSMutableArray" id="D1h-5I-Wru"/>
+                        <outletCollection property="buttonCollection" destination="JZ8-tf-p7j" collectionClass="NSMutableArray" id="hqA-N8-uhx"/>
+                        <outletCollection property="buttonCollection" destination="100-3v-6RZ" collectionClass="NSMutableArray" id="phE-Nq-WGb"/>
+                        <outletCollection property="buttonCollection" destination="POf-fb-JPi" collectionClass="NSMutableArray" id="U6V-nv-71l"/>
+                        <outletCollection property="buttonCollection" destination="S9D-B3-PqQ" collectionClass="NSMutableArray" id="gcI-nC-iJC"/>
+                        <outletCollection property="buttonCollection" destination="96J-pp-Upf" collectionClass="NSMutableArray" id="er2-Cg-hvt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5dG-2U-Kbw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2190.5" y="-584.5"/>
+            <point key="canvasLocation" x="2190" y="-585"/>
         </scene>
         <!--New Feed-->
         <scene sceneID="7bk-UZ-3OA">
@@ -305,7 +665,7 @@ Lactation Research Group</string>
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="breastUsedButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="DUd-ua-kG9"/>
+                                                    <action selector="breastUsedButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="YNh-37-Tf8"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WA6-FG-mnR">
@@ -320,7 +680,89 @@ Lactation Research Group</string>
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="breastUsedButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="2cX-gK-lGd"/>
+                                                    <action selector="breastUsedButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="970-rd-gN0"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCX-h6-uGd">
+                                                <rect key="frame" x="300" y="269" width="265" height="40"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Right">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="breastUsedButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="EQX-Io-A0V"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wz5-9e-kqL">
+                                                <rect key="frame" x="300" y="269" width="265" height="40"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Formula">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="breastUsedButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="php-l7-Crj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzd-H9-MS5">
+                                                <rect key="frame" x="211" y="195" width="178" height="40"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <inset key="contentEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
+                                                <state key="normal" title="Expression">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="typeButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="KkH-uM-Dkj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORP-VT-VzF">
+                                                <rect key="frame" x="387" y="195" width="178" height="40"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <inset key="contentEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
+                                                <state key="normal" title="Supplementary">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="typeButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="uO7-F9-aJZ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKy-gH-b0t">
+                                                <rect key="frame" x="35" y="195" width="178" height="40"/>
+                                                <animations/>
+                                                <accessibility key="accessibilityConfiguration" label="">
+                                                    <accessibilityTraits key="traits" button="YES"/>
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="X2A-2K-tLG"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <inset key="contentEdgeInsets" minX="1" minY="0.0" maxX="1" maxY="0.0"/>
+                                                <state key="normal" title="Breastfeed">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="typeButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="jKz-DC-lWz"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Js-Gt-8KH" userLabel="Delete">
+                                                <rect key="frame" x="35" y="627" width="530" height="40"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                                <state key="normal" title="Delete">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="deleteFeed:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="Kvf-FP-Fz9"/>
+                                                    <segue destination="hsk-ea-HQh" kind="presentation" identifier="deleteFeed" id="aU7-pp-kvR"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="End Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iun-8A-Ied">
@@ -332,6 +774,53 @@ Lactation Research Group</string>
                                                 <connections>
                                                     <action selector="dateEditing:" destination="NgC-ov-Ecb" eventType="editingDidBegin" id="LJI-yT-jz8"/>
                                                 </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="End Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="swp-U7-8Zc">
+                                                <rect key="frame" x="310" y="128" width="255" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="timeEditing:" destination="NgC-ov-Ecb" eventType="editingDidBegin" id="34l-Dv-0cS"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Start Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="En3-j4-31n">
+                                                <rect key="frame" x="35" y="128" width="256" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="timeEditing:" destination="NgC-ov-Ecb" eventType="editingDidBegin" id="2tt-jW-Ory"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="grams" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9oC-6e-KKQ">
+                                                <rect key="frame" x="35" y="343" width="256" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Start Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dvk-ko-Qx2">
+                                                <rect key="frame" x="35" y="61" width="256" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="jjE-9k-FaO"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="dateEditing:" destination="NgC-ov-Ecb" eventType="editingDidBegin" id="bQd-M3-hW3"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="grams" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HNL-Ot-Srt">
+                                                <rect key="frame" x="310" y="343" width="255" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="END DATE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7BK-V9-7EW">
                                                 <rect key="frame" x="310" y="35" width="73" height="18"/>
@@ -368,46 +857,6 @@ Lactation Research Group</string>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="End Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="swp-U7-8Zc">
-                                                <rect key="frame" x="310" y="128" width="255" height="30"/>
-                                                <animations/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <action selector="timeEditing:" destination="NgC-ov-Ecb" eventType="editingDidBegin" id="34l-Dv-0cS"/>
-                                                </connections>
-                                            </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Start Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="En3-j4-31n">
-                                                <rect key="frame" x="35" y="128" width="256" height="30"/>
-                                                <animations/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <action selector="timeEditing:" destination="NgC-ov-Ecb" eventType="editingDidBegin" id="2tt-jW-Ory"/>
-                                                </connections>
-                                            </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="kg" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9oC-6e-KKQ">
-                                                <rect key="frame" x="35" y="343" width="256" height="30"/>
-                                                <animations/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                            </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Start Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dvk-ko-Qx2">
-                                                <rect key="frame" x="35" y="61" width="256" height="30"/>
-                                                <animations/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="jjE-9k-FaO"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <action selector="dateEditing:" destination="NgC-ov-Ecb" eventType="editingDidBegin" id="bQd-M3-hW3"/>
-                                                </connections>
-                                            </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BREAST" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJm-lW-47x">
                                                 <rect key="frame" x="35" y="243" width="58" height="18"/>
                                                 <animations/>
@@ -415,19 +864,6 @@ Lactation Research Group</string>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzd-H9-MS5">
-                                                <rect key="frame" x="211" y="195" width="178" height="40"/>
-                                                <animations/>
-                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
-                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <inset key="contentEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
-                                                <state key="normal" title="Expressed">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="typeButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="KkH-uM-Dkj"/>
-                                                </connections>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMENTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDh-H2-Zak">
                                                 <rect key="frame" x="35" y="381" width="72" height="18"/>
                                                 <animations/>
@@ -442,19 +878,6 @@ Lactation Research Group</string>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORP-VT-VzF">
-                                                <rect key="frame" x="387" y="195" width="178" height="40"/>
-                                                <animations/>
-                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
-                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <inset key="contentEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
-                                                <state key="normal" title="Supplementary">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="typeButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="uO7-F9-aJZ"/>
-                                                </connections>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="START TIME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDf-ar-AbM">
                                                 <rect key="frame" x="35" y="102" width="84" height="18"/>
                                                 <animations/>
@@ -462,25 +885,6 @@ Lactation Research Group</string>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="kg" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HNL-Ot-Srt">
-                                                <rect key="frame" x="310" y="343" width="255" height="30"/>
-                                                <animations/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCX-h6-uGd">
-                                                <rect key="frame" x="300" y="269" width="265" height="40"/>
-                                                <animations/>
-                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
-                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <state key="normal" title="Right">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="breastUsedButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="YsI-qN-Bp5"/>
-                                                </connections>
-                                            </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MfB-xW-0fe">
                                                 <rect key="frame" x="35" y="407" width="530" height="120"/>
                                                 <animations/>
@@ -490,38 +894,6 @@ Lactation Research Group</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKy-gH-b0t">
-                                                <rect key="frame" x="35" y="195" width="178" height="40"/>
-                                                <animations/>
-                                                <accessibility key="accessibilityConfiguration" label="">
-                                                    <accessibilityTraits key="traits" button="YES"/>
-                                                    <bool key="isElement" value="NO"/>
-                                                </accessibility>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="X2A-2K-tLG"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
-                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <inset key="contentEdgeInsets" minX="1" minY="0.0" maxX="1" maxY="0.0"/>
-                                                <state key="normal" title="Breastfeed">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="typeButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="jKz-DC-lWz"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wz5-9e-kqL">
-                                                <rect key="frame" x="300" y="269" width="265" height="40"/>
-                                                <animations/>
-                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
-                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <state key="normal" title="Formula">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="breastUsedButtonSelected:" destination="NgC-ov-Ecb" eventType="touchUpInside" id="Wd8-Vf-4iC"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -540,6 +912,7 @@ Lactation Research Group</string>
                                             <constraint firstItem="Lzd-H9-MS5" firstAttribute="leading" secondItem="bKy-gH-b0t" secondAttribute="trailing" constant="-2" id="8vC-0i-ApJ"/>
                                             <constraint firstItem="1Pt-xi-SSP" firstAttribute="baseline" secondItem="lDf-ar-AbM" secondAttribute="baseline" id="95b-IH-3Pi"/>
                                             <constraint firstItem="1Pt-xi-SSP" firstAttribute="top" secondItem="iun-8A-Ied" secondAttribute="bottom" constant="11" id="ALp-yt-Fpj"/>
+                                            <constraint firstItem="1Js-Gt-8KH" firstAttribute="width" secondItem="GEr-rb-krA" secondAttribute="width" id="BfV-DW-6h3"/>
                                             <constraint firstAttribute="bottom" secondItem="MfB-xW-0fe" secondAttribute="bottom" constant="250" id="CTo-x0-iFG"/>
                                             <constraint firstItem="Wz5-9e-kqL" firstAttribute="top" secondItem="WA6-FG-mnR" secondAttribute="top" id="Gc6-XI-nRu"/>
                                             <constraint firstItem="tiT-nr-s9A" firstAttribute="height" secondItem="WA6-FG-mnR" secondAttribute="height" id="HoJ-3g-Pwc"/>
@@ -561,6 +934,7 @@ Lactation Research Group</string>
                                             <constraint firstItem="iun-8A-Ied" firstAttribute="leading" secondItem="7BK-V9-7EW" secondAttribute="leading" id="Y4b-HT-9jq"/>
                                             <constraint firstItem="HNL-Ot-Srt" firstAttribute="height" secondItem="swp-U7-8Zc" secondAttribute="height" id="YYR-XB-hLk"/>
                                             <constraint firstItem="bKy-gH-b0t" firstAttribute="top" secondItem="Tf7-wY-gcU" secondAttribute="bottom" constant="8" id="a5s-gd-R2S"/>
+                                            <constraint firstItem="1Js-Gt-8KH" firstAttribute="centerX" secondItem="GEr-rb-krA" secondAttribute="centerX" id="aa5-c2-GEO"/>
                                             <constraint firstItem="En3-j4-31n" firstAttribute="trailing" secondItem="Dvk-ko-Qx2" secondAttribute="trailing" id="ak1-OB-PwS"/>
                                             <constraint firstItem="vJm-lW-47x" firstAttribute="leading" secondItem="bKy-gH-b0t" secondAttribute="leading" id="bVa-N0-hNq"/>
                                             <constraint firstItem="7BK-V9-7EW" firstAttribute="baseline" secondItem="fGE-4x-s29" secondAttribute="baseline" id="bmX-w8-JEI"/>
@@ -577,6 +951,8 @@ Lactation Research Group</string>
                                             <constraint firstItem="Dvk-ko-Qx2" firstAttribute="leading" secondItem="fGE-4x-s29" secondAttribute="leading" id="gfO-Bw-eyE"/>
                                             <constraint firstItem="iun-8A-Ied" firstAttribute="width" secondItem="Dvk-ko-Qx2" secondAttribute="width" id="ggP-oq-7Mc"/>
                                             <constraint firstItem="Wz5-9e-kqL" firstAttribute="leading" secondItem="WA6-FG-mnR" secondAttribute="trailing" id="i06-Ub-Xyu"/>
+                                            <constraint firstItem="1Js-Gt-8KH" firstAttribute="top" secondItem="MfB-xW-0fe" secondAttribute="bottom" constant="100" id="i8c-3g-rcg"/>
+                                            <constraint firstItem="1Js-Gt-8KH" firstAttribute="trailing" secondItem="MfB-xW-0fe" secondAttribute="trailing" id="iT4-96-TS9"/>
                                             <constraint firstItem="En3-j4-31n" firstAttribute="top" secondItem="lDf-ar-AbM" secondAttribute="bottom" constant="8" id="iTo-eJ-ivh"/>
                                             <constraint firstItem="iun-8A-Ied" firstAttribute="leading" secondItem="Dvk-ko-Qx2" secondAttribute="trailing" constant="19" id="imB-Cx-0n3"/>
                                             <constraint firstItem="Dvk-ko-Qx2" firstAttribute="leading" secondItem="GEr-rb-krA" secondAttribute="leading" constant="35" id="ixs-gm-Jkr"/>
@@ -592,6 +968,8 @@ Lactation Research Group</string>
                                             <constraint firstItem="HNL-Ot-Srt" firstAttribute="leading" secondItem="swp-U7-8Zc" secondAttribute="leading" id="rij-3w-Ds4"/>
                                             <constraint firstItem="lDf-ar-AbM" firstAttribute="top" secondItem="Dvk-ko-Qx2" secondAttribute="bottom" constant="11" id="ser-aL-bjS"/>
                                             <constraint firstItem="En3-j4-31n" firstAttribute="height" secondItem="Dvk-ko-Qx2" secondAttribute="height" id="sl4-02-GA5"/>
+                                            <constraint firstItem="1Js-Gt-8KH" firstAttribute="leading" secondItem="MfB-xW-0fe" secondAttribute="leading" id="t1V-Ss-4iC"/>
+                                            <constraint firstItem="1Js-Gt-8KH" firstAttribute="height" secondItem="tiT-nr-s9A" secondAttribute="height" id="t7E-Az-5W4"/>
                                             <constraint firstItem="jDh-H2-Zak" firstAttribute="top" secondItem="9oC-6e-KKQ" secondAttribute="bottom" constant="8" id="vBs-xW-E6E"/>
                                             <constraint firstItem="9oC-6e-KKQ" firstAttribute="leading" secondItem="En3-j4-31n" secondAttribute="leading" id="wo7-Bg-5hK"/>
                                             <constraint firstItem="ORP-VT-VzF" firstAttribute="height" secondItem="bKy-gH-b0t" secondAttribute="height" id="zLh-ZC-gDq"/>
@@ -603,6 +981,7 @@ Lactation Research Group</string>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="d2a-2n-qdW"/>
+                                                <exclude reference="BfV-DW-6h3"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -644,6 +1023,8 @@ Lactation Research Group</string>
                     <connections>
                         <outlet property="breastLabel" destination="vJm-lW-47x" id="P0g-5X-MqA"/>
                         <outlet property="breastfeedTypeButton" destination="bKy-gH-b0t" id="Yd4-2H-Kgv"/>
+                        <outlet property="commentTextView" destination="MfB-xW-0fe" id="0Ch-Lx-qkE"/>
+                        <outlet property="deleteButton" destination="1Js-Gt-8KH" id="UbF-EQ-ndg"/>
                         <outlet property="endDateTextField" destination="iun-8A-Ied" id="Vow-41-XrB"/>
                         <outlet property="endTimeTextField" destination="swp-U7-8Zc" id="iX2-ge-9RM"/>
                         <outlet property="expressedButton" destination="Lzd-H9-MS5" id="Xdo-u8-JSv"/>
@@ -655,6 +1036,8 @@ Lactation Research Group</string>
                         <outlet property="startDateTextField" destination="Dvk-ko-Qx2" id="LhK-4T-2mf"/>
                         <outlet property="startTimeTextField" destination="En3-j4-31n" id="k7D-Mw-OCT"/>
                         <outlet property="supplementaryButton" destination="ORP-VT-VzF" id="Qrb-ho-Nyj"/>
+                        <outlet property="weightAfter" destination="HNL-Ot-Srt" id="9K8-H3-wxf"/>
+                        <outlet property="weightBefore" destination="9oC-6e-KKQ" id="yWb-q4-HGZ"/>
                         <outletCollection property="typeButtons" destination="Lzd-H9-MS5" collectionClass="NSMutableArray" id="v7n-UA-b6q"/>
                         <outletCollection property="typeButtons" destination="ORP-VT-VzF" collectionClass="NSMutableArray" id="imk-cI-iPQ"/>
                         <outletCollection property="typeButtons" destination="bKy-gH-b0t" collectionClass="NSMutableArray" id="ke0-SD-xxG"/>
@@ -662,11 +1045,24 @@ Lactation Research Group</string>
                         <outletCollection property="breastOrSupButtons" destination="RCX-h6-uGd" collectionClass="NSMutableArray" id="Li6-us-eyc"/>
                         <outletCollection property="breastOrSupButtons" destination="tiT-nr-s9A" collectionClass="NSMutableArray" id="0VS-bz-6Lj"/>
                         <outletCollection property="breastOrSupButtons" destination="WA6-FG-mnR" collectionClass="NSMutableArray" id="dXJ-X0-hkz"/>
+                        <outletCollection property="textFieldCollection" destination="Dvk-ko-Qx2" collectionClass="NSMutableArray" id="1Ps-Lk-VTz"/>
+                        <outletCollection property="textFieldCollection" destination="iun-8A-Ied" collectionClass="NSMutableArray" id="CWr-1e-jw1"/>
+                        <outletCollection property="textFieldCollection" destination="swp-U7-8Zc" collectionClass="NSMutableArray" id="xVG-vB-DLs"/>
+                        <outletCollection property="textFieldCollection" destination="En3-j4-31n" collectionClass="NSMutableArray" id="LzL-nb-dRg"/>
+                        <outletCollection property="textFieldCollection" destination="9oC-6e-KKQ" collectionClass="NSMutableArray" id="DGh-Vo-ac5"/>
+                        <outletCollection property="textFieldCollection" destination="HNL-Ot-Srt" collectionClass="NSMutableArray" id="G1G-iq-eZi"/>
+                        <outletCollection property="buttonCollection" destination="bKy-gH-b0t" collectionClass="NSMutableArray" id="oV3-vE-Mbr"/>
+                        <outletCollection property="buttonCollection" destination="Lzd-H9-MS5" collectionClass="NSMutableArray" id="8Co-d3-pBS"/>
+                        <outletCollection property="buttonCollection" destination="ORP-VT-VzF" collectionClass="NSMutableArray" id="erh-PE-iXo"/>
+                        <outletCollection property="buttonCollection" destination="WA6-FG-mnR" collectionClass="NSMutableArray" id="rgx-S0-HCo"/>
+                        <outletCollection property="buttonCollection" destination="Wz5-9e-kqL" collectionClass="NSMutableArray" id="snt-Yg-qdU"/>
+                        <outletCollection property="buttonCollection" destination="tiT-nr-s9A" collectionClass="NSMutableArray" id="4S6-K5-ECM"/>
+                        <outletCollection property="buttonCollection" destination="RCX-h6-uGd" collectionClass="NSMutableArray" id="ByY-rd-Mym"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="et7-iZ-tSC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2876.5" y="666.5"/>
+            <point key="canvasLocation" x="2876" y="666"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AnY-0D-gtF">
@@ -691,7 +1087,7 @@ Lactation Research Group</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NMb-IA-Rk2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="202.5" y="-584.5"/>
+            <point key="canvasLocation" x="226" y="-585"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gcu-6R-yD7">
