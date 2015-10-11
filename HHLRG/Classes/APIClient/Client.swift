@@ -8,6 +8,17 @@
 
 import Foundation
 
+enum Time {
+    case Days(Int)
+    
+    var seconds: NSTimeInterval {
+        switch self {
+        case let .Days(days):
+            return NSTimeInterval(days) * 24.0 * 60.0 * 60.0;
+        }
+    }
+}
+
 struct Credential {
     let username: String
     let password: String
@@ -39,7 +50,7 @@ struct Feed {
             return nil
         }
         
-        var identifier: Character {
+        var identifier: String {
             switch self {
             case .Breastfeed:
                 return "B"
@@ -68,7 +79,7 @@ struct Feed {
             return nil
         }
         
-        var identifier: Character {
+        var identifier: String {
             switch self {
             case .Left:
                 return "L"
@@ -95,7 +106,7 @@ struct Feed {
             return nil
         }
         
-        var identifier: Character {
+        var identifier: String {
             switch self {
             case .Expressed:
                 return "E"
@@ -107,17 +118,104 @@ struct Feed {
     
     struct Sample {
         var identifier: Int?
-        var weight: Int
+        var weight: Int?
         var date: NSDate?
+        
+        func serialize(dateFormatter: NSDateFormatter) -> NSDictionary
+        {
+            let f = NSMutableDictionary()
+            
+            if let w = weight {
+                f.setObject(w, forKey: "weight")
+            }
+            if let id = identifier {
+                f.setObject(id, forKey: "SID")
+            }
+            if let d = date {
+                f.setObject(dateFormatter.stringFromDate(d), forKey: "date")
+            }
+            
+            return NSDictionary(dictionary: f)
+        }
     }
+    
+    private(set) var new = true
     
     var type: FeedType!
     var subtype: Subtype!
     var side: Side!
     var comment: String!
     
-    var before: Sample! = Sample(identifier: nil, weight: 0, date: nil)
-    var after: Sample! = Sample(identifier: nil, weight: 0, date: nil)
+    var before: Sample! = Sample(identifier: nil, weight: nil, date: nil)
+    var after: Sample! = Sample(identifier: nil, weight: nil, date: nil)
+    
+    func validate() -> ValidationError?
+    {
+        if type == nil {
+            return ValidationError.Error("The feed type cannot be empty")
+        }
+        
+        if type == .Supplementary && subtype == nil {
+            return ValidationError.Error("The supplementary type cannot be empty")
+        } else if side == nil {
+            return ValidationError.Error("The breast side cannot be empty")
+        }
+        
+        if before.date == nil {
+            return ValidationError.Error("The start date and time cannot be empty")
+        }
+        if after.date == nil {
+            return ValidationError.Error("The end date and time cannot be empty")
+        }
+        if before.date?.compare(after.date!) != NSComparisonResult.OrderedAscending {
+            return ValidationError.Error("The end date and time must occur after the start date and time")
+        }
+        
+        if before.weight == nil {
+            return ValidationError.Error("The weight before cannot be empty")
+        }
+        if after.weight == nil {
+            return ValidationError.Error("The weight after cannot be empty")
+        }
+        
+        return nil
+    }
+    
+    func serialize(dateFormatter: NSDateFormatter) -> NSDictionary
+    {
+        let f = NSMutableDictionary()
+        
+        f.setObject(type.identifier, forKey: "type")
+        if type == FeedType.Supplementary {
+            f.setObject(subtype.identifier, forKey: "subtype")
+        } else {
+            f.setObject(side.identifier, forKey: "side")
+        }
+        
+        f.setObject(comment ?? "", forKey: "comment")
+        
+        f.setObject(before.serialize(dateFormatter), forKey: "before")
+        f.setObject(after.serialize(dateFormatter), forKey: "after")
+        
+        return NSDictionary(dictionary: f)
+    }
+}
+
+struct ValidationError {
+    enum Level {
+        case Warning
+        case Error
+    }
+    
+    let level: Level
+    let message: String
+    
+    static func Warning(message: String) -> ValidationError {
+        return ValidationError(level: .Warning, message: message)
+    }
+    static func Error(message: String) -> ValidationError {
+        return ValidationError(level: .Error, message: message)
+    }
 }
 
 class Client {
@@ -131,7 +229,11 @@ class Client {
     private let dateFormatter = NSDateFormatter()
     
     private(set) var feeds: [Feed]
-    var credential: Credential?
+    var credential: Credential? {
+        willSet {
+            feeds = []
+        }
+    }
     
     init(baseURL: NSURL) {
         self.baseURL = baseURL
@@ -140,10 +242,31 @@ class Client {
         self.session = NSURLSession(configuration: configuration)
         
         self.dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        self.dateFormatter.timeZone = NSTimeZone.localTimeZone()
-        self.dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZ"
+//        self.dateFormatter.timeZone = NSTimeZone(abbreviation: "UTC")
+        self.dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
         
         self.feeds = []
+    }
+    
+    func validateFeed(feed: Feed) -> ValidationError? {
+        if let message = feed.validate() {
+            return message
+        }
+        
+        var allFeeds = feeds
+        allFeeds.append(feed)
+        
+        let sortedFeeds = allFeeds.sort({ $0.before.date?.compare($1.before.date!) == NSComparisonResult.OrderedAscending })
+        let minDate = sortedFeeds.first?.before.date
+        let maxDate = sortedFeeds.last?.after.date
+        
+        if let min = minDate, max = maxDate {
+            if max.timeIntervalSinceDate(min) > Time.Days(1).seconds {
+                return ValidationError.Warning("The total time span for the feeds would be greater than 24 hours")
+            }
+        }
+        
+        return nil
     }
     
     func fetchUserInfo(completionHandler: (UserInfo?, NSError?) -> Void)
@@ -159,12 +282,12 @@ class Client {
         }
     }
     
-    func fetchFeeds(completionHandler: ([Feed]?, NSError?) -> Void)
+    func fetchFeeds(completionHandler: ([Feed], NSError?) -> Void)
     {
         let req = request("get_feeds")
         dataTaskWithRequest(req) { (responseObject, error) -> Void in
-            var feeds: [Feed]? = nil
-            if let response = responseObject as! NSDictionary? {
+            var feeds: [Feed] = []
+            if let response = responseObject as? NSDictionary {
                 let feedDicts = response.objectForKey("feeds") as? [NSDictionary]
                 feeds = feedDicts?.map({ (dict: NSDictionary) -> Feed in
                     var beforeSample: Feed.Sample? = nil
@@ -187,14 +310,53 @@ class Client {
                     let side = Feed.Side.fromString(dict["side"] as? String)
                     let comment = dict["comment"] as? String
                     
-                    return Feed(type: type, subtype: subtype, side: side, comment: comment, before: beforeSample, after: afterSample)
-                }).sort({ $0.before.date?.compare($1.before.date!) == NSComparisonResult.OrderedAscending })
+                    return Feed(new: false, type: type, subtype: subtype, side: side, comment: comment, before: beforeSample, after: afterSample)
+                }).filter({ $0.comment.localizedCaseInsensitiveContainsString("delete") == false }).sort({ $0.before.date?.compare($1.before.date!) == NSComparisonResult.OrderedAscending }) ?? []
                 
-                if let f = feeds {
-                    self.feeds = f
-                }
+                self.feeds = feeds
             }
             completionHandler(feeds, error)
+        }
+    }
+    
+    func createOrUpdateFeed(feed: Feed, completionHandler: ([Feed], NSError?) -> Void)
+    {
+        if feed.new {
+            createFeed(feed, completionHandler: completionHandler)
+        } else {
+            updateFeed(feed, completionHandler: completionHandler)
+        }
+    }
+    
+    func createFeed(feed: Feed, completionHandler: ([Feed], NSError?) -> Void)
+    {
+        let feedDict = feed.serialize(dateFormatter)
+        let feedDicts = [feedDict]
+        let params = ["feeds" : feedDicts]
+        
+        let req = request("add_feeds", parameters: params)
+        dataTaskWithRequest(req) { (responseObject, error) -> Void in
+            if error == nil {
+                self.fetchFeeds(completionHandler)
+            } else {
+                completionHandler([], error)
+            }
+        }
+    }
+    
+    func updateFeed(feed: Feed, completionHandler: ([Feed], NSError?) -> Void)
+    {
+        let feedDict = feed.serialize(dateFormatter)
+        let feedDicts = [feedDict]
+        let params = ["feeds" : feedDicts]
+        
+        let req = request("edit_feeds", parameters: params)
+        dataTaskWithRequest(req) { (responseObject, error) -> Void in
+            if error == nil {
+                self.fetchFeeds(completionHandler)
+            } else {
+                completionHandler([], error)
+            }
         }
     }
     

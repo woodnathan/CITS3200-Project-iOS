@@ -14,22 +14,21 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-    private let client = Client(baseURL: Client.DevelopmentBaseURL)
-    private var feeds: [Feed] = []
+    private let client = Client(baseURL: Client.ProductionBaseURL)
     private let dateFormatter: NSDateFormatter = NSDateFormatter()
     
     
     @IBOutlet var feedsTable: UITableView!
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return feeds.count
+        return client.feeds.count
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("feedCell") as UITableViewCell!
         
-        let feed = feeds[indexPath.row]
+        let feed = client.feeds[indexPath.row]
         cell.textLabel?.text = dateFormatter.stringFromDate(feed.before.date!)
         cell.detailTextLabel?.text = dateFormatter.stringFromDate(feed.after.date!)
         
@@ -65,7 +64,6 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBAction func logout(sender: AnyObject?) {
         deleteCredential()
         
-        feeds = []
         feedsTable.reloadData()
     }
     
@@ -86,19 +84,20 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.feedsTable.reloadData()
+        
         if client.credential != nil {
             saveCredential()
             
             client.fetchFeeds({ (feeds, error) -> Void in
-                if let f = feeds {
-                    self.feeds = f
-                    self.feedsTable.reloadData()
-                } else if let e = error {
+                if let e = error {
                     let alert = UIAlertController(title: "Error Fetching Feeds",
                         message: e.localizedDescription,
                         preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
+                } else {
+                    self.feedsTable.reloadData()
                 }
             })
         }
@@ -112,7 +111,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         } else if segue.identifier == "showDetail" {
             if let detailViewController = segue.destinationViewController as? DetailViewController {
                 detailViewController.client = self.client
-                detailViewController.feed = self.feeds[self.feedsTable.indexPathForSelectedRow!.row]
+                detailViewController.feed = client.feeds[self.feedsTable.indexPathForSelectedRow!.row]
             }
         } else if segue.identifier == "addFeed" {
             if let navController = segue.destinationViewController as? UINavigationController {

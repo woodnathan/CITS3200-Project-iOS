@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, EntryViewControllerDelegate {
     
     var client: Client!
     var feed = Feed()
@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
         if segue.identifier == "editFeed" {
             if let navController = segue.destinationViewController as? UINavigationController {
                 if let entryViewController = navController.topViewController as? EntryViewController {
+                    entryViewController.delegate = self
                     entryViewController.client = self.client
                     entryViewController.feed = self.feed
                 }
@@ -25,48 +26,37 @@ class DetailViewController: UIViewController {
     }
     
     @IBOutlet var startDateTextField: UITextField!
-    
     @IBOutlet var endDateTextField: UITextField!
-    
     @IBOutlet var startTimeTextField: UITextField!
-    
     @IBOutlet var endTimeTextField: UITextField!
-    
     @IBOutlet var weightBefore: UITextField!
-    
     @IBOutlet var weightAfter: UITextField!
-    
     @IBOutlet var textFieldCollection: [UITextField]!
-    
     @IBOutlet var buttonCollection: [UIButton]!
-    
     @IBOutlet var commentTextView: UITextView!
-    
     @IBOutlet var sideOrSubtypeLabel: UILabel!
-    
     @IBOutlet var typeLabel: UILabel!
     
     private let dateFormatter = NSDateFormatter()
     private let timeFormatter = NSDateFormatter()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        dateFormatter.dateStyle = .ShortStyle
-        timeFormatter.timeStyle = .ShortStyle
-        
+    func updateFields() {
         if let date = feed.before.date {
             startDateTextField.text = dateFormatter.stringFromDate(date)
             startTimeTextField.text = timeFormatter.stringFromDate(date)
-            weightBefore.text = String(feed.before.weight)
         }
         if let date = feed.after.date {
             endDateTextField.text = dateFormatter.stringFromDate(date)
             endTimeTextField.text = timeFormatter.stringFromDate(date)
-            weightAfter.text = String(feed.after.weight)
         }
-
+        
+        if let weight = feed.before.weight {
+            weightBefore.text = String(weight)
+        }
+        if let weight = feed.after.weight {
+            weightAfter.text = String(weight)
+        }
+        
         commentTextView.text = feed.comment
         typeLabel.text = String(feed.type)
         
@@ -75,6 +65,15 @@ class DetailViewController: UIViewController {
         } else if let subtype = feed.subtype {
             sideOrSubtypeLabel.text = String(subtype)
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        dateFormatter.dateStyle = .ShortStyle
+        timeFormatter.timeStyle = .ShortStyle
+        
+        updateFields()
         
         
         for textFields in textFieldCollection{
@@ -99,10 +98,18 @@ class DetailViewController: UIViewController {
 //            
 //            buttons.titleLabel?.adjustsFontSizeToFitWidth = true
 //            
+//        }
             buttons.hidden = true
-//
         }
         
         commentTextView.userInteractionEnabled = false
+    }
+    
+    func didDeleteFeed(entryViewController: EntryViewController, feed: Feed) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func didCreateOrUpdateFeed(entryViewController: EntryViewController, feed: Feed) {
+        updateFields()
     }
 }

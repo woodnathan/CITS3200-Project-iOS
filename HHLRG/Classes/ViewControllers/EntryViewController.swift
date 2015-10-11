@@ -1,4 +1,4 @@
-//
+
 //  EntryViewController.swift
 //  HHLRG
 //
@@ -10,7 +10,14 @@ import UIKit
 
 let borderColor = UIColor(red: 141/255, green: 217/255, blue: 179/255, alpha: 1)
 
-class EntryViewController: UIViewController {
+protocol EntryViewControllerDelegate: class {
+    func didCreateOrUpdateFeed(entryViewController: EntryViewController, feed: Feed)
+    func didDeleteFeed(entryViewController: EntryViewController, feed: Feed)
+}
+
+class EntryViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+    
+    weak var delegate: EntryViewControllerDelegate?
     
     var client: Client!
     var feed = Feed()
@@ -36,6 +43,7 @@ class EntryViewController: UIViewController {
     @IBOutlet var deleteButton: UIButton!
 
     @IBOutlet var scroller: UIScrollView!
+    @IBOutlet var contentView: UIView!
     @IBOutlet var commentTextView: UITextView!
     
     private let dateFormatter = NSDateFormatter()
@@ -45,6 +53,8 @@ class EntryViewController: UIViewController {
     @IBOutlet var typeButtons: [UIButton]!
     @IBOutlet var textFieldCollection: [UITextField]!
     @IBOutlet var buttonCollection: [UIButton]!
+    
+    @IBOutlet var scrollViewBottomLayoutConstaint: NSLayoutConstraint!
     
     /*editing start/end DATE text fields*/
     
@@ -79,47 +89,103 @@ class EntryViewController: UIViewController {
     
     
     /*change DATE/TIME text field value*/
-    func handleDatePicker(sender:UIDatePicker){
+    func handleDatePicker(sender:UIDatePicker) {
+        let date = sender.date
         
-        let dateFormatter = NSDateFormatter()
+        let isBefore = (selectedTextField == startDateTextField || selectedTextField == startTimeTextField)
+        let isDateField = (selectedTextField == startDateTextField || selectedTextField == endDateTextField)
         
-        if selectedTextField == startDateTextField || selectedTextField == endDateTextField
-        {
-            dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-            dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+        let dateUnitFlags: NSCalendarUnit = [ .Year, .Month, .Day ]
+        let timeUnitFlags: NSCalendarUnit = [ .Hour, .Minute ]
+        
+        let calendar = NSCalendar.currentCalendar()
+        let feedDate = isBefore ? feed.before.date : feed.after.date
+        let components = feedDate != nil ? calendar.components(dateUnitFlags.union(timeUnitFlags), fromDate: feedDate!) : NSDateComponents()
+        
+        if isDateField {
+            selectedTextField.text = dateFormatter.stringFromDate(date)
+            
+            let newComponents = calendar.components(dateUnitFlags, fromDate: date)
+            components.year = newComponents.year
+            components.month = newComponents.month
+            components.day = newComponents.day
+        } else {
+            selectedTextField.text = timeFormatter.stringFromDate(date)
+            
+            let newComponents = calendar.components(timeUnitFlags, fromDate: date)
+            components.hour = newComponents.hour
+            components.minute = newComponents.minute
         }
-        else
-        {
-            dateFormatter.dateStyle = NSDateFormatterStyle.NoStyle
-            dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        
+        if let newDate = calendar.dateFromComponents(components) {
+            if isBefore {
+                feed.before.date = newDate
+            } else {
+                feed.after.date = newDate
+            }
         }
-        selectedTextField.text = dateFormatter.stringFromDate(sender.date)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-            expressedSupButton.hidden = true
-            //expressedSupButton.enabled = false
-            
-            formulaSupButton.hidden = true
-            //formulaSupButton.enabled = false
-            
-            dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-            timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-            
-            if let date = feed.before.date {
-                startDateTextField.text = dateFormatter.stringFromDate(date)
-                startTimeTextField.text = timeFormatter.stringFromDate(date)
-                weightBefore.text = String(feed.before.weight)
-                
+        
+        
+        expressedSupButton.hidden = true
+        expressedSupButton.enabled = false
+        
+        formulaSupButton.hidden = true
+        formulaSupButton.enabled = false
+        
+        if let date = feed.before.date {
+            startDateTextField.text = dateFormatter.stringFromDate(date)
+            startTimeTextField.text = timeFormatter.stringFromDate(date)
+        }
+        if let date = feed.after.date {
+            endDateTextField.text = dateFormatter.stringFromDate(date)
+            endTimeTextField.text = timeFormatter.stringFromDate(date)
+        }
+        
+        if let type = feed.type {
+            switch type {
+            case .Breastfeed:
+                typeButtonSelected(breastfeedTypeButton)
+                break;
+            case .Expression:
+                typeButtonSelected(expressedButton)
+                break;
+            case .Supplementary:
+                typeButtonSelected(supplementaryButton)
+                break;
             }
-            if let date = feed.after.date {
-                endDateTextField.text = dateFormatter.stringFromDate(date)
-                endTimeTextField.text = timeFormatter.stringFromDate(date)
-                weightAfter.text = String(feed.after.weight)
-
-            }
+        }
+        
+        expressedSupButton.hidden = true
+        //expressedSupButton.enabled = false
+        
+        formulaSupButton.hidden = true
+        //formulaSupButton.enabled = false
+        
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        
+        if let date = feed.before.date {
+            startDateTextField.text = dateFormatter.stringFromDate(date)
+            startTimeTextField.text = timeFormatter.stringFromDate(date)
+        }
+        if let date = feed.after.date {
+            endDateTextField.text = dateFormatter.stringFromDate(date)
+            endTimeTextField.text = timeFormatter.stringFromDate(date)
+        }
+        
+        if let weight = feed.before.weight {
+            weightBefore.text = String(weight)
+        }
+        if let weight = feed.after.weight {
+            weightAfter.text = String(weight)
+        }
+        
+//        for textField in textFieldCollection {
             
             commentTextView.text = feed.comment
 
@@ -162,12 +228,17 @@ class EntryViewController: UIViewController {
                 button.titleLabel?.adjustsFontSizeToFitWidth = true
             }
         
-        deleteButton.hidden = true
-        if feed.before.date != nil {
-            deleteButton.hidden = false
-            deleteButton.layer.backgroundColor = borderColor.CGColor
-        }
+        deleteButton.layer.backgroundColor = borderColor.CGColor
+        deleteButton.hidden = feed.new
+        
+        registerForKeyboardNotifications()
     }
+    
+    deinit {
+        unregisterFromKeyboardNotifications()
+    }
+    
+    
     
     
     let selectedColor = UIColor(red: 49/255, green: 91/255, blue: 131/255, alpha: 1)
@@ -177,10 +248,24 @@ class EntryViewController: UIViewController {
         
         for button in typeButtons {
             
-            if button == sender && button.selected == false {
+            if button == sender {
                 button.selected = true
                 button.layer.backgroundColor = selectedColor.CGColor
                 button.titleLabel?.textColor = UIColor.whiteColor()
+                
+                switch button {
+                case breastfeedTypeButton:
+                    feed.type = Feed.FeedType.Breastfeed
+                    break
+                case expressedButton:
+                    feed.type = Feed.FeedType.Expression
+                    break
+                case supplementaryButton:
+                    feed.type = Feed.FeedType.Supplementary
+                    break
+                default:
+                    break
+                }
                 
             } else {
                 button.selected = false
@@ -212,22 +297,67 @@ class EntryViewController: UIViewController {
     @IBAction func breastUsedButtonSelected(sender: UIButton) {
         
         for button in breastOrSupButtons {
-            if button == sender && button.selected == false {
+            if button == sender {
                 button.selected = true
                 button.layer.backgroundColor = selectedColor.CGColor
                 button.titleLabel?.textColor = UIColor.whiteColor()
-            }
-            else {
+                
+                switch button {
+                case leftUsedButton:
+                    feed.side = Feed.Side.Left
+                    break
+                case rightUsedButton:
+                    feed.side = Feed.Side.Right
+                    break
+                case expressedSupButton:
+                    feed.subtype = Feed.Subtype.Expressed
+                    break
+                case formulaSupButton:
+                    feed.subtype = Feed.Subtype.Formula
+                    break
+                default:
+                    break
+                }
+                
+                
+            } else {
+                
                 button.selected = false
                 button.layer.backgroundColor = UIColor.clearColor().CGColor
                 button.titleLabel?.textColor = UIColor.blackColor()
             }
         }
     }
+    
+    @IBAction func beforeWeightChanged(sender: AnyObject?) {
+        if let weight = weightBefore.text {
+            feed.before.weight = Int(weight)
+        }
+    }
+    @IBAction func afterWeightChanged(sender: AnyObject?) {
+        if let weight = weightAfter.text {
+            feed.after.weight = Int(weight)
+        }
+    }
    
     @IBAction func deleteFeed(sender: AnyObject) {
-        commentTextView.text = "Deleted"
-        feed.comment = "Deleted"
+        
+        let confirm = UIAlertController(title: nil, message: "Are you sure you want to delete this feed?", preferredStyle: .ActionSheet)
+        confirm.addAction(UIAlertAction(title: "Delete Feed", style: .Destructive, handler: { (action) -> Void in
+            self.feed.comment = "delete"
+            
+            self.client.updateFeed(self.feed) { (feeds, error) -> Void in
+                if error == nil {
+                    self.delegate?.didDeleteFeed(self, feed: self.feed)
+                    confirm.dismissViewControllerAnimated(true, completion: nil)
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
+            }
+        }))
+        
+        confirm.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        
+        self.presentViewController(confirm, animated: true, completion: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -238,11 +368,46 @@ class EntryViewController: UIViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func doneAction(sender: AnyObject?) {
+        self.view.endEditing(false)
+        
+        let createOrUpdate = {
+            self.client.createOrUpdateFeed(self.feed) { (feeds, error) -> Void in
+                if let e = error {
+                    let alert = UIAlertController(title: "Error",
+                        message: e.localizedDescription,
+                        preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                } else {
+                    self.delegate?.didCreateOrUpdateFeed(self, feed: self.feed)
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
+            }
+        }
+        
+        if let validationError = client.validateFeed(feed) {
+            let alert = UIAlertController(title: nil,
+                message: validationError.message,
+                preferredStyle: UIAlertControllerStyle.Alert)
+            
+            switch validationError.level {
+            case .Error:
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+                break
+            case .Warning:
+                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+                    createOrUpdate()
+                }))
+                break
+            }
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        } else {
+            createOrUpdate()
+        }
     }
-    
     
   
     //toggle keyboard
@@ -256,30 +421,48 @@ class EntryViewController: UIViewController {
         return true
     }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        let textFieldFrame = contentView.convertRect(textField.frame, toView: scroller)
+        scroller.scrollRectToVisible(textFieldFrame, animated: true)
+    }
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        let textViewFrame = contentView.convertRect(textView.frame, toView: scroller)
+        scroller.scrollRectToVisible(textViewFrame, animated: true)
+    }
     
     func registerForKeyboardNotifications()
     {
         //Adding notifies on keyboard appearing
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillBeHidden:", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillChangeFrame:"), name: UIKeyboardWillChangeFrameNotification, object: nil)
     }
     
     
-    func deregisterFromKeyboardNotifications()
+    func unregisterFromKeyboardNotifications()
     {
         //Removing notifies on keyboard appearing
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillChangeFrameNotification, object: nil)
     }
-
-//
-//    func keyboardWasShown(notification: NSNotification) {
-//        var info = notification.userInfo!
-//        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-//        
-//        UIView.animateWithDuration(0.1, animations: { () -> Void in
-//            self.bottomConstraint.constant = keyboardFrame.size.height + 20
-//        })
-//    }
+    
+    @IBAction func cancelAction(sender: AnyObject?)
+    {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func keyboardWillChangeFrame(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            if let frameInfo = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue, durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber {
+                let keyboardFrame = self.view.convertRect(frameInfo.CGRectValue(), fromView: nil)
+                let duration = durationValue.doubleValue as NSTimeInterval
+                
+                let keyboardHeight = self.view.frame.height - keyboardFrame.origin.y
+                
+                self.scrollViewBottomLayoutConstaint.constant = keyboardHeight
+                UIView.animateWithDuration(duration, animations: { () -> Void in
+                    self.view.layoutIfNeeded()
+                })
+            }
+        }
+    }
     
 }

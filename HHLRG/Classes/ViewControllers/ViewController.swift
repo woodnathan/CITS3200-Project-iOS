@@ -41,10 +41,11 @@ class ViewController: UIViewController {
                 let alert = UIAlertController(title: "Login Error",
                                               message: error!.localizedDescription,
                                               preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
             } else if userInfo?.collectingSamples == false {
                 // Should probably do something when userInfo.collectingSamples is false
+                self.dismissViewControllerAnimated(true, completion: nil)
             } else {
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
