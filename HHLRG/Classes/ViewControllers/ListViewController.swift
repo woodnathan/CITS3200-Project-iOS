@@ -12,10 +12,12 @@ import UIKit
 //var feeds = [(String,String)]()
 
 
-class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, LoginViewControllerDelegate {
     
-    private let client = Client(baseURL: Client.ProductionBaseURL)
+    private let client = Client(baseURL: Client.DevelopmentBaseURL)
+    private let fullDateFormatter: NSDateFormatter = NSDateFormatter()
     private let dateFormatter: NSDateFormatter = NSDateFormatter()
+    private let timeFormatter: NSDateFormatter = NSDateFormatter()
     
     
     @IBOutlet var feedsTable: UITableView!
@@ -29,8 +31,27 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCellWithIdentifier("feedCell") as UITableViewCell!
         
         let feed = client.feeds[indexPath.row]
-        cell.textLabel?.text = dateFormatter.stringFromDate(feed.before.date!)
-        cell.detailTextLabel?.text = dateFormatter.stringFromDate(feed.after.date!)
+        
+        if let beforeDate = feed.before.date, afterDate = feed.after.date {
+            let calendar = NSCalendar.currentCalendar()
+            calendar.timeZone = NSTimeZone(abbreviation: "UTC")!
+            
+            let beforeComps = calendar.components([ .Year, .Month, .Day ], fromDate: beforeDate)
+            let afterComps = calendar.components([ .Year, .Month, .Day ], fromDate: afterDate)
+            
+            // Is the dates are different days (ie. crossover midnight)
+            if beforeComps.isEqual(afterComps) {
+                let dateString = dateFormatter.stringFromDate(beforeDate)
+                let beforeTime = timeFormatter.stringFromDate(beforeDate)
+                let afterTime = timeFormatter.stringFromDate(afterDate)
+                
+                cell.textLabel?.text = dateString
+                cell.detailTextLabel?.text = "\(beforeTime) - \(afterTime)"
+            } else {
+                cell.textLabel?.text = fullDateFormatter.stringFromDate(beforeDate)
+                cell.detailTextLabel?.text = fullDateFormatter.stringFromDate(afterDate)
+            }
+        }
         
         return cell
         
@@ -70,13 +91,19 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dateFormatter.dateStyle = .ShortStyle;
-        dateFormatter.timeStyle = .ShortStyle;
+        fullDateFormatter.dateStyle = .MediumStyle;
+        fullDateFormatter.timeStyle = .ShortStyle;
+        dateFormatter.dateStyle = .MediumStyle;
+        dateFormatter.timeStyle = .NoStyle;
+        timeFormatter.dateStyle = .NoStyle;
+        timeFormatter.timeStyle = .ShortStyle;
         
         restoreCredential()
         dispatch_async(dispatch_get_main_queue(), {
             if self.client.credential == nil {
                 self.performSegueWithIdentifier("showLogin", sender: self)
+            } else {
+                self.reload()
             }
         })
     }
@@ -85,27 +112,34 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewWillAppear(animated)
         
         self.feedsTable.reloadData()
-        
+    }
+    
+    private func reload() {
+        client.fetchFeeds({ (feeds, error) -> Void in
+            if let e = error {
+                let alert = UIAlertController(title: "Error Fetching Feeds",
+                    message: e.localizedDescription,
+                    preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            } else {
+                self.feedsTable.reloadData()
+            }
+        })
+    }
+    
+    func didLogin(viewController: ViewController) {
         if client.credential != nil {
             saveCredential()
             
-            client.fetchFeeds({ (feeds, error) -> Void in
-                if let e = error {
-                    let alert = UIAlertController(title: "Error Fetching Feeds",
-                        message: e.localizedDescription,
-                        preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                } else {
-                    self.feedsTable.reloadData()
-                }
-            })
+            reload()
         }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showLogin" {
             if let loginViewController = segue.destinationViewController as? ViewController {
+                loginViewController.delegate = self
                 loginViewController.client = self.client
             }
         } else if segue.identifier == "showDetail" {

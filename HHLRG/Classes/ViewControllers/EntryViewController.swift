@@ -99,6 +99,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate, UITextViewDele
         let timeUnitFlags: NSCalendarUnit = [ .Hour, .Minute ]
         
         let calendar = NSCalendar.currentCalendar()
+        
         let feedDate = isBefore ? feed.before.date : feed.after.date
         let components = feedDate != nil ? calendar.components(dateUnitFlags.union(timeUnitFlags), fromDate: feedDate!) : NSDateComponents()
         
@@ -132,19 +133,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate, UITextViewDele
         
         
         expressedSupButton.hidden = true
-        expressedSupButton.enabled = false
-        
         formulaSupButton.hidden = true
-        formulaSupButton.enabled = false
-        
-        if let date = feed.before.date {
-            startDateTextField.text = dateFormatter.stringFromDate(date)
-            startTimeTextField.text = timeFormatter.stringFromDate(date)
-        }
-        if let date = feed.after.date {
-            endDateTextField.text = dateFormatter.stringFromDate(date)
-            endTimeTextField.text = timeFormatter.stringFromDate(date)
-        }
         
         if let type = feed.type {
             switch type {
@@ -160,13 +149,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate, UITextViewDele
             }
         }
         
-        expressedSupButton.hidden = true
-        //expressedSupButton.enabled = false
-        
-        formulaSupButton.hidden = true
-        //formulaSupButton.enabled = false
-        
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
         timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
         if let date = feed.before.date {

@@ -227,6 +227,7 @@ class Client {
     let baseURL: NSURL
     private let session: NSURLSession
     private let dateFormatter = NSDateFormatter()
+    private let serializeDateFormatter = NSDateFormatter()
     
     private(set) var feeds: [Feed]
     var credential: Credential? {
@@ -241,11 +242,14 @@ class Client {
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
         self.session = NSURLSession(configuration: configuration)
         
-        self.dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-//        self.dateFormatter.timeZone = NSTimeZone(abbreviation: "UTC")
-        self.dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
         
-        self.feeds = []
+        serializeDateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        serializeDateFormatter.timeZone = NSTimeZone.localTimeZone()//(abbreviation: "UTC")
+        serializeDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        
+        feeds = []
     }
     
     func validateFeed(feed: Feed) -> ValidationError? {
@@ -330,7 +334,7 @@ class Client {
     
     func createFeed(feed: Feed, completionHandler: ([Feed], NSError?) -> Void)
     {
-        let feedDict = feed.serialize(dateFormatter)
+        let feedDict = feed.serialize(serializeDateFormatter)
         let feedDicts = [feedDict]
         let params = ["feeds" : feedDicts]
         
@@ -346,7 +350,7 @@ class Client {
     
     func updateFeed(feed: Feed, completionHandler: ([Feed], NSError?) -> Void)
     {
-        let feedDict = feed.serialize(dateFormatter)
+        let feedDict = feed.serialize(serializeDateFormatter)
         let feedDicts = [feedDict]
         let params = ["feeds" : feedDicts]
         

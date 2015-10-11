@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol LoginViewControllerDelegate: class {
+    func didLogin(viewController: ViewController)
+}
+
 class ViewController: UIViewController {
+    
+    weak var delegate: LoginViewControllerDelegate?
     
     var client: Client!
     
@@ -43,10 +49,11 @@ class ViewController: UIViewController {
                                               preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
-            } else if userInfo?.collectingSamples == false {
-                // Should probably do something when userInfo.collectingSamples is false
-                self.dismissViewControllerAnimated(true, completion: nil)
+            //} else if userInfo?.collectingSamples == false {
+            //    // Should probably do something when userInfo.collectingSamples is false
+            ///    self.dismissViewControllerAnimated(true, completion: nil)
             } else {
+                self.delegate?.didLogin(self)
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
         }

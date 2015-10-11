@@ -70,7 +70,7 @@ class DetailViewController: UIViewController, EntryViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dateFormatter.dateStyle = .ShortStyle
+        dateFormatter.dateStyle = .MediumStyle
         timeFormatter.timeStyle = .ShortStyle
         
         updateFields()
