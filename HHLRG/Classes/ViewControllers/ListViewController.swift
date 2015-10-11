@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 
 //var feeds = [(String,String)]()
@@ -115,7 +116,13 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     private func reload() {
+        let hud = JGProgressHUD(style: .Dark)
+        hud.textLabel.text = "Loading"
+        hud.showInView(self.view)
+        
         client.fetchFeeds({ (feeds, error) -> Void in
+            hud.dismissAnimated(true)
+            
             if let e = error {
                 let alert = UIAlertController(title: "Error Fetching Feeds",
                     message: e.localizedDescription,

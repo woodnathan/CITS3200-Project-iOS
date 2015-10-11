@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 let borderColor = UIColor(red: 141/255, green: 217/255, blue: 179/255, alpha: 1)
 
@@ -54,7 +55,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate, UITextViewDele
     @IBOutlet var textFieldCollection: [UITextField]!
     @IBOutlet var buttonCollection: [UIButton]!
     
-    @IBOutlet var scrollViewBottomLayoutConstaint: NSLayoutConstraint!
+    @IBOutlet weak var scrollViewBottomLayoutConstaint: NSLayoutConstraint!
     
     /*editing start/end DATE text fields*/
     
@@ -355,7 +356,13 @@ class EntryViewController: UIViewController, UITextFieldDelegate, UITextViewDele
         self.view.endEditing(false)
         
         let createOrUpdate = {
+            let hud = JGProgressHUD(style: .Dark)
+            hud.textLabel.text = "Loading"
+            hud.showInView(self.view)
+            
             self.client.createOrUpdateFeed(self.feed) { (feeds, error) -> Void in
+                hud.dismissAnimated(true)
+                
                 if let e = error {
                     let alert = UIAlertController(title: "Error",
                         message: e.localizedDescription,
@@ -438,9 +445,9 @@ class EntryViewController: UIViewController, UITextFieldDelegate, UITextViewDele
                 let keyboardFrame = self.view.convertRect(frameInfo.CGRectValue(), fromView: nil)
                 let duration = durationValue.doubleValue as NSTimeInterval
                 
-                let keyboardHeight = self.view.frame.height - keyboardFrame.origin.y
+                let keyboardHeight = CGRectGetMaxY(self.view.bounds) - CGRectGetMinY(keyboardFrame)
                 
-                self.scrollViewBottomLayoutConstaint.constant = keyboardHeight
+                self.scrollViewBottomLayoutConstaint.constant = (keyboardFrame.origin.y < 0.0) ? 0.0 : keyboardHeight
                 UIView.animateWithDuration(duration, animations: { () -> Void in
                     self.view.layoutIfNeeded()
                 })

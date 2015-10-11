@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 protocol LoginViewControllerDelegate: class {
     func didLogin(viewController: ViewController)
@@ -42,7 +43,13 @@ class ViewController: UIViewController {
         
         client.credential = Credential(username: username, password: password)
         
+        let hud = JGProgressHUD(style: .Dark)
+        hud.textLabel.text = "Loading"
+        hud.showInView(self.view)
+        
         client.fetchUserInfo { (userInfo, error) -> Void in
+            hud.dismissAnimated(true)
+            
             if error != nil {
                 let alert = UIAlertController(title: "Login Error",
                                               message: error!.localizedDescription,
