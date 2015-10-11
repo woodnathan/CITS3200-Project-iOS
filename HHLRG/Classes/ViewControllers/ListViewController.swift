@@ -30,8 +30,38 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCellWithIdentifier("feedCell") as UITableViewCell!
         
         let feed = feeds[indexPath.row]
-        cell.textLabel?.text = dateFormatter.stringFromDate(feed.before.date!)
-        cell.detailTextLabel?.text = dateFormatter.stringFromDate(feed.after.date!)
+        
+        let calendar = NSCalendar.currentCalendar()
+        let beforeComponents = calendar.components([.Month, .Day, .Year, .Hour, .Minute], fromDate: feed.before.date!)
+        let afterComponents = calendar.components([.Month, .Day, .Year, .Hour, .Minute], fromDate: feed.after.date!)
+        let months = ["January","Febuary","March","April","June","July","August","September","October","November","December"]
+        
+        cell.textLabel?.text = String(beforeComponents.day) + " " + months[beforeComponents.month] + " " + String(beforeComponents.year)
+        
+        var afterisAM = true
+        var afterHour:Int
+        var beforeisAM = true
+        var beforeHour:Int
+        
+        if afterComponents.hour > 12 {
+            afterHour = afterComponents.hour - 12
+            afterisAM = false
+        } else {
+            afterHour = afterComponents.hour
+        }
+        if beforeComponents.hour > 12 {
+            beforeHour = beforeComponents.hour - 12
+            beforeisAM = false
+        } else {
+            beforeHour = beforeComponents.hour
+        }
+        
+        var afterAMPMText = "AM"
+        if !afterisAM { afterAMPMText = "PM"}
+        var beforeAMPMText = "AM"
+        if !beforeisAM { beforeAMPMText = "PM"}
+        
+        cell.detailTextLabel?.text = String(beforeHour)+":"+String(format: "%02d",beforeComponents.minute) + " " + beforeAMPMText + " - " + String(afterHour)+":"+String(format: "%02d",afterComponents.minute) + " " + afterAMPMText
         
         return cell
         
