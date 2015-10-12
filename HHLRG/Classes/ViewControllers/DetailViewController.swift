@@ -110,6 +110,7 @@ class DetailViewController: UIViewController, EntryViewControllerDelegate {
     }
     
     func didCreateOrUpdateFeed(entryViewController: EntryViewController, feed: Feed) {
+        self.feed = feed
         updateFields()
     }
 }
