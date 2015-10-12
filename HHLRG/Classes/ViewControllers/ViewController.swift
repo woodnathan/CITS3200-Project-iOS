@@ -27,8 +27,28 @@ class ViewController: UIViewController {
    
     @IBOutlet var passwordTextField: UITextField!
     
+    @IBOutlet var closeAboutButton: UIButton!
+    
+    @IBOutlet var aboutView: UIView!
+    
+    @IBAction func closeAbout(sender: AnyObject) {
+        aboutView.hidden = true
+        closeAboutButton.hidden = true
+    }
+    
+    
+    @IBAction func showAbout(sender: AnyObject) {
+        aboutView.hidden = false
+        closeAboutButton.hidden = false
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        aboutView.hidden = true
+        closeAboutButton.hidden = true
         
         loginButton.layer.cornerRadius = 15
         

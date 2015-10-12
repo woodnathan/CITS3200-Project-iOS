@@ -27,6 +27,8 @@
         </mutableArray>
         <mutableArray key="Montserrat-Regular.otf">
             <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
         </mutableArray>
         <mutableArray key="Montserrat-SemiBold.otf">
             <string>Montserrat-SemiBold</string>
@@ -114,6 +116,9 @@ Lactation Research Group</string>
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="showAbout:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vpv-wk-ExC"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="USERNAME" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UN1-Hw-suH">
                                 <rect key="frame" x="38" y="177" width="524" height="40"/>
@@ -125,6 +130,76 @@ Lactation Research Group</string>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o8f-ki-Crh" userLabel="aboutView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="m2s-iv-IdF">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <animations/>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MGK-Jr-ekf" userLabel="aboutText">
+                                        <rect key="frame" x="0.0" y="83" width="600" height="517"/>
+                                        <animations/>
+                                        <mutableString key="text">Collecting milk production data
+
+Method of collecting data:
+
+Start the first recorded breastfeed at any convenient time. Note that the baby feeding from one breast constitutes one feed. If the baby feeds from the other breast immediately afterwards, this is a separate feed.
+Place scales on an even surface. Turn scales on and wait for scales to zero.
+Leave baby in normal clothes. For each feed, once the ‘before weight’ is recorded ensure the clothing, including nappy, is not changed until the ‘after weight’ is also completed.
+Using Scales:
+
+Breastfeeding
+
+First breastfeed
+Place baby on the scales. The reading will lock when the baby is still for a moment.
+The online table will automatically display the current date and time. Click the Breastfeed radio button, choose Left or Right breast, and then enter the weight.
+Once the baby has finished feeding from this breast, place the baby on the scales. When the reading locks, enter the weight. You may enter a comment if you wish, then click on "Submit".
+Subsequent breastfeeds
+
+Click on the Breastfeed radio button, and choose Left or Right breast. If this feed was immediately following a feed from the other breast, retype the last weight. Otherwise, record the baby's current weight
+After the feed, reweigh the baby and click "Submit".
+Repeat this process for a 24 hour period plus one additional feed from each breast. There will be a popup alert once the 24 hour period with an additional feed is completed for each breast.
+Expressing
+
+Click on the Expressed radio button and then choose Left or Right breast. Weigh the empty bottle and enter the weight. After expressing weigh the bottle again and enter the weight.
+Supplementary Feeds
+
+Click on the Supplementary radio button and then choose E for Expressed breast milk or F for Formula. Weigh your baby and enter the weights as for a breastfeed.
+Notes
+
+If expressing during this 24 hour period, record the time the empty bottle and then the bottle with the expressed breast milk. As usual, the weight gain (quantity of milk) will be calculated automatically in the online table.</mutableString>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfD-iS-qAP">
+                                        <rect key="frame" x="537" y="45" width="55" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
+                                        <state key="normal" title="X Close">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeAbout:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="X8v-Wk-YTX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="m2s-iv-IdF" firstAttribute="centerX" secondItem="o8f-ki-Crh" secondAttribute="centerX" id="4KT-DK-4HT"/>
+                                    <constraint firstItem="MGK-Jr-ekf" firstAttribute="width" secondItem="o8f-ki-Crh" secondAttribute="width" id="5kI-RP-wkD"/>
+                                    <constraint firstItem="m2s-iv-IdF" firstAttribute="width" secondItem="o8f-ki-Crh" secondAttribute="width" id="Cwd-GA-iil"/>
+                                    <constraint firstItem="MGK-Jr-ekf" firstAttribute="centerY" secondItem="o8f-ki-Crh" secondAttribute="centerY" constant="41.5" id="MyQ-Cw-hyF"/>
+                                    <constraint firstItem="m2s-iv-IdF" firstAttribute="height" secondItem="o8f-ki-Crh" secondAttribute="height" id="Pwn-s5-jAA"/>
+                                    <constraint firstItem="MGK-Jr-ekf" firstAttribute="top" secondItem="YfD-iS-qAP" secondAttribute="bottom" constant="8" id="W6E-JK-Seg"/>
+                                    <constraint firstItem="MGK-Jr-ekf" firstAttribute="height" secondItem="o8f-ki-Crh" secondAttribute="height" constant="-83" id="bCt-w7-wgq"/>
+                                    <constraint firstAttribute="trailing" secondItem="YfD-iS-qAP" secondAttribute="trailing" constant="8" id="lB1-ZY-sg9"/>
+                                    <constraint firstItem="MGK-Jr-ekf" firstAttribute="centerX" secondItem="o8f-ki-Crh" secondAttribute="centerX" id="noB-6b-muL"/>
+                                    <constraint firstItem="m2s-iv-IdF" firstAttribute="centerY" secondItem="o8f-ki-Crh" secondAttribute="centerY" id="vfD-uY-vR6"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -141,15 +216,21 @@ Lactation Research Group</string>
                             <constraint firstItem="UN1-Hw-suH" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="38" id="KNc-mI-EJJ"/>
                             <constraint firstAttribute="bottom" secondItem="Ten-IN-l8j" secondAttribute="bottom" id="QUA-Mm-Xlx"/>
                             <constraint firstItem="WHj-er-kUP" firstAttribute="centerX" secondItem="UN1-Hw-suH" secondAttribute="centerX" id="SrP-kG-EHa"/>
+                            <constraint firstItem="o8f-ki-Crh" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="Ydt-Ik-CZj"/>
                             <constraint firstItem="WHj-er-kUP" firstAttribute="top" secondItem="UN1-Hw-suH" secondAttribute="bottom" constant="28" id="brT-Oc-XYV"/>
                             <constraint firstItem="xgW-hc-N9p" firstAttribute="centerX" secondItem="Btt-D1-NZI" secondAttribute="centerX" id="dXM-Zq-4kk"/>
                             <constraint firstItem="Z4n-J3-s8b" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="dl5-7m-Lay"/>
+                            <constraint firstItem="o8f-ki-Crh" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" id="eJv-jg-LKe"/>
                             <constraint firstItem="WHj-er-kUP" firstAttribute="width" secondItem="UN1-Hw-suH" secondAttribute="width" id="gba-h7-QsP"/>
                             <constraint firstAttribute="trailing" secondItem="UN1-Hw-suH" secondAttribute="trailing" constant="38" id="ji8-9e-Vja"/>
+                            <constraint firstItem="o8f-ki-Crh" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="jjr-87-hzW"/>
+                            <constraint firstItem="o8f-ki-Crh" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="psQ-43-nJV"/>
                             <constraint firstItem="WHj-er-kUP" firstAttribute="height" secondItem="UN1-Hw-suH" secondAttribute="height" id="wzu-8D-w5m"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aboutView" destination="o8f-ki-Crh" id="WVG-JE-IEi"/>
+                        <outlet property="closeAboutButton" destination="YfD-iS-qAP" id="atL-zS-K9O"/>
                         <outlet property="hhlrgLabel" destination="Z4n-J3-s8b" id="fHa-0t-xuX"/>
                         <outlet property="loginButton" destination="Btt-D1-NZI" id="pJc-FQ-8YL"/>
                         <outlet property="passwordTextField" destination="WHj-er-kUP" id="1wh-nh-vLX"/>
@@ -158,7 +239,7 @@ Lactation Research Group</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2190.5" y="-1592.5"/>
+            <point key="canvasLocation" x="2190" y="-1593"/>
         </scene>
         <!--Feeds-->
         <scene sceneID="3Xp-sz-kCO">
@@ -802,7 +883,7 @@ Lactation Research Group</string>
                                                 <animations/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
                                                     <action selector="beforeWeightChanged:" destination="NgC-ov-Ecb" eventType="editingChanged" id="T6j-uM-MeW"/>
                                                     <outlet property="delegate" destination="NgC-ov-Ecb" id="fmx-eb-vyS"/>
@@ -827,7 +908,7 @@ Lactation Research Group</string>
                                                 <animations/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
                                                     <action selector="afterWeightChanged:" destination="NgC-ov-Ecb" eventType="editingChanged" id="4Yz-LC-Po1"/>
                                                     <outlet property="delegate" destination="NgC-ov-Ecb" id="fXl-6o-d36"/>
