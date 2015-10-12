@@ -46,8 +46,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 let beforeTime = timeFormatter.stringFromDate(beforeDate)
                 let afterTime = timeFormatter.stringFromDate(afterDate)
                 
-                cell.textLabel?.text = dateString
-                cell.detailTextLabel?.text = "\(beforeTime) - \(afterTime)"
+                cell.textLabel?.text = "\(beforeTime) - \(afterTime)"
+                cell.detailTextLabel?.text = dateString
             } else {
                 cell.textLabel?.text = fullDateFormatter.stringFromDate(beforeDate)
                 cell.detailTextLabel?.text = fullDateFormatter.stringFromDate(afterDate)
