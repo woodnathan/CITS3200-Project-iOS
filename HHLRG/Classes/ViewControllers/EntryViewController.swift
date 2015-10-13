@@ -323,6 +323,11 @@ class EntryViewController: UIViewController, UITextFieldDelegate, UITextViewDele
             feed.after.weight = Int(weight)
         }
     }
+    
+    func textViewDidChange(textView: UITextView) {
+        feed.comment = String(commentTextView.text)
+    }
+
    
     @IBAction func deleteFeed(sender: AnyObject) {
         

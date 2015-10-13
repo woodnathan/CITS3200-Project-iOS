@@ -137,10 +137,10 @@ Lactation Research Group</string>
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <animations/>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MGK-Jr-ekf" userLabel="aboutText">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGK-Jr-ekf" userLabel="aboutText">
                                         <rect key="frame" x="0.0" y="83" width="600" height="517"/>
                                         <animations/>
-                                        <mutableString key="text">Collecting milk production data
+                                        <string key="text">Collecting milk production data
 
 Method of collecting data:
 
@@ -168,7 +168,7 @@ Supplementary Feeds
 Click on the Supplementary radio button and then choose E for Expressed breast milk or F for Formula. Weigh your baby and enter the weights as for a breastfeed.
 Notes
 
-If expressing during this 24 hour period, record the time the empty bottle and then the bottle with the expressed breast milk. As usual, the weight gain (quantity of milk) will be calculated automatically in the online table.</mutableString>
+If expressing during this 24 hour period, record the time the empty bottle and then the bottle with the expressed breast milk. As usual, the weight gain (quantity of milk) will be calculated automatically in the online table.</string>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
