@@ -184,6 +184,10 @@ struct Feed {
             return ValidationError.Error("The weight after cannot be empty")
         }
         
+        if after.weight <= before.weight {
+            return ValidationError.Warning("The weights entered indicate a weight loss")
+        }
+        
         if let before = before.date, after = after.date {
             let duration = after.timeIntervalSinceDate(before)
             if duration >= Time.Hours(1).seconds {
