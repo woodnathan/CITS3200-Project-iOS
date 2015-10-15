@@ -15,7 +15,7 @@ import JGProgressHUD
 
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, LoginViewControllerDelegate {
     
-    private let client = Client(baseURL: Client.DevelopmentBaseURL)
+    private let client = Client(baseURL: Client.ProductionBaseURL)
     private let fullDateFormatter: NSDateFormatter = NSDateFormatter()
     private let dateFormatter: NSDateFormatter = NSDateFormatter()
     private let timeFormatter: NSDateFormatter = NSDateFormatter()

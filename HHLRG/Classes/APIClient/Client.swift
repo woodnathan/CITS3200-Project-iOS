@@ -29,6 +29,7 @@ struct Credential {
 
 struct UserInfo {
     let collectingSamples: Bool
+    let acceptedConsentForm: Bool
 }
 
 struct Feed {
@@ -296,9 +297,10 @@ class Client {
         let req = request("user_info")
         dataTaskWithRequest(req) { (responseObject, error) -> Void in
             var userInfo: UserInfo? = nil
-            if let response = responseObject as! NSDictionary? {
-                let collectingSamples = response.objectForKey("user")?.objectForKey("collecting_samples") as? Bool ?? false
-                userInfo = UserInfo(collectingSamples: collectingSamples)
+            if let response = responseObject as! NSDictionary?, userDict = response.objectForKey("user") {
+                let collectingSamples = userDict.objectForKey("collecting_samples") as? Bool ?? false
+                let acceptedConsentForm = userDict.objectForKey("accepted_consent_form") as? Bool ?? false
+                userInfo = UserInfo(collectingSamples: collectingSamples, acceptedConsentForm: acceptedConsentForm)
             }
             completionHandler(userInfo, error)
         }

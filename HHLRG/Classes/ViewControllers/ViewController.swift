@@ -76,6 +76,13 @@ class ViewController: UIViewController {
                                               preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
+            } else if userInfo!.acceptedConsentForm == false {
+                let alert = UIAlertController(title: "Login Error",
+                    message: "You have not accepted the consent form. Please login to the website first and accept the form before logging in here.",
+                    preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+                
             //} else if userInfo?.collectingSamples == false {
             //    // Should probably do something when userInfo.collectingSamples is false
             ///    self.dismissViewControllerAnimated(true, completion: nil)
