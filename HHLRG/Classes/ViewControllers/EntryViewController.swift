@@ -381,10 +381,38 @@ class EntryViewController: UIViewController, UITextFieldDelegate, UITextViewDele
         }
     }
     
+    func handleValidationErrors(errors: [ ValidationError ], finally: () -> Void) {
+        if let validationError = errors.first {
+            var remainingErrors = errors
+            remainingErrors.removeFirst()
+            
+            let alert = UIAlertController(title: nil,
+                message: validationError.message,
+                preferredStyle: UIAlertControllerStyle.Alert)
+            
+            switch validationError.level {
+            case .Error:
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+                break
+            case .Warning:
+                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+                    self.handleValidationErrors(remainingErrors, finally: finally)
+                }))
+                break
+            }
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        } else {
+            finally()
+        }
+    }
+    
     @IBAction func doneAction(sender: AnyObject?) {
         self.view.endEditing(false)
         
-        let createOrUpdate = {
+        let validationErrors = client.validateFeed(feed)
+        handleValidationErrors(validationErrors) { () -> Void in
             let hud = JGProgressHUD(style: .Dark)
             hud.textLabel.text = "Loading"
             hud.showInView(self.view)
@@ -403,28 +431,6 @@ class EntryViewController: UIViewController, UITextFieldDelegate, UITextViewDele
                     self.dismissViewControllerAnimated(true, completion: nil)
                 }
             }
-        }
-        
-        if let validationError = client.validateFeed(feed) {
-            let alert = UIAlertController(title: nil,
-                message: validationError.message,
-                preferredStyle: UIAlertControllerStyle.Alert)
-            
-            switch validationError.level {
-            case .Error:
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
-                break
-            case .Warning:
-                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
-                alert.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
-                    createOrUpdate()
-                }))
-                break
-            }
-            
-            self.presentViewController(alert, animated: true, completion: nil)
-        } else {
-            createOrUpdate()
         }
     }
     

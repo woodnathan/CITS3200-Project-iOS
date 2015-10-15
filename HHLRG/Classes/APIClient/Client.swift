@@ -153,51 +153,62 @@ struct Feed {
     var before: Sample! = Sample(identifier: nil, weight: nil, date: nil)
     var after: Sample! = Sample(identifier: nil, weight: nil, date: nil)
     
-    func validate() -> ValidationError?
+    func validate() -> [ ValidationError ]
     {
-        if type == nil {
-            return ValidationError.Error("The feed type cannot be empty")
-        }
+        var errors: [ ValidationError ] = []
         
-        if type == .Supplementary {
-            if subtype == nil {
-                return ValidationError.Error("The supplementary type cannot be empty")
+        if type == nil {
+            errors.append(ValidationError.Error("The feed type cannot be empty"))
+        } else {
+            if type == .Supplementary {
+                if subtype == nil {
+                    errors.append(ValidationError.Error("The supplementary type cannot be empty"))
+                }
+            } else if side == nil {
+                errors.append(ValidationError.Error("The breast side cannot be empty"))
             }
-        } else if side == nil {
-            return ValidationError.Error("The breast side cannot be empty")
         }
         
         
         if before.date == nil {
-            return ValidationError.Error("The start date and time cannot be empty")
+            errors.append(ValidationError.Error("The start date and time cannot be empty"))
         }
         if after.date == nil {
-            return ValidationError.Error("The end date and time cannot be empty")
-        }
-        if before.date?.compare(after.date!) != NSComparisonResult.OrderedAscending {
-            return ValidationError.Error("The end date and time must occur after the start date and time")
+            errors.append(ValidationError.Error("The end date and time cannot be empty"))
         }
         
         if before.weight == nil {
-            return ValidationError.Error("The weight before cannot be empty")
+            errors.append(ValidationError.Error("The weight before cannot be empty"))
         }
         if after.weight == nil {
-            return ValidationError.Error("The weight after cannot be empty")
-        }
-        
-        if after.weight <= before.weight {
-            return ValidationError.Warning("The weights entered indicate a weight loss")
+            errors.append(ValidationError.Error("The weight after cannot be empty"))
         }
         
         if let before = before.date, after = after.date {
+            if before.compare(after) != NSComparisonResult.OrderedAscending {
+                errors.append(ValidationError.Error("The end date and time must occur after the start date and time"))
+            }
+            
             let duration = after.timeIntervalSinceDate(before)
             if duration >= Time.Hours(1).seconds {
                 let durationString = NSString(format: "%.f", (duration / 60.0))
-                return ValidationError.Warning("The duration of this feed is \(durationString) minutes")
+                errors.append(ValidationError.Warning("The duration of this feed is \(durationString) minutes"))
             }
         }
         
-        return nil
+        if let before = before.weight, after = after.weight {
+            if after <= before {
+                errors.append(ValidationError.Warning("The weights entered indicate a weight loss"))
+            }
+        }
+        
+        if let firstError = errors.first {
+            if firstError.level == .Error {
+                return [ firstError ]
+            }
+        }
+        
+        return errors
     }
     
     func serialize(dateFormatter: NSDateFormatter) -> NSDictionary
@@ -271,9 +282,14 @@ class Client {
         feeds = []
     }
     
-    func validateFeed(feed: Feed) -> ValidationError? {
-        if let message = feed.validate() {
-            return message
+    func validateFeed(feed: Feed) -> [ ValidationError ] {
+        var errors: [ ValidationError ] = []
+        
+        errors.appendContentsOf(feed.validate())
+        if let firstError = errors.first {
+            if firstError.level == .Error {
+                return [ firstError ]
+            }
         }
         
         var allFeeds = feeds
@@ -285,11 +301,11 @@ class Client {
         
         if let min = minDate, max = maxDate {
             if max.timeIntervalSinceDate(min) > Time.Days(1).seconds {
-                return ValidationError.Warning("The total time span for the feeds would be greater than 24 hours")
+                errors.append(ValidationError.Warning("The total time span for the feeds would be greater than 24 hours"))
             }
         }
         
-        return nil
+        return errors
     }
     
     func fetchUserInfo(completionHandler: (UserInfo?, NSError?) -> Void)
