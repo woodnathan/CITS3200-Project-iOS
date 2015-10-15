@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D83788171BCB7A2100468DD8 /* libJGProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B602D81BCA90BE00064CE5 /* libJGProgressHUD.a */; };
+		2024ABC11BCF5917009AAE9C /* libJGProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B602D81BCA90BE00064CE5 /* libJGProgressHUD.a */; };
 		D855751D1BB4DFBF00C1E6BC /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = D855751C1BB4DFBF00C1E6BC /* Client.swift */; settings = {ASSET_TAGS = (); }; };
 		D855751F1BB4EE2000C1E6BC /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D855751E1BB4EE2000C1E6BC /* ClientError.swift */; settings = {ASSET_TAGS = (); }; };
 		D8B231851BA43BCE00767E61 /* HLRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B2317C1BA43BCE00767E61 /* HLRAppDelegate.m */; };
@@ -96,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D83788171BCB7A2100468DD8 /* libJGProgressHUD.a in Frameworks */,
+				2024ABC11BCF5917009AAE9C /* libJGProgressHUD.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

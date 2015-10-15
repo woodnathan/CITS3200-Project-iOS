@@ -13,13 +13,6 @@
             <string>DroidSans</string>
             <string>DroidSans</string>
             <string>DroidSans</string>
-            <string>DroidSans</string>
-            <string>DroidSans</string>
-            <string>DroidSans</string>
-            <string>DroidSans</string>
-            <string>DroidSans</string>
-            <string>DroidSans</string>
-            <string>DroidSans</string>
         </mutableArray>
         <mutableArray key="DroidSerif-Regular.ttf">
             <string>DroidSerif</string>
@@ -356,82 +349,6 @@ If expressing during this 24 hour period, record the time the empty bottle and t
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mr8-1q-ijj">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="777"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7At-L7-nbo">
-                                                <rect key="frame" x="35" y="269" width="265" height="40"/>
-                                                <animations/>
-                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
-                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <state key="normal" title="Left">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZrV-nk-YQD">
-                                                <rect key="frame" x="35" y="269" width="265" height="40"/>
-                                                <animations/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="t3m-vM-XFy"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
-                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <state key="normal" title="Expressed">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZ8-tf-p7j">
-                                                <rect key="frame" x="211" y="195" width="178" height="40"/>
-                                                <animations/>
-                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
-                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <inset key="contentEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
-                                                <state key="normal" title="Expression">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="100-3v-6RZ">
-                                                <rect key="frame" x="387" y="195" width="178" height="40"/>
-                                                <animations/>
-                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
-                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <inset key="contentEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
-                                                <state key="normal" title="Supplementary">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POf-fb-JPi">
-                                                <rect key="frame" x="300" y="269" width="265" height="40"/>
-                                                <animations/>
-                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
-                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <state key="normal" title="Right">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S9D-B3-PqQ">
-                                                <rect key="frame" x="35" y="195" width="178" height="40"/>
-                                                <animations/>
-                                                <accessibility key="accessibilityConfiguration" label="">
-                                                    <accessibilityTraits key="traits" button="YES"/>
-                                                    <bool key="isElement" value="NO"/>
-                                                </accessibility>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="56L-XH-jaZ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
-                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <inset key="contentEdgeInsets" minX="1" minY="0.0" maxX="1" maxY="0.0"/>
-                                                <state key="normal" title="Breastfeed">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="96J-pp-Upf">
-                                                <rect key="frame" x="300" y="269" width="265" height="40"/>
-                                                <animations/>
-                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
-                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <state key="normal" title="Formula">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                            </button>
                                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tj2-Wd-PRE">
                                                 <rect key="frame" x="310" y="61" width="255" height="30"/>
                                                 <animations/>
@@ -543,6 +460,9 @@ If expressing during this 24 hour period, record the time the empty bottle and t
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4h-ru-YGE" userLabel="SideOrSubtype">
                                                 <rect key="frame" x="35" y="269" width="530" height="40"/>
                                                 <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="tZE-Gq-Pdx"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -550,6 +470,9 @@ If expressing during this 24 hour period, record the time the empty bottle and t
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yb5-RM-Kfd" userLabel="Type">
                                                 <rect key="frame" x="35" y="195" width="530" height="40"/>
                                                 <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="XpV-xL-5xb"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -568,25 +491,19 @@ If expressing during this 24 hour period, record the time the empty bottle and t
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="0lY-9x-s3B" firstAttribute="width" secondItem="Gel-CT-b7B" secondAttribute="width" id="04E-Ol-jZj"/>
-                                            <constraint firstItem="96J-pp-Upf" firstAttribute="leading" secondItem="ZrV-nk-YQD" secondAttribute="trailing" id="1A0-hL-umt"/>
-                                            <constraint firstItem="gk0-cj-5U6" firstAttribute="top" secondItem="ZrV-nk-YQD" secondAttribute="bottom" constant="8" id="4gr-hQ-dS5"/>
+                                            <constraint firstItem="Yb5-RM-Kfd" firstAttribute="trailing" secondItem="Gel-CT-b7B" secondAttribute="trailing" id="3Zn-UL-5XQ"/>
                                             <constraint firstItem="a0q-6e-PSn" firstAttribute="top" secondItem="IEd-Ga-O3o" secondAttribute="bottom" constant="11" id="5MC-qt-RT0"/>
-                                            <constraint firstItem="JZ8-tf-p7j" firstAttribute="height" secondItem="S9D-B3-PqQ" secondAttribute="height" id="5im-au-8Cb"/>
-                                            <constraint firstItem="cAj-Jp-ULV" firstAttribute="leading" secondItem="S9D-B3-PqQ" secondAttribute="leading" id="625-qx-hAL"/>
+                                            <constraint firstItem="x4h-ru-YGE" firstAttribute="leading" secondItem="zOg-vt-P9d" secondAttribute="leading" id="5wd-e1-Emi"/>
                                             <constraint firstItem="0lY-9x-s3B" firstAttribute="top" secondItem="geA-OA-y6m" secondAttribute="top" id="76G-oT-I5v"/>
-                                            <constraint firstItem="POf-fb-JPi" firstAttribute="top" secondItem="96J-pp-Upf" secondAttribute="top" id="7Qs-n0-FSM"/>
                                             <constraint firstItem="IEd-Ga-O3o" firstAttribute="leading" secondItem="aQi-U2-yDw" secondAttribute="leading" id="8Dd-WW-fTE"/>
                                             <constraint firstItem="zOg-vt-P9d" firstAttribute="top" secondItem="a0q-6e-PSn" secondAttribute="bottom" constant="8" id="94x-Qz-4YG"/>
                                             <constraint firstItem="geA-OA-y6m" firstAttribute="width" secondItem="zOg-vt-P9d" secondAttribute="width" id="AT4-OM-J7H"/>
-                                            <constraint firstItem="S9D-B3-PqQ" firstAttribute="leading" secondItem="olX-9O-EC1" secondAttribute="leading" id="CKQ-pQ-6eY"/>
                                             <constraint firstItem="tj2-Wd-PRE" firstAttribute="height" secondItem="IEd-Ga-O3o" secondAttribute="height" id="D78-I3-Gf4"/>
-                                            <constraint firstItem="Yb5-RM-Kfd" firstAttribute="leading" secondItem="S9D-B3-PqQ" secondAttribute="leading" id="DLL-KH-lQa"/>
                                             <constraint firstItem="zdg-eM-aTU" firstAttribute="top" secondItem="G3K-IA-qOc" secondAttribute="bottom" constant="8" id="Dcp-qr-XWp"/>
                                             <constraint firstItem="zdg-eM-aTU" firstAttribute="leading" secondItem="mr8-1q-ijj" secondAttribute="leading" constant="35" id="DpK-8Z-yrZ"/>
                                             <constraint firstItem="Gel-CT-b7B" firstAttribute="leading" secondItem="tj2-Wd-PRE" secondAttribute="leading" id="FuB-dN-J3P"/>
                                             <constraint firstAttribute="trailing" secondItem="tj2-Wd-PRE" secondAttribute="trailing" constant="35" id="Fwi-mB-JDi"/>
                                             <constraint firstItem="IEd-Ga-O3o" firstAttribute="top" secondItem="aQi-U2-yDw" secondAttribute="bottom" constant="8" id="G3e-nE-Sbk"/>
-                                            <constraint firstItem="x4h-ru-YGE" firstAttribute="leading" secondItem="7At-L7-nbo" secondAttribute="leading" id="GIv-85-IRa"/>
                                             <constraint firstItem="G92-ad-vCR" firstAttribute="baseline" secondItem="aQi-U2-yDw" secondAttribute="baseline" id="GlQ-nd-XtU"/>
                                             <constraint firstItem="rHR-1s-LJg" firstAttribute="top" secondItem="tj2-Wd-PRE" secondAttribute="bottom" constant="11" id="H9h-qo-fsS"/>
                                             <constraint firstAttribute="bottom" secondItem="zdg-eM-aTU" secondAttribute="bottom" constant="250" id="HZf-hd-iZf"/>
@@ -594,70 +511,38 @@ If expressing during this 24 hour period, record the time the empty bottle and t
                                             <constraint firstItem="0lY-9x-s3B" firstAttribute="height" secondItem="Gel-CT-b7B" secondAttribute="height" id="JPQ-cw-8zK"/>
                                             <constraint firstItem="olX-9O-EC1" firstAttribute="top" secondItem="zOg-vt-P9d" secondAttribute="bottom" constant="11" id="JyA-7z-aJV"/>
                                             <constraint firstItem="geA-OA-y6m" firstAttribute="leading" secondItem="zOg-vt-P9d" secondAttribute="leading" id="KKm-dL-21M"/>
-                                            <constraint firstItem="96J-pp-Upf" firstAttribute="trailing" secondItem="Gel-CT-b7B" secondAttribute="trailing" id="KNk-yZ-rNn"/>
-                                            <constraint firstItem="7At-L7-nbo" firstAttribute="top" secondItem="ZrV-nk-YQD" secondAttribute="top" id="KRh-Rn-O0n"/>
                                             <constraint firstItem="zOg-vt-P9d" firstAttribute="trailing" secondItem="IEd-Ga-O3o" secondAttribute="trailing" id="Ldq-v1-N66"/>
-                                            <constraint firstItem="JZ8-tf-p7j" firstAttribute="leading" secondItem="S9D-B3-PqQ" secondAttribute="trailing" constant="-2" id="Orj-dB-PzT"/>
-                                            <constraint firstItem="x4h-ru-YGE" firstAttribute="height" secondItem="7At-L7-nbo" secondAttribute="height" id="PHt-HE-lob"/>
                                             <constraint firstItem="tj2-Wd-PRE" firstAttribute="top" secondItem="IEd-Ga-O3o" secondAttribute="top" id="PlS-Pp-HPS"/>
                                             <constraint firstItem="zOg-vt-P9d" firstAttribute="height" secondItem="IEd-Ga-O3o" secondAttribute="height" id="Q79-kp-r2k"/>
                                             <constraint firstItem="olX-9O-EC1" firstAttribute="leading" secondItem="a0q-6e-PSn" secondAttribute="leading" id="Q8x-v9-Pay"/>
-                                            <constraint firstItem="U6l-tu-qF9" firstAttribute="top" secondItem="96J-pp-Upf" secondAttribute="bottom" constant="8" id="T9g-E4-cgI"/>
                                             <constraint firstItem="tj2-Wd-PRE" firstAttribute="leading" secondItem="IEd-Ga-O3o" secondAttribute="trailing" constant="19" id="TTq-mb-jUN"/>
                                             <constraint firstItem="aQi-U2-yDw" firstAttribute="top" secondItem="mr8-1q-ijj" secondAttribute="top" constant="35" id="U8k-1n-Lwk"/>
-                                            <constraint firstItem="Yb5-RM-Kfd" firstAttribute="width" secondItem="S9D-B3-PqQ" secondAttribute="width" id="UEO-LL-Xws"/>
                                             <constraint firstItem="Gel-CT-b7B" firstAttribute="width" secondItem="tj2-Wd-PRE" secondAttribute="width" id="Vxa-FL-V62"/>
-                                            <constraint firstItem="100-3v-6RZ" firstAttribute="trailing" secondItem="Gel-CT-b7B" secondAttribute="trailing" id="W59-cP-qdo"/>
-                                            <constraint firstItem="JZ8-tf-p7j" firstAttribute="width" secondItem="S9D-B3-PqQ" secondAttribute="width" id="Wnb-kJ-SBq"/>
-                                            <constraint firstItem="x4h-ru-YGE" firstAttribute="width" secondItem="7At-L7-nbo" secondAttribute="width" id="XXa-hz-hfC"/>
-                                            <constraint firstItem="96J-pp-Upf" firstAttribute="width" secondItem="ZrV-nk-YQD" secondAttribute="width" id="Y4T-hI-uLX"/>
-                                            <constraint firstItem="Yb5-RM-Kfd" firstAttribute="trailing" secondItem="100-3v-6RZ" secondAttribute="trailing" id="YdP-tm-a7T"/>
+                                            <constraint firstItem="x4h-ru-YGE" firstAttribute="top" secondItem="cAj-Jp-ULV" secondAttribute="bottom" constant="8" id="X42-7u-8oa"/>
                                             <constraint firstItem="geA-OA-y6m" firstAttribute="top" secondItem="gk0-cj-5U6" secondAttribute="bottom" constant="8" id="a1f-zh-mFX"/>
                                             <constraint firstItem="zOg-vt-P9d" firstAttribute="leading" secondItem="a0q-6e-PSn" secondAttribute="leading" id="ajE-nX-qaY"/>
-                                            <constraint firstItem="POf-fb-JPi" firstAttribute="width" secondItem="96J-pp-Upf" secondAttribute="width" id="akE-wJ-ZUN"/>
-                                            <constraint firstItem="POf-fb-JPi" firstAttribute="height" secondItem="96J-pp-Upf" secondAttribute="height" id="arS-Pr-ek5"/>
                                             <constraint firstItem="rHR-1s-LJg" firstAttribute="baseline" secondItem="a0q-6e-PSn" secondAttribute="baseline" id="avK-2l-m3w"/>
                                             <constraint firstItem="zOg-vt-P9d" firstAttribute="leading" secondItem="IEd-Ga-O3o" secondAttribute="leading" id="bwA-NU-611"/>
                                             <constraint firstItem="geA-OA-y6m" firstAttribute="height" secondItem="zOg-vt-P9d" secondAttribute="height" id="bzz-f3-6gd"/>
-                                            <constraint firstItem="7At-L7-nbo" firstAttribute="leading" secondItem="ZrV-nk-YQD" secondAttribute="leading" id="c5g-pT-690"/>
-                                            <constraint firstItem="ZrV-nk-YQD" firstAttribute="top" secondItem="cAj-Jp-ULV" secondAttribute="bottom" constant="8" id="eQR-7q-ZpZ"/>
-                                            <constraint firstItem="ZrV-nk-YQD" firstAttribute="leading" secondItem="cAj-Jp-ULV" secondAttribute="leading" id="eU5-AS-JaQ"/>
                                             <constraint firstItem="gk0-cj-5U6" firstAttribute="leading" secondItem="cAj-Jp-ULV" secondAttribute="leading" id="ehg-O8-KA6"/>
                                             <constraint firstItem="tj2-Wd-PRE" firstAttribute="leading" secondItem="G92-ad-vCR" secondAttribute="leading" id="f3Z-9s-Cja"/>
                                             <constraint firstItem="U6l-tu-qF9" firstAttribute="baseline" secondItem="gk0-cj-5U6" secondAttribute="baseline" id="f60-Xp-l1l"/>
-                                            <constraint firstItem="100-3v-6RZ" firstAttribute="height" secondItem="S9D-B3-PqQ" secondAttribute="height" id="gOI-Px-K1l"/>
+                                            <constraint firstItem="gk0-cj-5U6" firstAttribute="leading" secondItem="geA-OA-y6m" secondAttribute="leading" id="iEH-Lk-Go1"/>
                                             <constraint firstItem="0lY-9x-s3B" firstAttribute="leading" secondItem="Gel-CT-b7B" secondAttribute="leading" id="ivI-Nj-Bdw"/>
                                             <constraint firstItem="G3K-IA-qOc" firstAttribute="leading" secondItem="gk0-cj-5U6" secondAttribute="leading" id="jzo-fL-hlI"/>
-                                            <constraint firstItem="POf-fb-JPi" firstAttribute="leading" secondItem="96J-pp-Upf" secondAttribute="leading" id="mGd-Fa-PWK"/>
-                                            <constraint firstItem="100-3v-6RZ" firstAttribute="leading" secondItem="JZ8-tf-p7j" secondAttribute="trailing" constant="-2" id="mnD-1J-eGj"/>
-                                            <constraint firstItem="7At-L7-nbo" firstAttribute="width" secondItem="ZrV-nk-YQD" secondAttribute="width" id="nGx-fb-SIW"/>
-                                            <constraint firstItem="96J-pp-Upf" firstAttribute="top" secondItem="ZrV-nk-YQD" secondAttribute="top" id="nbe-dX-WLJ"/>
+                                            <constraint firstItem="cAj-Jp-ULV" firstAttribute="top" secondItem="Yb5-RM-Kfd" secondAttribute="bottom" constant="8" id="mMg-dm-Leq"/>
                                             <constraint firstItem="Gel-CT-b7B" firstAttribute="height" secondItem="zOg-vt-P9d" secondAttribute="height" id="ouu-J7-EXR"/>
                                             <constraint firstItem="Gel-CT-b7B" firstAttribute="top" secondItem="zOg-vt-P9d" secondAttribute="top" id="pnd-hs-UNP"/>
-                                            <constraint firstItem="100-3v-6RZ" firstAttribute="top" secondItem="S9D-B3-PqQ" secondAttribute="top" id="qzG-sX-BbJ"/>
+                                            <constraint firstItem="Yb5-RM-Kfd" firstAttribute="top" secondItem="olX-9O-EC1" secondAttribute="bottom" constant="8" id="pu8-6V-rDS"/>
+                                            <constraint firstItem="x4h-ru-YGE" firstAttribute="trailing" secondItem="Gel-CT-b7B" secondAttribute="trailing" id="rKV-Os-1JO"/>
                                             <constraint firstItem="Gel-CT-b7B" firstAttribute="leading" secondItem="rHR-1s-LJg" secondAttribute="leading" id="rRz-2A-4FA"/>
                                             <constraint firstItem="U6l-tu-qF9" firstAttribute="leading" secondItem="rHR-1s-LJg" secondAttribute="leading" id="rdr-O2-edA"/>
                                             <constraint firstItem="G3K-IA-qOc" firstAttribute="top" secondItem="geA-OA-y6m" secondAttribute="bottom" constant="8" id="ska-I7-CDU"/>
-                                            <constraint firstItem="96J-pp-Upf" firstAttribute="height" secondItem="ZrV-nk-YQD" secondAttribute="height" id="ud8-6S-0fP"/>
-                                            <constraint firstItem="cAj-Jp-ULV" firstAttribute="top" secondItem="S9D-B3-PqQ" secondAttribute="bottom" constant="8" id="unn-dn-SFY"/>
-                                            <constraint firstItem="JZ8-tf-p7j" firstAttribute="top" secondItem="S9D-B3-PqQ" secondAttribute="top" id="vL2-di-SGD"/>
-                                            <constraint firstItem="100-3v-6RZ" firstAttribute="width" secondItem="S9D-B3-PqQ" secondAttribute="width" id="vVA-mZ-PTi"/>
+                                            <constraint firstItem="U6l-tu-qF9" firstAttribute="top" secondItem="x4h-ru-YGE" secondAttribute="bottom" constant="8" id="v34-Tk-jam"/>
                                             <constraint firstItem="tj2-Wd-PRE" firstAttribute="width" secondItem="IEd-Ga-O3o" secondAttribute="width" id="vat-ad-ha6"/>
+                                            <constraint firstItem="Yb5-RM-Kfd" firstAttribute="leading" secondItem="zOg-vt-P9d" secondAttribute="leading" id="vjx-Aq-8yG"/>
                                             <constraint firstAttribute="trailing" secondItem="zdg-eM-aTU" secondAttribute="trailing" constant="35" id="wTd-A1-peB"/>
-                                            <constraint firstItem="Yb5-RM-Kfd" firstAttribute="height" secondItem="S9D-B3-PqQ" secondAttribute="height" id="x4B-LY-0Hp"/>
-                                            <constraint firstItem="x4h-ru-YGE" firstAttribute="bottom" secondItem="7At-L7-nbo" secondAttribute="bottom" id="xbc-xq-nQc"/>
-                                            <constraint firstItem="x4h-ru-YGE" firstAttribute="trailing" secondItem="POf-fb-JPi" secondAttribute="trailing" id="xuc-ib-zTK"/>
-                                            <constraint firstItem="7At-L7-nbo" firstAttribute="height" secondItem="ZrV-nk-YQD" secondAttribute="height" id="yf4-To-fcr"/>
-                                            <constraint firstItem="S9D-B3-PqQ" firstAttribute="top" secondItem="olX-9O-EC1" secondAttribute="bottom" constant="8" id="yqT-Y1-xo1"/>
-                                            <constraint firstItem="Yb5-RM-Kfd" firstAttribute="bottom" secondItem="S9D-B3-PqQ" secondAttribute="bottom" id="z9g-Pn-mnh"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="UEO-LL-Xws"/>
-                                                <exclude reference="XXa-hz-hfC"/>
-                                                <exclude reference="T9g-E4-cgI"/>
-                                            </mask>
-                                        </variation>
                                     </view>
                                 </subviews>
                                 <animations/>
@@ -691,6 +576,7 @@ If expressing during this 24 hour period, record the time the empty bottle and t
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="breastOrSupTextLabel" destination="cAj-Jp-ULV" id="D23-3Y-R8P"/>
                         <outlet property="commentTextView" destination="zdg-eM-aTU" id="Uhz-bM-KpJ"/>
                         <outlet property="endDateTextField" destination="tj2-Wd-PRE" id="gfy-4e-l1v"/>
                         <outlet property="endTimeTextField" destination="Gel-CT-b7B" id="2rb-YY-cHg"/>
@@ -706,13 +592,6 @@ If expressing during this 24 hour period, record the time the empty bottle and t
                         <outletCollection property="textFieldCollection" destination="zOg-vt-P9d" collectionClass="NSMutableArray" id="wG0-jW-paA"/>
                         <outletCollection property="textFieldCollection" destination="geA-OA-y6m" collectionClass="NSMutableArray" id="9y6-dp-l6a"/>
                         <outletCollection property="textFieldCollection" destination="0lY-9x-s3B" collectionClass="NSMutableArray" id="zZl-Ba-wXO"/>
-                        <outletCollection property="buttonCollection" destination="7At-L7-nbo" collectionClass="NSMutableArray" id="xtq-Bz-wty"/>
-                        <outletCollection property="buttonCollection" destination="ZrV-nk-YQD" collectionClass="NSMutableArray" id="D1h-5I-Wru"/>
-                        <outletCollection property="buttonCollection" destination="JZ8-tf-p7j" collectionClass="NSMutableArray" id="hqA-N8-uhx"/>
-                        <outletCollection property="buttonCollection" destination="100-3v-6RZ" collectionClass="NSMutableArray" id="phE-Nq-WGb"/>
-                        <outletCollection property="buttonCollection" destination="POf-fb-JPi" collectionClass="NSMutableArray" id="U6V-nv-71l"/>
-                        <outletCollection property="buttonCollection" destination="S9D-B3-PqQ" collectionClass="NSMutableArray" id="gcI-nC-iJC"/>
-                        <outletCollection property="buttonCollection" destination="96J-pp-Upf" collectionClass="NSMutableArray" id="er2-Cg-hvt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5dG-2U-Kbw" userLabel="First Responder" sceneMemberID="firstResponder"/>

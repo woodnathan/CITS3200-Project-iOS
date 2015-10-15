@@ -155,11 +155,14 @@ struct Feed {
             return ValidationError.Error("The feed type cannot be empty")
         }
         
-        if type == .Supplementary && subtype == nil {
-            return ValidationError.Error("The supplementary type cannot be empty")
+        if type == .Supplementary {
+            if subtype == nil {
+                return ValidationError.Error("The supplementary type cannot be empty")
+            }
         } else if side == nil {
             return ValidationError.Error("The breast side cannot be empty")
         }
+        
         
         if before.date == nil {
             return ValidationError.Error("The start date and time cannot be empty")

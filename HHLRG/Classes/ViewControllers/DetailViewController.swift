@@ -32,10 +32,10 @@ class DetailViewController: UIViewController, EntryViewControllerDelegate {
     @IBOutlet var weightBefore: UITextField!
     @IBOutlet var weightAfter: UITextField!
     @IBOutlet var textFieldCollection: [UITextField]!
-    @IBOutlet var buttonCollection: [UIButton]!
     @IBOutlet var commentTextView: UITextView!
     @IBOutlet var sideOrSubtypeLabel: UILabel!
     @IBOutlet var typeLabel: UILabel!
+    @IBOutlet var breastOrSupTextLabel: UILabel!
     
     private let dateFormatter = NSDateFormatter()
     private let timeFormatter = NSDateFormatter()
@@ -63,6 +63,7 @@ class DetailViewController: UIViewController, EntryViewControllerDelegate {
         if let side = feed.side {
             sideOrSubtypeLabel.text = String(side)
         } else if let subtype = feed.subtype {
+            breastOrSupTextLabel.text = "Supplementary Type"
             sideOrSubtypeLabel.text = String(subtype)
         }
     }
@@ -88,18 +89,6 @@ class DetailViewController: UIViewController, EntryViewControllerDelegate {
                 
             textFields.layer.addSublayer(bottomBorder)
             
-        }
-        
-        for buttons in buttonCollection {
-//            
-//            buttons.layer.borderColor = borderColor.CGColor
-//            
-//            buttons.layer.borderWidth = 2.0
-//            
-//            buttons.titleLabel?.adjustsFontSizeToFitWidth = true
-//            
-//        }
-            buttons.hidden = true
         }
         
         commentTextView.userInteractionEnabled = false

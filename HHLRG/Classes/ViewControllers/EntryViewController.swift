@@ -227,6 +227,18 @@ class EntryViewController: UIViewController, UITextFieldDelegate, UITextViewDele
     
     let selectedColor = UIColor(red: 49/255, green: 91/255, blue: 131/255, alpha: 1)
     
+    
+    
+    //clear side or subtype button selection whenever change type selection
+    func clearButtonSelection() {
+        for buttons in breastOrSupButtons {
+            buttons.selected = false
+            buttons.layer.backgroundColor = UIColor.clearColor().CGColor
+            buttons.titleLabel?.textColor = UIColor.blackColor()
+        }
+        
+    }
+    
     //Breastfeed, Expression or Supplementary button selected
     @IBAction func typeButtonSelected(sender: UIButton) {
         
@@ -240,12 +252,24 @@ class EntryViewController: UIViewController, UITextFieldDelegate, UITextViewDele
                 switch button {
                 case breastfeedTypeButton:
                     feed.type = Feed.FeedType.Breastfeed
+                    feed.subtype = nil
+                    if feed.side == nil {
+                        clearButtonSelection()
+                    }
                     break
                 case expressedButton:
                     feed.type = Feed.FeedType.Expression
+                    feed.subtype = nil
+                    if feed.side == nil {
+                        clearButtonSelection()
+                    }
                     break
                 case supplementaryButton:
                     feed.type = Feed.FeedType.Supplementary
+                    feed.side = nil
+                    if feed.subtype == nil {
+                        clearButtonSelection()
+                    }
                     break
                 default:
                     break
