@@ -10,11 +10,14 @@ import Foundation
 
 enum Time {
     case Days(Int)
+    case Hours(Int)
     
     var seconds: NSTimeInterval {
         switch self {
         case let .Days(days):
             return NSTimeInterval(days) * 24.0 * 60.0 * 60.0;
+        case let .Hours(hours):
+            return NSTimeInterval(hours) * 60.0 * 60.0;
         }
     }
 }
@@ -179,6 +182,14 @@ struct Feed {
         }
         if after.weight == nil {
             return ValidationError.Error("The weight after cannot be empty")
+        }
+        
+        if let before = before.date, after = after.date {
+            let duration = after.timeIntervalSinceDate(before)
+            if duration >= Time.Hours(1).seconds {
+                let durationString = NSString(format: "%.f", (duration / 60.0))
+                return ValidationError.Warning("The duration of this feed is \(durationString) minutes")
+            }
         }
         
         return nil
