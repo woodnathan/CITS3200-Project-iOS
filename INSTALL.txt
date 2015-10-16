@@ -1,0 +1,6 @@
+Installation
+--------------
+This project does not require installation.
+To deploy, follow this guide provided by Apple/Google:
+ - http://developer.android.com/distribute/tools/launch-checklist.html
+ - https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/Introduction/Introduction.html
