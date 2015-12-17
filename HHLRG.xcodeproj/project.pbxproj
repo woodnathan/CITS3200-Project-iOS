@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2024ABC11BCF5917009AAE9C /* libJGProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B602D81BCA90BE00064CE5 /* libJGProgressHUD.a */; };
-		D855751D1BB4DFBF00C1E6BC /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = D855751C1BB4DFBF00C1E6BC /* Client.swift */; settings = {ASSET_TAGS = (); }; };
-		D855751F1BB4EE2000C1E6BC /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D855751E1BB4EE2000C1E6BC /* ClientError.swift */; settings = {ASSET_TAGS = (); }; };
+		D855751D1BB4DFBF00C1E6BC /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = D855751C1BB4DFBF00C1E6BC /* Client.swift */; };
+		D855751F1BB4EE2000C1E6BC /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D855751E1BB4EE2000C1E6BC /* ClientError.swift */; };
 		D8B231851BA43BCE00767E61 /* HLRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B2317C1BA43BCE00767E61 /* HLRAppDelegate.m */; };
 		D8B231871BA43BCE00767E61 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8B231811BA43BCE00767E61 /* Images.xcassets */; };
 		D8B231891BA43BCE00767E61 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B231831BA43BCE00767E61 /* LaunchScreen.xib */; };
 		D8B2318A1BA43BCE00767E61 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B231841BA43BCE00767E61 /* main.m */; };
+		D8DC14481C22A4C20039AB29 /* JGProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B602DC1BCA90BE00064CE5 /* JGProgressHUD.framework */; };
+		D8DC14491C22A4C20039AB29 /* JGProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D8B602DC1BCA90BE00064CE5 /* JGProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D8F3E7811BA93C970070CF68 /* DroidSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E76C1BA93C970070CF68 /* DroidSans-Bold.ttf */; };
 		D8F3E7821BA93C970070CF68 /* DroidSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E76D1BA93C970070CF68 /* DroidSans.ttf */; };
 		D8F3E7841BA93C970070CF68 /* DroidSerif-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8F3E7701BA93C970070CF68 /* DroidSerif-Bold.ttf */; };
@@ -57,7 +58,35 @@
 			remoteGlobalIDString = 6BF7DC5A1AEFCFD9000A0AE0;
 			remoteInfo = "JGProgressHUD Framework";
 		};
+		D8DC14461C22A4B10039AB29 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8B602D11BCA90BE00064CE5 /* JGProgressHUD.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6BF7DC591AEFCFD9000A0AE0;
+			remoteInfo = "JGProgressHUD Framework";
+		};
+		D8DC144A1C22A4C20039AB29 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8B602D11BCA90BE00064CE5 /* JGProgressHUD.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6BF7DC591AEFCFD9000A0AE0;
+			remoteInfo = "JGProgressHUD Framework";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D8DC144C1C22A4C30039AB29 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D8DC14491C22A4C20039AB29 /* JGProgressHUD.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D855751C1BB4DFBF00C1E6BC /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
@@ -96,7 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2024ABC11BCF5917009AAE9C /* libJGProgressHUD.a in Frameworks */,
+				D8DC14481C22A4C20039AB29 /* JGProgressHUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,10 +283,13 @@
 				D8B2314C1BA43A7300767E61 /* Sources */,
 				D8B2314D1BA43A7300767E61 /* Frameworks */,
 				D8B2314E1BA43A7300767E61 /* Resources */,
+				D8DC144C1C22A4C30039AB29 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D8DC14471C22A4B10039AB29 /* PBXTargetDependency */,
+				D8DC144B1C22A4C20039AB29 /* PBXTargetDependency */,
 			);
 			name = HHLRG;
 			productName = HHLRG;
@@ -374,6 +406,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D8DC14471C22A4B10039AB29 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "JGProgressHUD Framework";
+			targetProxy = D8DC14461C22A4B10039AB29 /* PBXContainerItemProxy */;
+		};
+		D8DC144B1C22A4C20039AB29 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "JGProgressHUD Framework";
+			targetProxy = D8DC144A1C22A4C20039AB29 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		D8B231711BA43A7300767E61 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -463,7 +508,8 @@
 				INFOPLIST_FILE = HHLRG/SupportingFiles/Miscellaneous/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.humanlactationresearchgroup.ios;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = au.edu.uwa.bcs.breastfeeding.milkprofile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -476,7 +522,8 @@
 				INFOPLIST_FILE = HHLRG/SupportingFiles/Miscellaneous/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.humanlactationresearchgroup.ios;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = au.edu.uwa.bcs.breastfeeding.milkprofile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
