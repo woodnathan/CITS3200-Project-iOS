@@ -423,8 +423,9 @@ class Client {
     }
     
     private func dataTaskWithRequest(request: NSURLRequest, completionHandler: (AnyObject?, NSError?) -> Void) -> NSURLSessionDataTask {
-        let task = session.dataTaskWithRequest(request) { (data, response, var error) -> Void in
+        let task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
             var responseObject: AnyObject? = data
+            var finalError: NSError? = error
             if let HTTPResponse = response as! NSHTTPURLResponse? {
                 if HTTPResponse.allHeaderFields["Content-Type"] as! String == "application/json" {
                     responseObject = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0))
@@ -432,15 +433,15 @@ class Client {
                 
                 if let JSONObject = responseObject as? NSDictionary {
                     let errorDict = JSONObject.objectForKey("error") as? NSDictionary
-                    error = NSError.ClientError(errorDict)
-                    if error != nil {
+                    finalError = NSError.ClientError(errorDict)
+                    if finalError != nil {
                         responseObject = nil
                     }
                 }
             }
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                completionHandler(responseObject, error)
+                completionHandler(responseObject, finalError)
             })
         }
         task.resume()

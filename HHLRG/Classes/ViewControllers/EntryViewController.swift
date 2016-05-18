@@ -68,7 +68,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate, UITextViewDele
         datePickerView.datePickerMode = UIDatePickerMode.Date
         sender.inputView = datePickerView
         selectedTextField = sender
-        datePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+        datePickerView.addTarget(self, action: #selector(handleDatePicker), forControlEvents: UIControlEvents.ValueChanged)
         handleDatePicker(datePickerView)
         
     }
@@ -84,7 +84,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate, UITextViewDele
         datePickerView.datePickerMode = UIDatePickerMode.Time
         sender.inputView = datePickerView
         selectedTextField = sender
-        datePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+        datePickerView.addTarget(self, action: #selector(handleDatePicker), forControlEvents: UIControlEvents.ValueChanged)
         handleDatePicker(datePickerView)
     }
     
@@ -459,7 +459,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate, UITextViewDele
     func registerForKeyboardNotifications()
     {
         //Adding notifies on keyboard appearing
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillChangeFrame:"), name: UIKeyboardWillChangeFrameNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillChangeFrame), name: UIKeyboardWillChangeFrameNotification, object: nil)
     }
     
     

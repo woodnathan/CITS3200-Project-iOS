@@ -87,10 +87,26 @@ class ViewController: UIViewController {
             //    // Should probably do something when userInfo.collectingSamples is false
             ///    self.dismissViewControllerAnimated(true, completion: nil)
             } else {
-                self.delegate?.didLogin(self)
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.loginSuccessful()
             }
         }
+    }
+    
+    func loginSuccessful() {
+        let message = "By continuing to login you accept that your data will be sent and stored on a server in accordance with the information in the HHLRG online consent form. Do you wish to continue?"
+        let alert = UIAlertController(title: "Data Consent",
+                                      message: message,
+                                      preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let loginAction = UIAlertAction(title: "Login", style: .Default, handler: { (action) -> Void in
+            self.delegate?.didLogin(self)
+            self.dismissViewControllerAnimated(true, completion: nil)
+        })
+        
+        alert.addAction(cancelAction)
+        alert.addAction(loginAction)
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     
@@ -112,8 +128,8 @@ class ViewController: UIViewController {
     func registerForKeyboardNotifications()
     {
         //Adding notifies on keyboard appearing
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillBeHidden:", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWasShown), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillBeHidden), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     
@@ -125,7 +141,7 @@ class ViewController: UIViewController {
     }
     
     
-    func  keyboardWasShown(notification: NSNotification)
+    func keyboardWasShown(notification: NSNotification)
     {
         
         print("Keyboard was shown")
